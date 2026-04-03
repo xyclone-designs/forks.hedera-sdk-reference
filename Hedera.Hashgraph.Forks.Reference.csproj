@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="EthereumFlow.cs" />
+    <Compile Remove="EthereumTransaction.cs" />
+    <Compile Remove="EthereumTransactionData.cs" />
+    <Compile Remove="EthereumTransactionDataEip.cs" />
+    <Compile Remove="EthereumTransactionDataLegacy.cs" />
+    <Compile Remove="ExchangeRate.cs" />
+    <Compile Remove="Hbar.cs" />
+    <Compile Remove="HbarUnit.cs" />
+    <Compile Remove="ILedgerId - Copy.cs" />
+    <Compile Remove="LedgerId.cs" />
+    <Compile Remove="NetworkName.cs" />
+    <Compile Remove="RngTransaction.cs" />
+    <Compile Remove="StakingInfo.cs" />
+    <Compile Remove="Status.cs" />
+    <Compile Remove="Transfer.cs" />
+  </ItemGroup>
+
+</Project>
