@@ -1,0 +1,22 @@
+/// <summary>
+/// &gt; class `TopicId`
+/// An ID type that represents a topic on a Hedera Hashgraph network.
+/// Construct a [`TopicId`](#) with [`shard`](#shard-uint64) and [`realm`](#realm-uint64) being zero.
+/// --
+/// Construct a [`TopicId`](#) with all fields explicitly set.
+/// --
+/// Construct a [`TopicId`](#) from a string. The format of the string could be either just
+/// a number "4" or dot separated numbers "0.0.4".
+/// Deserialize a [`TopicId`](#) from its the protobuf representation.
+/// Serialize the [`TopicId`](#) into its protobuf representation.
+/// --
+/// The shard of this ID.
+/// --
+/// The realm of this ID.
+/// --
+/// The num of this ID.
+/// --
+/// </summary>
+public interface ITopicId
+{
+}
