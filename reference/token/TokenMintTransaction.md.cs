@@ -1,0 +1,32 @@
+namespace Hedera.Hashgraph.Reference.Token
+{
+    /// <summary>
+    /// Mints tokens to the Token's treasury Account. If no Supply Key is defined, the transaction will resolve to
+    /// [`Status.TOKEN_HAS_NO_SUPPLY_KEY`](reference/Status.md#TOKEN_HAS_NO_SUPPLY_KEY).
+    /// The operation increases the Total Supply of the Token. The maximum total supply a token can have is 2^63-1.
+    /// The amount provided must be in the lowest denomination possible. Example:
+    /// Token A has 2 decimals. In order to mint 100 tokens, one must provide amount of 10000. In order to mint 100.55 tokens,
+    /// one must provide amount of 10055.
+    ///
+    /// </summary>
+    public interface ITokenMintTransaction
+    {
+        /// <summary>
+        ///
+        /// The token for which to mint tokens. If token does not exist, transaction results in
+        /// [`Status.INVALID_TOKEN_ID`](reference/Status.md#INVALID_TOKEN_ID).
+        ///
+        ///
+        /// </summary>
+        ITokenId TokenId { get; }
+
+        /// <summary>
+        ///
+        /// The amount to mint to the Treasury Account. Amount must be a positive non-zero number represented in the lowest
+        /// denomination of the token. The new supply must be lower than 2^63.on.
+        ///
+        /// </summary>
+        long Amount { get; }
+
+    }
+}
