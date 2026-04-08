@@ -1,3 +1,7 @@
+using Hedera.Hashgraph.Reference.Contract;
+using Hedera.Hashgraph.Reference.Core;
+using Hedera.Hashgraph.Reference.File;
+
 namespace Hedera.Hashgraph.Reference.System
 {
     /// <summary>
@@ -7,27 +11,11 @@ namespace Hedera.Hashgraph.Reference.System
     /// Until that time, it can be undeleted by the Hedera administrative multisignature. When a smart
     /// contract is deleted, the cryptocurrency account within it continues to exist, and is not affected
     /// by the expiration time here.
-    ///
     /// </summary>
-    public interface ISystemDeleteTransaction
+    public interface ISystemDeleteTransaction : ITransaction
     {
-        /// <summary>
-        ///
-        ///
-        /// </summary>
         IFileId FileId { get; }
-
-        /// <summary>
-        ///
-        ///
-        /// </summary>
         IContractId ContractId { get; }
-
-        /// <summary>
-        ///
-        ///
-        /// </summary>
         Timestamp ExpirationTime { get; }
-
     }
 }

@@ -1,3 +1,6 @@
+using Hedera.Hashgraph.Reference.Core;
+using Hedera.Hashgraph.Reference.Token;
+
 namespace Hedera.Hashgraph.Reference.Cryptocurrency
 {
     /// <summary>
@@ -10,104 +13,67 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
     /// transaction fee is still charged. This transaction must be signed by the keys for all the sending
     /// accounts, and for any receiving accounts that have receiverSigRequired == true. The signatures
     /// are in the same order as the accounts, skipping those accounts that don't need a signature.
-    ///
     /// </summary>
-    public interface ITransferTransaction
+    public interface ITransferTransaction : ITransaction
     {
         /// <summary>
-        ///
         /// Add an Hbar transfer
-        ///
-        ///
         /// </summary>
-        ITransferTransaction AddHbarTransfer(IAccountId accountId, Hbar amount)
+        ITransferTransaction AddHbarTransfer(IAccountId accountId, IHbar amount);
 
         /// <summary>
-        ///
         /// Add an approved Hbar transfer
-        ///
-        ///
         /// </summary>
-        ITransferTransaction AddApprovedHbarTransfer(IAccountId accountId, Hbar amount)
+        ITransferTransaction AddApprovedHbarTransfer(IAccountId accountId, IHbar amount);
 
         /// <summary>
-        ///
         /// The Hbar transfers
-        ///
-        ///
         /// </summary>
-        IAccountId GetHbarTransfers()
+        IAccountId GetHbarTransfers();
 
         /// <summary>
-        ///
         /// Add a fungible token transfer
-        ///
-        ///
         /// </summary>
-        ITransferTransaction AddTokenTransfer(ITokenId tokenId, Uint64 ) amount)
+        ITransferTransaction AddTokenTransfer(ITokenId tokenId, long amount);
 
         /// <summary>
-        ///
         /// Add an approved fungible token transfer
-        ///
-        ///
         /// </summary>
-        ITransferTransaction AddApprovedTokenTransfer(ITokenId tokenId, Uint64 ) amount)
+        ITransferTransaction AddApprovedTokenTransfer(ITokenId tokenId, long amount);
 
         /// <summary>
-        ///
         /// Add an approved fungible token transfer with an expected decimals field
-        ///
-        ///
         /// </summary>
-        ITransferTransaction AddTokenTransferWithDecimals(ITokenId tokenId, long amount, Uint32 ) decimals)
+        ITransferTransaction AddTokenTransferWithDecimals(ITokenId tokenId, long amount, int decimals);
 
         /// <summary>
-        ///
         /// Add an approved fungible token transfer with an expected decimals field
-        ///
-        ///
         /// </summary>
-        ITransferTransaction AddApproovedTokenTransferWithDecimals(ITokenId tokenId, long amount, Uint32 ) decimals)
+        ITransferTransaction AddApproovedTokenTransferWithDecimals(ITokenId tokenId, long amount, int decimals);
 
         /// <summary>
-        ///
         /// The expected decimals per token ID
-        ///
-        ///
         /// </summary>
-        ITokenId GetTokenIdDecimals()
+        ITokenId GetTokenIdDecimals();
 
         /// <summary>
-        ///
         /// The fungible token transfers
-        ///
-        ///
         /// </summary>
-        ITokenId GetTokenTransfers()
+        ITokenId GetTokenTransfers();
 
         /// <summary>
-        ///
         /// Add a non-fungible token transfer
-        ///
-        ///
         /// </summary>
-        ITransferTransaction AddNftTransfer(NftId nftId, IAccountId sender, IAccountId reciever)
+        ITransferTransaction AddNftTransfer(NftId nftId, IAccountId sender, IAccountId reciever);
 
         /// <summary>
-        ///
         /// Add an approved non-fungible token transfer
-        ///
-        ///
         /// </summary>
-        ITransferTransaction AddApprovedNftTransfer(NftId nftId, IAccountId sender, IAccountId reciever)
+        ITransferTransaction AddApprovedNftTransfer(NftId nftId, IAccountId sender, IAccountId reciever);
 
         /// <summary>
-        ///
         /// The non-fungible token transfers
-        ///
         /// </summary>
-        ITokenId GetTokenNftTransfers()
-
+        ITokenId GetTokenNftTransfers();
     }
 }

@@ -1,6 +1,10 @@
+using Hedera.Hashgraph.Reference.Core;
+using Hedera.Hashgraph.Reference.Cryptocurrency;
+using Hedera.Hashgraph.Reference.Cryptography;
+
 namespace Hedera.Hashgraph.Reference.Consensus
 {
-    public interface ITopicUpdateTransaction
+    public interface ITopicUpdateTransaction : ITransaction
     {
         /// <summary>
         /// Clear the memo for this topic.
@@ -33,14 +37,14 @@ namespace Hedera.Hashgraph.Reference.Consensus
         /// If unspecified, no change.
         /// If empty `keyList` - the `adminKey` is cleared.
         /// </summary>
-        Key AdminKey { get; }
+        IKey AdminKey { get; }
 
         /// <summary>
         /// Access control for `submitMessage`.
         /// If unspecified, no change.
         /// If empty `keyList` - the `submitKey` is cleared.
         /// </summary>
-        Key SubmitKey { get; }
+        IKey SubmitKey { get; }
 
         /// <summary>
         /// The amount of time to extend the topic's lifetime automatically at `expirationTime` if the `autoRenewAccountId` is
@@ -59,6 +63,5 @@ namespace Hedera.Hashgraph.Reference.Consensus
         /// Short publicly visible memo about the topic. No guarantee of uniqueness. Null for "do not update".
         /// </summary>
         string TopicMemo { get; }
-
     }
 }

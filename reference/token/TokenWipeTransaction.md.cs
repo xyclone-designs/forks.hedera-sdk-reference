@@ -1,3 +1,6 @@
+using Hedera.Hashgraph.Reference.Core;
+using Hedera.Hashgraph.Reference.Cryptocurrency;
+
 namespace Hedera.Hashgraph.Reference.Token
 {
     /// <summary>
@@ -29,34 +32,24 @@ namespace Hedera.Hashgraph.Reference.Token
     /// The amount provided is in the lowest denomination possible. Example:
     /// Token A has 2 decimals. In order to wipe 100 tokens from account, one must provide amount of 10000. In order to wipe
     /// 100.55 tokens, one must provide amount of 10055.
-    ///
     /// </summary>
-    public interface ITokenWipeTransaction
+    public interface ITokenWipeTransaction : ITransaction
     {
         /// <summary>
-        ///
         /// The token for which the account will be wiped. If token does not exist, transaction results in
         /// [`Status.INVALID_TOKEN_ID`](reference/Status.md#INVALID_TOKEN_ID).
-        ///
-        ///
         /// </summary>
         ITokenId TokenId { get; }
 
         /// <summary>
-        ///
         /// The amount of tokens to wipe from the specified account. Amount must be a positive non-zero number in the lowest
         /// denomination possible, not bigger than the token balance of the account (0; balance]
-        ///
-        ///
         /// </summary>
         long Amount { get; }
 
         /// <summary>
-        ///
         /// The account to be wiped
-        ///
         /// </summary>
         IAccountId AccountId { get; }
-
     }
 }

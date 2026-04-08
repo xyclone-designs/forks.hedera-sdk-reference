@@ -1,3 +1,6 @@
+using Hedera.Hashgraph.Reference.Core;
+using Hedera.Hashgraph.Reference.Cryptocurrency;
+
 namespace Hedera.Hashgraph.Reference.Token
 {
     /// <summary>
@@ -22,23 +25,17 @@ namespace Hedera.Hashgraph.Reference.Token
     /// [`Status.TOKEN_HAS_NO_UNFREEZE_KEY`](reference/Status.md#TOKEN_HAS_NO_UNFREEZE_KEY).
     ///
     /// Once executed the Account is marked as Unfrozen and will be able to receive or send tokens. The operation is idempotent.
-    ///
     /// </summary>
-    public interface ITokenUnfreezeTransaction
+    public interface ITokenUnfreezeTransaction : ITransaction
     {
         /// <summary>
-        ///
         /// The token for which this account will be unfrozen. If token does not exist, transaction results in
         /// [`Status.INVALID_TOKEN_ID`](reference/Status.md#INVALID_TOKEN_ID).
-        ///
-        ///
         /// </summary>
         ITokenId TokenId { get; }
 
         /// <summary>
-        ///
         /// The account to be unfrozen
-        ///
         /// </summary>
         IAccountId AccountId { get; }
 

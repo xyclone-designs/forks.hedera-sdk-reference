@@ -1,98 +1,69 @@
+
+using Hedera.Hashgraph.Reference.Cryptocurrency;
+
 namespace Hedera.Hashgraph.Reference.Core
 {
     /// <summary>
     /// The client-generated ID for a transaction.
-    ///
     /// </summary>
     public interface ITransactionId
     {
         /// <summary>
-        ///
         /// Construct the transaction ID from a protobuf encoded `TransactionID`
-        ///
-        ///
         /// </summary>
-        abstract static ITransactionId FromBytes(byte[] data)
+        abstract static ITransactionId FromBytes(byte[] data);
 
         /// <summary>
-        ///
         /// Construct a transaction ID from string
         ///
         /// **NOTE**: The transaction ID format is
         /// `(?<accountId>(\d+.\d+)?\d+)\.(?<timestamp>\d+.\d+)(?<scheduled>\?scheduled)?(?<nonce>/\d+)?`
-        ///
-        ///
         /// </summary>
-        abstract static ITransactionId FromString(string text)
+        abstract static ITransactionId FromString(string text);
 
         /// <summary>
-        ///
         /// Generate a transaction ID with the given account ID and a generated timestamp
-        ///
-        ///
         /// </summary>
-        abstract static ITransactionId Generate(object [`AccoundId`](../cryptocurrency/AccountId.md))
+        abstract static ITransactionId Generate(IAccountId accountId);
 
         /// <summary>
-        ///
         /// Fetch the receipt of the transaction.
-        ///
-        ///
         /// </summary>
-        abstract static ITransactionReceipt GetReceipt(object [`Client`](Client.md))
+        abstract static ITransactionReceipt GetReceipt(IClient client);
 
         /// <summary>
-        ///
         /// Fetch the record of the transaction.
-        ///
-        ///
         /// </summary>
-        abstract static ITransactionRecord GetRecord(object [`Client`](Client.md))
+        abstract static ITransactionRecord GetRecord(IClient client);
 
         /// <summary>
-        ///
         /// Create a transaction id.
-        ///
-        ///
         /// </summary>
-        abstract static ITransactionId WithValidStart(object [`AccoundId`](../cryptocurrency/AccountId.md), Timestamp validStart)
+        abstract static ITransactionId WithValidStart(IAccountId accountId, Timestamp validStart);
 
         /// <summary>
-        ///
         /// Stringify the transaction ID
-        ///
-        ///
         /// </summary>
-        string ToString()
+        string ToString();
 
         /// <summary>
-        ///
         /// Convert to a string representation with checksum
-        ///
-        ///
         /// </summary>
-        string ToStringWithChecksum(object [`Client`](Client.md))
+        string ToStringWithChecksum(IClient client);
 
         /// <summary>
-        ///
         /// Serialize the transaction into protobuf encoded bytes
-        ///
-        ///
         /// </summary>
-        byte[] ToBytes()
+        byte[] ToBytes();
 
         /// <summary>
-        ///
         /// The account ID of the transaction ID
         ///
         /// This account pays for the transaction
-        ///
-        ///
         /// </summary>
-        AccoundId AccountId { get; }
+        IAccountId AccountId { get; }
 
         /// <summary>
-        ///
         /// The identifier for an internal transaction that was spawned as part of handling a user transaction.
         /// (These internal transactions share the transactionValidStart and accountID of the user transaction,
         /// so a nonce is necessary to give them a unique TransactionID.)
@@ -100,27 +71,20 @@ namespace Hedera.Hashgraph.Reference.Core
         /// An example is when a "parent" ContractCreate or ContractCall transaction calls one or more HTS
         /// precompiled contracts; each of the "child" transactions spawned for a precompiled contracts has an id with a
         /// different nonce.
-        ///
-        ///
         /// </summary>
         long Nonce { get; }
 
         /// <summary>
-        ///
         /// The scheduled status of the transaction
-        ///
-        ///
         /// </summary>
         bool Scheduled { get; }
 
         /// <summary>
-        ///
         /// The timestamp of this transaction
         ///
         /// Each transaction ID must have a unique timestamp. Timestamp generation in the SDK fuzzes the current
         /// time so collisions are less likely
         /// </summary>
         Timestamp ValidStart { get; }
-
     }
 }

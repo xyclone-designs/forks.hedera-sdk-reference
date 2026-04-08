@@ -1,3 +1,6 @@
+using Hedera.Hashgraph.Reference.Core;
+using Hedera.Hashgraph.Reference.Cryptocurrency;
+
 namespace Hedera.Hashgraph.Reference.Token
 {
     /// <summary>
@@ -24,24 +27,17 @@ namespace Hedera.Hashgraph.Reference.Token
     ///
     /// On success, associations between the provided account and tokens are made and the account is ready to interact with
     /// the tokens.
-    ///
     /// </summary>
-    public interface ITokenAssociateTransaction
+    public interface ITokenAssociateTransaction : ITransaction
     {
         /// <summary>
-        ///
         /// The tokens to be associated with the provided account
-        ///
-        ///
         /// </summary>
-        TokenId[ TokenIds { get; }
+        ITokenId[] TokenIds { get; }
 
         /// <summary>
-        ///
         /// The account to be associated with the provided tokens
-        ///
         /// </summary>
         IAccountId AccountId { get; }
-
     }
 }

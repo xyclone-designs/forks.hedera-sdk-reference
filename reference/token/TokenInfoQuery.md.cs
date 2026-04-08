@@ -1,26 +1,9 @@
+using Hedera.Hashgraph.Reference.Core;
+
 namespace Hedera.Hashgraph.Reference.Token
 {
-    /// <summary>
-    /// <details>
-    /// <summary><b>Declaration</b></summary>
-    ///
-    /// ```typescript
-    /// class TokenInfoQuery extends Query<TokenInfo> {
-    /// constructor();
-    ///
-    /// /* property */ TokenId: TokenId;
-    /// }
-    /// ```
-    ///
-    /// </details>
-    ///
-    /// </summary>
-    public interface ITokenInfoQuery
+    public interface ITokenInfoQuery : IQuery<ITokenInfo>
     {
-        /// <summary>
-        ///
-        /// </summary>
         ITokenId TokenId { get; }
-
     }
 }

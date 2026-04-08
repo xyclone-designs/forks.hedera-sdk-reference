@@ -1,3 +1,6 @@
+using Hedera.Hashgraph.Reference.Core;
+using Hedera.Hashgraph.Reference.Token;
+
 namespace Hedera.Hashgraph.Reference.Cryptocurrency
 {
     /// <summary>
@@ -7,112 +10,80 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
     ///
     /// (So if account <tt>0.0.X</tt> pays for this transaction, then at consensus each spender
     /// account will have new allowances to spend hbar or tokens from <tt>0.0.X</tt>).
-    ///
     /// </summary>
-    public interface IAccountAllowanceApproveTransaction
+    public interface IAccountAllowanceApproveTransaction : ITransaction
     {
         /// <summary>
-        ///
         /// Add a Hbar allowance
         ///
         /// Transaction fee payer is implicitly the allowance owner.
         ///
         /// Deprecated: use `ApproveHbarAllowance` instead.
-        ///
-        ///
         /// </summary>
-        IAccountId AddHbarApproval()
+        IAccountId AddHbarApproval();
 
         /// <summary>
-        ///
         /// Approve an Hbar allowance
-        ///
-        ///
         /// </summary>
-        IAccountId ApproveHbarAllowance()
+        IAccountId ApproveHbarAllowance();
 
         /// <summary>
-        ///
         /// Get the current list of hbar approves for this transaction.
-        ///
-        ///
         /// </summary>
-        HbarAllowance GetHbarApprovals()
+        HbarAllowance GetHbarApprovals();
 
         /// <summary>
-        ///
         /// Add a fungible token approve
         ///
         /// Transaction fee payer is implicitly the allowance owner.
         ///
         /// Deprecated: use `approveTokenAllowance` instead.
-        ///
-        ///
         /// </summary>
-        ITokenId AddTokenApprovals()
+        ITokenId AddTokenApprovals();
 
         /// <summary>
-        ///
         /// Approve a fungible token allowance.
-        ///
-        ///
         /// </summary>
-        ITokenId ApproveTokenAllowance()
+        ITokenId ApproveTokenAllowance();
 
         /// <summary>
-        ///
         /// Get the current list of hbar approves for this transaction.
-        ///
-        ///
         /// </summary>
-        TokenAllowance GetTokenApprovals()
+        TokenAllowance GetTokenApprovals();
 
         /// <summary>
-        ///
         /// Add a non-fungible token approve
         ///
         /// Transaction fee payer is implicitly the allowance owner.
         ///
         /// Deprecated: use `approveTokenNftAllowance` instead.
-        ///
-        ///
         /// </summary>
-        NftId AddTokenNftApproval()
+        NftId AddTokenNftApproval();
 
         /// <summary>
-        ///
         /// Approve a non-fungible token allowance
-        ///
-        ///
         /// </summary>
-        NftId ApproveTokenNftAllowance()
+        NftId ApproveTokenNftAllowance();
 
         /// <summary>
-        ///
         /// Add all non-fungible tokens to approve
         ///
         /// Transaction fee payer is implicitly the allowance owner.
         ///
         /// Deprecated: use `approveTokenNftAllowanceAllSerials` instead.
-        ///
-        ///
         /// </summary>
-        ITokenId AddAllTokenNftApprovals()
+        ITokenId AddAllTokenNftApprovals();
 
         /// <summary>
-        ///
         /// Approve an allowance of all serial numbers of a non-fungible token.
-        ///
-        ///
         /// </summary>
-        ITokenId ApproveTokenNftAllowanceAllSerials()
+        ITokenId ApproveTokenNftAllowanceAllSerials();
 
         /// <summary>
-        ///
         /// Get the list of all non-fungible token approves for this transaction
         ///
         /// </summary>
-        TokenNftAllowance GetTokenNftApprovals()
+        TokenNftAllowance GetTokenNftApprovals();
 
     }
 }

@@ -1,34 +1,29 @@
+using Hedera.Hashgraph.Reference.Core;
+using Hedera.Hashgraph.Reference.File;
+
 namespace Hedera.Hashgraph.Reference
 {
     /// <summary>
     /// An Ethereum encoded transaction.
-    ///
     /// </summary>
-    public interface IEthereumTransaction
+    public interface IEthereumTransaction : ITransaction
     {
         /// <summary>
-        ///
         /// The raw Ethereum transaction (RLP encoded type 0, 1, and 2). Complete
         /// unless the callData field is set.
-        ///
-        ///
         /// </summary>
         byte[]? EthereumData { get; }
 
         /// <summary>
-        ///
         /// For large transactions (for example contract create) this is the callData
         /// of the ethereumData. The data in the ethereumData will be re-written with
         /// the callData element as a zero length string with the original contents in
         /// the referenced file at time of execution. The ethereumData will need to be
         /// "rehydrated" with the callData for signature validation to pass.
-        ///
-        ///
         /// </summary>
         IFileId? CallDataFileId { get; }
 
         /// <summary>
-        ///
         /// The maximum amount, in tinybars, that the payer of the hedera transaction
         /// is willing to pay to complete the transaction.
         ///
@@ -41,9 +36,7 @@ namespace Hedera.Hashgraph.Reference
         /// only be charged the amount needed to make up the difference. If the gas
         /// price in the transaction was set to zero then the payer will be assessed
         /// the entire fee.
-        ///
         /// </summary>
-        Hbar? MaxHbarGasAllowance { get; }
-
+        IHbar? MaxHbarGasAllowance { get; }
     }
 }

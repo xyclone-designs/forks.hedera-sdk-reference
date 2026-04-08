@@ -1,3 +1,6 @@
+using Hedera.Hashgraph.Reference.Core;
+using Hedera.Hashgraph.Reference.Cryptocurrency;
+
 namespace Hedera.Hashgraph.Reference.Token
 {
     /// <summary>
@@ -22,24 +25,17 @@ namespace Hedera.Hashgraph.Reference.Token
     /// [`Status.TRANSACTION_REQUIRES_ZERO_TOKEN_BALANCES`](reference/Status.md#TRANSACTION_REQUIRES_ZERO_TOKEN_BALANCES).
     ///
     /// On success, associations between the provided account and tokens are removed.
-    ///
     /// </summary>
-    public interface ITokenDissociateTransaction
+    public interface ITokenDissociateTransaction : ITransaction
     {
         /// <summary>
-        ///
         /// The tokens to be dissociated with the provided account
-        ///
-        ///
         /// </summary>
-        TokenId[ TokenIds { get; }
+        ITokenId[] TokenIds { get; }
 
         /// <summary>
-        ///
         /// The account to be dissociated with the provided tokens
-        ///
         /// </summary>
         IAccountId AccountId { get; }
-
     }
 }

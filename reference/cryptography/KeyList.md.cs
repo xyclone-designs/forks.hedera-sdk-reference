@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace Hedera.Hashgraph.Reference.Cryptography
 {
     /// <summary>
@@ -23,33 +25,32 @@ namespace Hedera.Hashgraph.Reference.Cryptography
     /// **Note**: A `KeyList` can be used anywhere that a `Key` is expected in the SDK. This
     /// includes `setKey` in `AccountCreateTransaction` and `setSubmitKey` in
     /// `TopicCreateTransaction`.
-    ///
     /// </summary>
-    public interface IKeyList
+    public interface IKeyList : IList<IKey>, IKey
     {
         /// <summary>
-        ///
         /// Construct a new `KeyList` from a list of keys
-        ///
-        ///
         /// </summary>
-        abstract static IKeyList Of(Key[] keyArray)
-
+        abstract static IKeyList Of(params IKey[] keyArray);
         /// <summary>
-        ///
         /// Create a new, empty list of keys with the given threshold.
-        ///
-        ///
         /// </summary>
-        abstract static IKeyList WithThreshold(long threshold)
+        abstract static IKeyList WithThreshold(uint threshold);
 
         /// <summary>
-        ///
         /// Stringify the `KeyList` structure into a readable format
-        ///
-        ///
         /// </summary>
-        string ToString()
+        string ToString();
+
+        /// <summary>
+        /// The list of keys
+        /// </summary>
+        IList<IKey> Keys { get; }
+        /// <summary>
+        /// A threshold indicating that a valid signature set must have at least
+        /// this many signatures.
+        /// </summary>
+        uint Threshold { get; }
 
     }
 }

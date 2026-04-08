@@ -1,20 +1,11 @@
+using Hedera.Hashgraph.Reference.Core;
+using Hedera.Hashgraph.Reference.Cryptocurrency;
+
 namespace Hedera.Hashgraph.Reference.LiveHash
 {
-    /// <summary>
-    /// </summary>
-    public interface ILiveHashAddTransaction
+    public interface ILiveHashDeleteTransaction : ITransaction
     {
-        /// <summary>
-        ///
-        ///
-        /// </summary>
         IAccountId AccountId { get; }
-
-        /// <summary>
-        ///
-        ///
-        /// </summary>
         byte[] Hash { get; }
-
     }
 }

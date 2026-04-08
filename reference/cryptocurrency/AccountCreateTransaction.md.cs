@@ -1,3 +1,6 @@
+using Hedera.Hashgraph.Reference.Core;
+using Hedera.Hashgraph.Reference.Cryptography;
+
 namespace Hedera.Hashgraph.Reference.Cryptocurrency
 {
     /// <summary>
@@ -34,20 +37,15 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
     /// > [!WARNING]
     /// > When creating a new account an existing account will need to fund the initial
     /// > balance and pay for the transaction fee.
-    ///
     /// </summary>
-    public interface IAccountCreateTransaction
+    public interface IAccountCreateTransaction : ITransaction
     {
         /// <summary>
-        ///
         /// The memo associated with the account (UTF-8 encoding max 100 bytes)
-        ///
-        ///
         /// </summary>
         string AccountMemo { get; }
 
         /// <summary>
-        ///
         /// The bytes to be used as the account's alias.
         ///
         /// The bytes must be formatted as the calculated last 20 bytes of the
@@ -57,62 +55,43 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
         /// delegatable_contract_id, are not supported.
         ///
         /// At most only one account can ever have a given alias on the network.
-        ///
-        ///
-        ///
         /// </summary>
         EvmAddress Alias { get; }
 
         /// <summary>
-        ///
         /// The account is charged to extend its expiration date every this many seconds. If it doesn't
         /// have enough balance, it extends as long as possible. If it is empty when it expires, then it
         /// is deleted.
         ///
         /// Defaults to 90 days (or 7,776,000 seconds).
-        ///
-        ///
         /// </summary>
         Duration AutoRenewPeriod { get; }
 
         /// <summary>
-        ///
         /// If true, the account declines receiving a staking reward. The default value is false.
-        ///
-        ///
         /// </summary>
         bool DeclineStakingReward { get; }
 
         /// <summary>
-        ///
         /// The initial number of tinybars to put into the account
         ///
         /// Defaults to `0`.
-        ///
-        ///
         /// </summary>
-        Hbar InitialBalance { get; }
+        IHbar InitialBalance { get; }
 
         /// <summary>
-        ///
         /// The key that must sign each transfer out of the account. If receiverSigRequired is true, then
         /// it must also sign any transfer into the account.
-        ///
-        ///
         /// </summary>
-        Key Key { get; }
+        IKey Key { get; }
 
         /// <summary>
-        ///
         /// The maximum number of tokens that an Account can be implicitly associated with. Defaults to 0
         /// and up to a maximum value of 1000.
-        ///
-        ///
         /// </summary>
         long MaxAutomaticTokenAssociations { get; }
 
         /// <summary>
-        ///
         /// Deprecated: with no replacement
         ///
         /// ID of the account to which this account is proxy staked. If proxyAccountID is null, or is an
@@ -120,32 +99,23 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
         /// staked to a node chosen by the network, but without earning payments. If the proxyAccountID
         /// account refuses to accept proxy staking , or if it is not currently running a node, then it
         /// will behave as if proxyAccountID was null.
-        ///
-        ///
         /// </summary>
         IAccountId ProxyAccountId { get; }
 
         /// <summary>
-        ///
         /// If true, this account's key must sign any transaction depositing into this account (in
         /// addition to all withdrawals)
         ///
         /// Defaults to `false`.
-        ///
-        ///
         /// </summary>
         bool ReceiverSignatureRequired { get; }
 
         /// <summary>
-        ///
         /// ID of the account to which this contract is staking.
-        ///
-        ///
         /// </summary>
         IAccountId? StakedNodeAccountId { get; }
 
         /// <summary>
-        ///
         /// ID of the node this contract is staked to.
         /// </summary>
         long? StakedNodeId { get; }

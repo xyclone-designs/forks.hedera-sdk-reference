@@ -1,3 +1,5 @@
+using Hedera.Hashgraph.Reference.Core;
+
 namespace Hedera.Hashgraph.Reference.Token
 {
     /// <summary>
@@ -7,16 +9,12 @@ namespace Hedera.Hashgraph.Reference.Token
     /// [`Status.TOKEN_IS_IMMUTABlE`](reference/Status.md#TOKEN_IS_IMMUTABlE).
     /// Once deleted update, mint, burn, wipe, freeze, unfreeze, grant kyc, revoke kyc and token transfer transactions will resolve to
     /// [`Status.TOKEN_WAS_DELETED`](reference/Status.md#TOKEN_WAS_DELETED).
-    ///
     /// </summary>
-    public interface ITokenDeleteTransaction
+    public interface ITokenDeleteTransaction : ITransaction
     {
         /// <summary>
-        ///
         /// The Token to be Deleted
-        ///
         /// </summary>
         ITokenId TokenId { get; }
-
     }
 }

@@ -1,3 +1,6 @@
+using Hedera.Hashgraph.Reference.Core;
+using Hedera.Hashgraph.Reference.Token;
+
 namespace Hedera.Hashgraph.Reference.Cryptocurrency
 {
     /// <summary>
@@ -11,144 +14,98 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
     ///
     /// <b>IMPORTANT</b>: If an allowance for the spender does not currently exist, this transaction
     /// behaves like an allowance approval.
-    ///
     /// </summary>
-    public interface IAccountAllowanceAdjustTransaction
+    public interface IAccountAllowanceAdjustTransaction : ITransaction
     {
         /// <summary>
-        ///
         /// Add a Hbar allowance
         ///
         /// Transaction fee payer is implicitly the allowance owner.
         ///
         /// Deprecated: use `[grant|revoke]HbarAllowance` instead.
-        ///
-        ///
         /// </summary>
-        IAccountId AddHbarAllowance()
+        IAccountId AddHbarAllowance();
 
         /// <summary>
-        ///
         /// Increase an Hbar Allowance.
-        ///
-        ///
         /// </summary>
-        IAccountId GrantHbarAllowance()
+        IAccountId GrantHbarAllowance();
 
         /// <summary>
-        ///
         /// Decrease an Hbar Allowance.
-        ///
-        ///
         /// </summary>
-        IAccountId RevokeHbarAllowance()
+        IAccountId RevokeHbarAllowance();
 
         /// <summary>
-        ///
         /// Get the current list of hbar allowances for this transaction.
-        ///
-        ///
         /// </summary>
-        HbarAllowance GetHbarAllowances()
+        HbarAllowance GetHbarAllowances();
 
         /// <summary>
-        ///
         /// Add a fungible token allowance
         ///
         /// Transaction fee payer is implicitly the allowance owner.
         ///
         /// Deprecated: use `[grant|revoke]TokenAllowance` instead.
-        ///
-        ///
         /// </summary>
-        ITokenId AddTokenAllowance()
+        ITokenId AddTokenAllowance();
 
         /// <summary>
-        ///
         /// Increase a fungible token allowance.
-        ///
-        ///
         /// </summary>
-        ITokenId GrantTokenAllowance()
+        ITokenId GrantTokenAllowance();
 
         /// <summary>
-        ///
         /// Decrease a fungible token allowance.
-        ///
-        ///
         /// </summary>
-        ITokenId RevokeTokenAllowance()
+        ITokenId RevokeTokenAllowance();
 
         /// <summary>
-        ///
         /// Get the current list of hbar allowances for this transaction.
-        ///
-        ///
         /// </summary>
-        TokenAllowance GetTokenAllowances()
+        TokenAllowance GetTokenAllowances();
 
         /// <summary>
-        ///
         /// Add a non-fungible token allowance
         ///
         /// Transaction fee payer is implicitly the allowance owner.
         ///
         /// Deprecated: use `[grant|revoke]TokenNftAllowance` instead.
-        ///
-        ///
         /// </summary>
-        NftId AddTokenNftAllowance()
+        NftId AddTokenNftAllowance();
 
         /// <summary>
-        ///
         /// Add serials to a non-fungible token allowance.
-        ///
-        ///
         /// </summary>
-        NftId GrantTokenNftAllowance()
+        NftId GrantTokenNftAllowance();
 
         /// <summary>
-        ///
         /// Remove serials from a non-fungible token allowance.
-        ///
-        ///
         /// </summary>
-        NftId RevokeTokenNftAllowance()
+        NftId RevokeTokenNftAllowance();
 
         /// <summary>
-        ///
         /// Add all non-fungible tokens to allowance
         ///
         /// Transaction fee payer is implicitly the allowance owner.
         ///
         /// Deprecated: use `[grant|revoke]TokenNftAllowanceAllSerials` instead.
-        ///
-        ///
         /// </summary>
-        ITokenId AddAllTokenNftAllowance()
+        ITokenId AddAllTokenNftAllowance();
 
         /// <summary>
-        ///
         /// Add all serials to a non-fungible token allowance.
-        ///
-        ///
         /// </summary>
-        ITokenId GrantTokenNftAllowanceAllSerials()
+        ITokenId GrantTokenNftAllowanceAllSerials();
 
         /// <summary>
-        ///
         /// Remove all serials from a non-fungible token allowance.
-        ///
-        ///
         /// </summary>
-        ITokenId RevokeTokenNftAllowanceAllSerials()
+        ITokenId RevokeTokenNftAllowanceAllSerials();
 
         /// <summary>
-        ///
         /// Get the list of all non-fungible token allowances for this transaction
-        ///
         /// </summary>
-        TokenNftAllowance GetTokenNftAllowances()
-
+        TokenNftAllowance GetTokenNftAllowances();
     }
 }

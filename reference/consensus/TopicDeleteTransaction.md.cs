@@ -1,15 +1,12 @@
+using Hedera.Hashgraph.Reference.Core;
+
 namespace Hedera.Hashgraph.Reference.Consensus
 {
-    /// <summary>
-    /// </summary>
-    public interface ITopicDeleteTransaction
+    public interface ITopicDeleteTransaction : ITransaction
     {
         /// <summary>
-        ///
         /// The `topicId` which should be deleted
-        ///
         /// </summary>
         ITopicId TopicId { get; }
-
     }
 }

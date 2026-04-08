@@ -1,3 +1,5 @@
+using Hedera.Hashgraph.Reference.Core;
+
 namespace Hedera.Hashgraph.Reference.Cryptocurrency
 {
     /// <summary>
@@ -7,22 +9,17 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
     ///
     /// > [!WARNING]
     /// > When you delete an account, you need to sign it with the key set at account creation.
-    ///
     /// </summary>
-    public interface IAccountDeletedTransaction
+    public interface IAccountDeletedTransaction : ITransaction
     {
         /// <summary>
-        ///
         /// The AccountId which should be deleted
-        ///
         /// </summary>
         IAccountId AccountId { get; }
 
         /// <summary>
-        ///
         /// The `AccountId` which will receive all remaining hbars
         /// </summary>
         IAccountId TransferAccountId { get; }
-
     }
 }

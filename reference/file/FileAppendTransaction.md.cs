@@ -1,3 +1,5 @@
+using Hedera.Hashgraph.Reference.Core;
+
 namespace Hedera.Hashgraph.Reference.File
 {
     /// <summary>
@@ -10,26 +12,19 @@ namespace Hedera.Hashgraph.Reference.File
     /// will increase the time needed to execute this transaction. This transaction also
     /// has the `executeAll()` method because it is chunked; this method is not accessible
     /// by all `Transaction` types.
-    ///
     /// </summary>
-    public interface IFileAppendTransaction
+    public interface IFileAppendTransaction : ITransaction
     {
         /// <summary>
-        ///
         /// This is the fileID which contents will be appended to.
-        ///
-        ///
         /// </summary>
         IFileId FileId { get; }
 
         /// <summary>
-        ///
         /// These are the contents which will be appended to the file.
         ///
         /// **Note**. The setter `.setContents()` supports types `bytes` **and** UTF-8 `String`.
-        ///
         /// </summary>
         byte[] Contents { get; }
-
     }
 }

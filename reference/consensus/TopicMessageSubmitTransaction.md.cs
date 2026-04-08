@@ -1,6 +1,8 @@
+using Hedera.Hashgraph.Reference.Core;
+
 namespace Hedera.Hashgraph.Reference.Consensus
 {
-    public interface ITopicSubmitTransaction
+    public interface ITopicSubmitTransaction : ITransaction
     {
         /// <summary>
         /// Topic to submit message to.

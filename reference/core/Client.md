@@ -210,7 +210,7 @@ with this client.
 
 ---
 
-##### `setOperatorWith` ( `accountId`: [`AccountId`](../cryptocurrency/AccountId.md), `publicKey`: [`PublicKey`](../cryptography/PublicKey.md), `transactionSigner`: `(bytes) => bytes` ): `Client`
+##### `setOperatorWith` ( `accountId`: [`AccountId`](../cryptocurrency/AccountId.md), `publicKey`: [`PublicKey`](../cryptography/PublicKey.md), `transactionSigner`: `Func<byte[], byte[]>` ): `Client`
 
 Sets the account that will, by default, pay for transactions and queries built
 with this client.

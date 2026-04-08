@@ -1,3 +1,5 @@
+using Hedera.Hashgraph.Reference.Core;
+
 namespace Hedera.Hashgraph.Reference.Token
 {
     /// <summary>
@@ -7,26 +9,19 @@ namespace Hedera.Hashgraph.Reference.Token
     /// The amount provided must be in the lowest denomination possible. Example:
     /// Token A has 2 decimals. In order to mint 100 tokens, one must provide amount of 10000. In order to mint 100.55 tokens,
     /// one must provide amount of 10055.
-    ///
     /// </summary>
-    public interface ITokenMintTransaction
+    public interface ITokenMintTransaction : ITransaction
     {
         /// <summary>
-        ///
         /// The token for which to mint tokens. If token does not exist, transaction results in
         /// [`Status.INVALID_TOKEN_ID`](reference/Status.md#INVALID_TOKEN_ID).
-        ///
-        ///
         /// </summary>
         ITokenId TokenId { get; }
 
         /// <summary>
-        ///
         /// The amount to mint to the Treasury Account. Amount must be a positive non-zero number represented in the lowest
         /// denomination of the token. The new supply must be lower than 2^63.on.
-        ///
         /// </summary>
         long Amount { get; }
-
     }
 }

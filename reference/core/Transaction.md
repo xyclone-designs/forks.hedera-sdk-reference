@@ -95,7 +95,7 @@ Sign the transaction with the given private key.
 
 ---
 
-##### `signWith` ( `publicKey`: [`PublicKey`](../cryptography/PublicKey.md), `transactionSigner`: `(bytes) => bytes` ): `Transaction`
+##### `signWith` ( `publicKey`: [`PublicKey`](../cryptography/PublicKey.md), `transactionSigner`: `Func<byte[], byte[]>` ): `Transaction`
 
 Sign the transaction with a public key and a signing callback.
 

@@ -1,3 +1,5 @@
+using Hedera.Hashgraph.Reference.Core;
+
 namespace Hedera.Hashgraph.Reference.Token
 {
     /// <summary>
@@ -8,16 +10,12 @@ namespace Hedera.Hashgraph.Reference.Token
     /// TOKEN\_HAS\_NO\_PAUSE\_KEY.  Once executed the Token is marked as Unpaused and can
     /// be used in Transactions.  The operation is idempotent - becomes a no-op if the
     /// Token is already unpaused.
-    ///
     /// </summary>
-    public interface ITokenUnpauseTransaction
+    public interface ITokenUnpauseTransaction : ITransaction
     {
         /// <summary>
-        ///
         /// The token to be unpaused.
-        ///
         /// </summary>
         ITokenId TokenId { get; }
-
     }
 }

@@ -5,20 +5,15 @@ namespace Hedera.Hashgraph.Reference
     /// care of moving the call data out of the ethereum transaction into a Hedera file
     /// if the size is too large. Current this only supports the "legacy" and EIP1559
     /// ethereum transaction RLP formats. Other formats will error.
-    ///
     /// </summary>
     public interface IEthereumFlow
     {
         /// <summary>
-        ///
         /// The raw Ethereum transaction (RLP encoded type 0, 1, and 2).
-        ///
-        ///
         /// </summary>
-        EthereumTransactionData? EthereumData { get; }
+        IEthereumTransactionData? EthereumData { get; }
 
         /// <summary>
-        ///
         /// The maximum amount, in tinybars, that the payer of the hedera transaction
         /// is willing to pay to complete the transaction.
         ///
@@ -31,9 +26,7 @@ namespace Hedera.Hashgraph.Reference
         /// only be charged the amount needed to make up the difference. If the gas
         /// price in the transaction was set to zero then the payer will be assessed
         /// the entire fee.
-        ///
         /// </summary>
-        Hbar? MaxHbarGasAllowance { get; }
-
+        IHbar? MaxHbarGasAllowance { get; }
     }
 }

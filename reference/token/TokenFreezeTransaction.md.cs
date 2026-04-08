@@ -1,3 +1,6 @@
+using Hedera.Hashgraph.Reference.Core;
+using Hedera.Hashgraph.Reference.Cryptocurrency;
+
 namespace Hedera.Hashgraph.Reference.Token
 {
     /// <summary>
@@ -23,25 +26,19 @@ namespace Hedera.Hashgraph.Reference.Token
     ///
     /// Once executed the Account is marked as Frozen and will not be able to receive or send tokens unless unfrozen.
     /// The operation is idempotent.
-    ///
     /// </summary>
-    public interface ITokenFreezeTransaction
+    public interface ITokenFreezeTransaction : ITransaction
     {
         /// <summary>
-        ///
         /// The token for which this account will be frozen. If token does not exist, transaction results in
         /// [`Status.INVALID_TOKEN_ID`](reference/Status.md#INVALID_TOKEN_ID).
-        ///
         ///
         /// </summary>
         ITokenId TokenId { get; }
 
         /// <summary>
-        ///
         /// The account to be frozen
-        ///
         /// </summary>
         IAccountId AccountId { get; }
-
     }
 }

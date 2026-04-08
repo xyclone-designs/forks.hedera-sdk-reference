@@ -1,169 +1,35 @@
+using System.Numerics;
+
 namespace Hedera.Hashgraph.Reference.Contract
 {
-    /// <summary>
-    /// </summary>
     public interface IContractFunctionParameters
     {
-        /// <summary>
-        ///
-        ///
-        /// </summary>
-        IContractFunctionParameters AddString(string param)
-
-        /// <summary>
-        ///
-        ///
-        /// </summary>
-        IContractFunctionParameters AddStringArray(string[] strings)
-
-        /// <summary>
-        ///
-        ///
-        /// </summary>
-        IContractFunctionParameters AddBytes(byte[] param)
-
-        /// <summary>
-        ///
-        ///
-        /// </summary>
-        IContractFunctionParameters AddBytesArray(byte[][] param)
-
-        /// <summary>
-        ///
-        ///
-        /// </summary>
-        IContractFunctionParameters AddBytes32(byte[] param)
-
-        /// <summary>
-        ///
-        ///
-        /// </summary>
-        IContractFunctionParameters AddBytes32Array(byte[][] param)
-
-        /// <summary>
-        ///
-        ///
-        /// </summary>
-        IContractFunctionParameters AddBool(bool bool)
-
-        /// <summary>
-        ///
-        ///
-        /// </summary>
-        IContractFunctionParameters AddInt8(byte value)
-
-        /// <summary>
-        ///
-        ///
-        /// </summary>
-        IContractFunctionParameters AddInt32(int value)
-
-        /// <summary>
-        ///
-        ///
-        /// </summary>
-        IContractFunctionParameters AddInt64(long value)
-
-        /// <summary>
-        ///
-        ///
-        /// </summary>
-        IContractFunctionParameters AddInt256(BigInteger value)
-
-        /// <summary>
-        ///
-        ///
-        /// </summary>
-        IContractFunctionParameters AddInt8Array(byte[] intArray)
-
-        /// <summary>
-        ///
-        ///
-        /// </summary>
-        IContractFunctionParameters AddInt32Array(int[] intArray)
-
-        /// <summary>
-        ///
-        ///
-        /// </summary>
-        IContractFunctionParameters AddInt64Array(long[] intArray)
-
-        /// <summary>
-        ///
-        ///
-        /// </summary>
-        IContractFunctionParameters AddInt256Array(BigInteger intArray)
-
-        /// <summary>
-        ///
-        ///
-        /// </summary>
-        IContractFunctionParameters AddUint8(byte value)
-
-        /// <summary>
-        ///
-        ///
-        /// </summary>
-        IContractFunctionParameters AddUint32(int value)
-
-        /// <summary>
-        ///
-        ///
-        /// </summary>
-        IContractFunctionParameters AddUint64(long value)
-
-        /// <summary>
-        ///
-        ///
-        /// </summary>
-        IContractFunctionParameters AddUint256(BigInteger value)
-
-        /// <summary>
-        ///
-        ///
-        /// </summary>
-        IContractFunctionParameters AddUint8Array(byte[] intArray)
-
-        /// <summary>
-        ///
-        ///
-        /// </summary>
-        IContractFunctionParameters AddUint32Array(int[] intArray)
-
-        /// <summary>
-        ///
-        ///
-        /// </summary>
-        IContractFunctionParameters AddUint64Array(long[] intArray)
-
-        /// <summary>
-        ///
-        ///
-        /// </summary>
-        IContractFunctionParameters AddUint256Array(BigInteger[] intArray)
-
-        /// <summary>
-        ///
-        ///
-        /// </summary>
-        IContractFunctionParameters AddAddress(string address)
-
-        /// <summary>
-        ///
-        ///
-        /// </summary>
-        IContractFunctionParameters AddAddressArray(string[] addresses)
-
-        /// <summary>
-        ///
-        ///
-        /// </summary>
-        IContractFunctionParameters AddFunction(string address, byte[] selector)
-
-        /// <summary>
-        ///
-        /// </summary>
-        IContractFunctionParameters AddFunction(string address, IContractFunctionSelector selector)
-
+        IContractFunctionParameters AddString(string param);
+        IContractFunctionParameters AddStringArray(string[] strings);
+        IContractFunctionParameters AddBytes(byte[] param);
+        IContractFunctionParameters AddBytesArray(byte[][] param);
+        IContractFunctionParameters AddBytes32(byte[] param);
+        IContractFunctionParameters AddBytes32Array(byte[][] param);
+        IContractFunctionParameters AddBool(bool value);
+        IContractFunctionParameters AddInt8(byte value);
+        IContractFunctionParameters AddInt32(int value);
+        IContractFunctionParameters AddInt64(long value);
+        IContractFunctionParameters AddInt256(BigInteger value);
+        IContractFunctionParameters AddInt8Array(byte[] intArray);
+        IContractFunctionParameters AddInt32Array(int[] intArray);
+        IContractFunctionParameters AddInt64Array(long[] intArray);
+        IContractFunctionParameters AddInt256Array(BigInteger intArray);
+        IContractFunctionParameters AddUint8(byte value);
+        IContractFunctionParameters AddUint32(int value);
+        IContractFunctionParameters AddUint64(long value);
+        IContractFunctionParameters AddUint256(BigInteger value);
+        IContractFunctionParameters AddUint8Array(byte[] intArray);
+        IContractFunctionParameters AddUint32Array(int[] intArray);
+        IContractFunctionParameters AddUint64Array(long[] intArray);
+        IContractFunctionParameters AddUint256Array(BigInteger[] intArray);
+        IContractFunctionParameters AddAddress(string address);
+        IContractFunctionParameters AddAddressArray(string[] addresses);
+        IContractFunctionParameters AddFunction(string address, byte[] selector);
+        IContractFunctionParameters AddFunction(string address, IContractFunctionSelector selector);
     }
 }

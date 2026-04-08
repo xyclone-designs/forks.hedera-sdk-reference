@@ -10,7 +10,5 @@ namespace Hedera.Hashgraph.Reference.Error
     /// - [`PublicKey.fromString`](../cryptography/PublicKey.md#fromstring--text--string---publickey)
     /// - [`PublicKey.fromBytes`](../cryptography/PublicKey.md#frombytes--data--bytes---publickey)
     /// </summary>
-    public interface IBadKey
-    {
-    }
+    public interface IBadKey { }
 }
