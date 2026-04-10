@@ -1,96 +1,150 @@
+using Grpc.Core;
 using Hedera.Hashgraph.Reference.Cryptocurrency;
 using Hedera.Hashgraph.Reference.Cryptography;
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Hedera.Hashgraph.Reference.Token
 {
     /// <summary>
     /// The metadata about a Token instance
     /// </summary>
-    public interface ITokenInfo
+    public class TokenInfo
     {
+        public TokenInfo(
+            TokenId tokenId,
+            string name,
+            string symbol,
+            uint decimals,
+            ulong totalSupply,
+            AccountId treasuryAccountId,
+            Key? adminKey,
+            Key? kycKey,
+            Key? freezeKey,
+            Key? wipeKey,
+            Key? supplyKey,
+            Key? feeScheduleKey,
+            bool defaultFreezeStatus,
+            bool defaultKycStatus,
+            bool isDeleted,
+            AccountId autoRenewAccount,
+            TimeSpan autoRenewPeriod,
+            DateTimeOffset expirationTime,
+            string tokenMemo,
+            IEnumerable<CustomFee> customFees,
+            TokenType tokenType,
+            TokenSupplyType supplyType,
+            long maxSupply,
+            Key? pauseKey,
+            bool pauseStatus,
+            LedgerId ledgerId)
+        {
+            TokenId = tokenId;
+            Name = name;
+            Symbol = symbol;
+            Decimals = decimals;
+            TotalSupply = totalSupply;
+            TreasuryAccountId = treasuryAccountId;
+            AdminKey = adminKey;
+            KycKey = kycKey;
+            FreezeKey = freezeKey;
+            WipeKey = wipeKey;
+            SupplyKey = supplyKey;
+            FeeScheduleKey = feeScheduleKey;
+            DefaultFreezeStatus = defaultFreezeStatus;
+            DefaultKycStatus = defaultKycStatus;
+            IsDeleted = isDeleted;
+            AutoRenewAccountId = autoRenewAccount;
+            AutoRenewPeriod = autoRenewPeriod;
+            Expiry = expirationTime;
+            TokenMemo = tokenMemo;
+            TokenType = tokenType;
+            SupplyType = supplyType;
+            MaxSupply = maxSupply;
+            PauseKey = pauseKey;
+            PauseStatus = pauseStatus;
+            LedgerId = ledgerId;
+            CustomFee = customFees.FirstOrDefault();
+        }
+
         /// <summary>
         /// Deserialize a [`TokenInfo`](#) from its the protobuf representation.
         /// </summary>
-        abstract static ITokenInfo FromBytes(byte[] data);
+        public static TokenInfo FromBytes(byte[] data)
+        {
+            throw new NotImplementedException();
+        }
 
         /// <summary>
         /// Serialize the [`TokenInfo`](#) into its protobuf representation.
         /// </summary>
-        byte[] ToBytes();
+        public virtual byte[] ToBytes()
+        {
+            throw new NotImplementedException();
+        }
 
         /// <summary>
         /// ID of the token instance
         /// </summary>
-        ITokenId TokenId { get; }
-
+        public TokenId TokenId { get; }
         /// <summary>
         /// The name of the token. It is a string of ASCII only characters
         /// </summary>
-        string Name { get; }
-
+        public string Name { get; }
         /// <summary>
         /// The symbol of the token. It is a UTF-8 capitalized alphabetical string
         /// </summary>
-        string Symbol { get; }
-
+        public string Symbol { get; }
         /// <summary>
         /// The number of decimal places a token is divisible by. Always 0 for tokens of type
         /// NON\_FUNGIBLE\_UNIQUE
         /// </summary>
-        long Decimals { get; }
-
+        public long Decimals { get; }
         /// <summary>
         /// For tokens of type FUNGIBLE\_COMMON - the total supply of tokens that are currently in
         /// circulation. For tokens of type NON\_FUNGIBLE\_UNIQUE - the number of NFTs created of this
         /// token instance
         /// </summary>
-        long TotalSupply { get; }
-
+        public ulong TotalSupply { get; }
         /// <summary>
         /// The ID of the account which is set as Treasury
         /// </summary>
-        IAccountId TreasuryAccountId { get; }
-
+        public AccountId TreasuryAccountId { get; }
         /// <summary>
         /// The key which can perform update/delete operations on the token. If empty, the token can be
         /// perceived as immutable (not being able to be updated/deleted)
         /// </summary>
-        IKey AdminKey { get; }
-
+        public Key? AdminKey { get; }
         /// <summary>
         /// The key which can grant or revoke KYC of an account for the token's transactions. If empty,
         /// KYC is not required, and KYC grant or revoke operations are not possible.
         /// </summary>
-        IKey KycKey { get; }
-
+        public Key? KycKey { get; }
         /// <summary>
         /// The key which can freeze or unfreeze an account for token transactions. If empty, freezing is
         /// not possible
         /// </summary>
-        IKey FreezeKey { get; }
-
+        public Key? FreezeKey { get; }
         /// <summary>
         /// The key which can wipe token balance of an account. If empty, wipe is not possible
         /// </summary>
-        IKey WipeKey { get; }
-
+        public Key? WipeKey { get; }
         /// <summary>
         /// The key which can change the supply of a token. The key is used to sign Token Mint/Burn
         /// operations
         /// </summary>
-        IKey SupplyKey { get; }
-
+        public Key? SupplyKey { get; }
         /// <summary>
         /// The Key which can pause and unpause the Token.
         /// </summary>
-        IKey PauseKey { get; }
-
+        public Key? PauseKey { get; }
         /// <summary>
         /// The key which can change the custom fee schedule of the token; if not set, the fee schedule
         /// is immutable
         /// </summary>
-        IKey FeeScheduleKey { get; }
-
+        public Key? FeeScheduleKey { get; }
         /// <summary>
         /// The default Freeze status (not applicable, frozen or unfrozen) of Hedera accounts relative to
         /// this token. FreezeNotApplicable is returned if Token Freeze Key is empty. Frozen is returned
@@ -101,8 +155,7 @@ namespace Hedera.Hashgraph.Reference.Token
         /// - `false`: Unfrozen
         /// - `true`: Frozen
         /// </summary>
-        bool? DefaultFreezeStatus { get; }
-
+        public bool? DefaultFreezeStatus { get; }
         /// <summary>
         /// The default KYC status (KycNotApplicable or Revoked) of Hedera accounts relative to this
         /// token. KycNotApplicable is returned if KYC key is not set, otherwise Revoked
@@ -111,8 +164,7 @@ namespace Hedera.Hashgraph.Reference.Token
         /// - `false`: Revoked
         /// - `true`: Granted
         /// </summary>
-        bool? DefaultKycStatus { get; }
-
+        public bool? DefaultKycStatus { get; }
         /// <summary>
         /// Specifies whether the token is paused or not. PauseNotApplicable is returned if pauseKey is not set.
         ///
@@ -120,60 +172,49 @@ namespace Hedera.Hashgraph.Reference.Token
         /// - `false`: Unpaused
         /// - `true`: Paused
         /// </summary>
-        bool? PauseStatus { get; }
-
+        public bool? PauseStatus { get; }
         /// <summary>
         /// Specifies whether the token was deleted or not
         /// </summary>
-        bool IsDeleted { get; }
-
+        public bool IsDeleted { get; }
         /// <summary>
         /// An account which will be automatically charged to renew the token's expiration, at
         /// autoRenewPeriod interval
         /// </summary>
-        IAccountId AutoRenewAccountId { get; }
-
+        public AccountId AutoRenewAccountId { get; }
         /// <summary>
         /// The interval at which the auto-renew account will be charged to extend the token's expiry
         /// </summary>
-        Duration AutoRenewPeriod { get; }
-
+        public TimeSpan AutoRenewPeriod { get; }
         /// <summary>
         /// The epoch second at which the token will expire
         /// </summary>
-        Timestamp Expiry { get; }
-
+        public DateTimeOffset Expiry { get; }
         /// <summary>
         /// The memo associated with the token
         /// </summary>
-        string TokenMemo { get; }
-
+        public string TokenMemo { get; }
         /// <summary>
         /// The token type
         /// </summary>
-        TokenType TokenType { get; }
-
+        public TokenType TokenType { get; }
         /// <summary>
         /// The token supply type
         /// </summary>
-        TokenSupplyType SupplyType { get; }
-
+        public TokenSupplyType SupplyType { get; }
         /// <summary>
         /// For tokens of type FUNGIBLE\_COMMON - The Maximum number of fungible tokens that can be in
         /// circulation. For tokens of type NON\_FUNGIBLE\_UNIQUE - the maximum number of NFTs (serial
         /// numbers) that can be in circulation
         /// </summary>
-        long MaxSupply { get; }
-
+        public long MaxSupply { get; }
         /// <summary>
         /// The custom fees to be assessed during a CryptoTransfer that transfers units of this token
         /// </summary>
-        CustomFee CustomFee { get; }
-
+        public CustomFee? CustomFee { get; }
         /// <summary>
         /// The ID of the ledger which returned this response
         /// </summary>
-        ILedgerId LedgerId { get; }
-
+        public LedgerId LedgerId { get; }
     }
 }

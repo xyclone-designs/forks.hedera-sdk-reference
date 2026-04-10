@@ -13,12 +13,12 @@ namespace Hedera.Hashgraph.Reference.Core
     /// The summary of a transaction's result so far. If the transaction has not reached consensus, this
     /// result will be necessarily incomplete.
     /// </summary>
-    public interface ITransactionReceipt
+    public class TransactionReceipt
     {
         /// <summary>
         /// Decode a `TransactionReceipt` from an appropriate protobuf encode structure
         /// </summary>
-        abstract static ITransactionReceipt FromBytes(byte[] data);
+        public static TransactionReceipt FromBytes(byte[] data);
 
         /// <summary>
         /// The byte representation of the encoded protobuf type
@@ -35,7 +35,7 @@ namespace Hedera.Hashgraph.Reference.Core
         ///
         /// **Note**: Only present if this receipt is for an `AccountCreateTransaction`
         /// </summary>
-        IAccountId? AccountId { get; }
+        AccountId? AccountId { get; }
 
         /// <summary>
         /// The receipts (if any) of all child transactions spawned by the transaction with the
@@ -65,7 +65,7 @@ namespace Hedera.Hashgraph.Reference.Core
 
         /// **Note**: Only present if this receipt is for an `FileCreateTransaction`
         /// </summary>
-        IFileId FileId { get; }
+        FileId FileId { get; }
         /// <summary>
         /// In the receipt of a ScheduleCreate, the id of the newly created Scheduled Entity
         /// </summary>
@@ -75,7 +75,7 @@ namespace Hedera.Hashgraph.Reference.Core
         /// TransactionID that should be used to query for the receipt or record of the relevant
         /// scheduled transaction
         /// </summary>
-        ITransactionId ScheduleTransactionId { get; }
+        TransactionId ScheduleTransactionId { get; }
         /// <summary>
         /// In the receipt of a TokenMint for tokens of type NON\_FUNGIBLE\_UNIQUE, the serial numbers of the newly created NFTs
         /// </summary>
@@ -91,7 +91,7 @@ namespace Hedera.Hashgraph.Reference.Core
         ///
         /// **Note**: Only present if this receipt is for an `TokenCreateTransaction`
         /// </summary>
-        ITokenId? TokenId { get; }
+        TokenId? TokenId { get; }
 
         /// <summary>
         /// A topic ID
@@ -124,6 +124,6 @@ namespace Hedera.Hashgraph.Reference.Core
         /// <summary>
         /// The transaction's ID
         /// </summary>
-        ITransactionId TransactionId { get; }
+        TransactionId TransactionId { get; }
     }
 }

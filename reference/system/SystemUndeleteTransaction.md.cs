@@ -2,6 +2,8 @@ using Hedera.Hashgraph.Reference.Contract;
 using Hedera.Hashgraph.Reference.Core;
 using Hedera.Hashgraph.Reference.File;
 
+using System;
+
 namespace Hedera.Hashgraph.Reference.System
 {
     /// <summary>
@@ -10,8 +12,8 @@ namespace Hedera.Hashgraph.Reference.System
     /// </summary>
     public interface ISystemUndeleteTransaction : ITransaction
     {
-        IFileId FileId { get; }
-        IContractId ContractId { get; }
-        Timestamp ExpirationTime { get; }
+        FileId FileId { get; }
+        ContractId ContractId { get; }
+        DateTimeOffset ExpirationTime { get; }
     }
 }

@@ -35,7 +35,7 @@ newTokenId = new TokenCreateTransaction()
     .setKycKey(OPERATOR_KEY.publicKey)
     .setSupplyKey(OPERATOR_KEY.publicKey)
     .setFreezeDefault(false)
-    .setExpirationTime(Instant.now().plus(Duration.ofDays(90)))
+    .setExpirationTime(Instant.now().plus(TimeSpan.ofDays(90)))
     .execute(client)
     .getReceipt(client)
     .tokenId;
@@ -61,7 +61,7 @@ response = await new TokenCreateTransaction()
 tokenId = (await response.getReceipt(client)).tokenId;
 ```
 
-- `Duration` is `number` and is the number of seconds
+- `TimeSpan` is `number` and is the number of seconds
 
 #### ** Go **
 
@@ -177,7 +177,7 @@ be unfrozen before it can receive the token
 
 ---
 
-##### `expirationTime`: [`Timestamp`](reference/Timestamp.md)
+##### `expirationTime`: [`DateTimeOffset`](reference/DateTimeOffset.md)
 
 The epoch second at which the token should expire; if an auto-renew account and period are specified,
 this is coerced to the current epoch second plus the autoRenewPeriod
@@ -192,7 +192,7 @@ Note: This `AccountId` **MUST** sign the transaction if present.
 
 ---
 
-##### `autoRenewPeriod`: [`Duration`](reference/Duration.md)
+##### `autoRenewPeriod`: [`TimeSpan`](reference/TimeSpan.md)
 
 The interval at which the auto-renew account will be charged to extend the token's expiry
 

@@ -1,24 +1,29 @@
+using System;
 using System.Collections.Generic;
 
 namespace Hedera.Hashgraph.Reference.Contract
 {
-    public interface IContractStateChange
+    public abstract class ContractStateChange
     {
         /// <summary>
         /// Deserialize a [`ContractStateChange`](#) from its protobuf representation.
         /// </summary>
-        abstract static IContractStateChange FromBytes(byte[] data);
+        public static ContractStateChange FromBytes(byte[] data)
+        {
+            throw new NotImplementedException();
+        }
         /// <summary>
         /// Serialize the [`ContractStateChange`](#) into its protobuf representation.
         /// </summary>
-        byte[] ToBytes();
+        public abstract byte[] ToBytes();
+
         /// <summary>
         /// The contract to which the storage changes apply to
         /// </summary>
-        IContractId ContractId { get; }
+        public abstract ContractId ContractId { get; }
         /// <summary>
         /// The list of storage changes.
         /// </summary>
-        IList<IStorageChange> StorageChanges { get; }
+        public abstract IList<StorageChange> StorageChanges { get; }
     }
 }

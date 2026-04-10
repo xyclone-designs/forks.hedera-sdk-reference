@@ -2,7 +2,7 @@
 
 ### Properties
 
-#### `consensusTimestamp`: `Timestamp`
+#### `consensusDateTimeOffset`: `DateTimeOffset`
 
 The consensus timestamp of this topic message chunk.
 

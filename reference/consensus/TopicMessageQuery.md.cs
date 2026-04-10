@@ -1,7 +1,7 @@
 
 namespace Hedera.Hashgraph.Reference.Consensus
 {
-    public interface ITopicMessageQuery 
+    public interface ITopicMessageQuery
     {
         /// <summary>
         /// The ID for a topic to subscribe to.

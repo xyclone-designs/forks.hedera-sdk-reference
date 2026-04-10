@@ -44,7 +44,7 @@ The sequence number of the last topic message.
 
 ---
 
-##### `expirationTime`: `Timestamp`
+##### `expirationTime`: `DateTimeOffset`
 
 The timestamp when this topic will expire which will effectively delete this topic.
 
@@ -62,7 +62,7 @@ The key that is required to sign transactions that submit messages to this topic
 
 ---
 
-##### `autoRenewPeriod`: `Duration`
+##### `autoRenewPeriod`: `TimeSpan`
 
 The duration since topic creation when this topic will be auto renewed and the auto renew account will be charged.
 

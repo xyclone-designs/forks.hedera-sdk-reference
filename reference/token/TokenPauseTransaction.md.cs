@@ -16,6 +16,6 @@ namespace Hedera.Hashgraph.Reference.Token
         /// <summary>
         /// The token to be paused.
         /// </summary>
-        ITokenId TokenId { get; }
+        TokenId TokenId { get; }
     }
 }

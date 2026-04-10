@@ -1,5 +1,7 @@
 using Hedera.Hashgraph.Reference.Cryptocurrency;
 
+using System;
+
 namespace Hedera.Hashgraph.Reference.Core
 {
     /// <summary>
@@ -17,7 +19,7 @@ namespace Hedera.Hashgraph.Reference.Core
         /// <summary>
         /// Return the cost to execute this query on the chosen Hedera network node.
         /// </summary>
-        IHbar GetCost(IClient client);
+        Hbar GetCost(IClient client);
 
         /// <summary>
         /// The number of times to retry submitting this transaction. Transactions are retried when Hedera
@@ -29,29 +31,29 @@ namespace Hedera.Hashgraph.Reference.Core
         /// <summary>
         /// The maximum amount of time to wait between retries
         /// </summary>
-        Duration MaxBackoff { get; }
+        TimeSpan MaxBackoff { get; }
 
         /// <summary>
         /// The maximum query payment the client is willing to pay.
         ///
         /// Defaults to `maxQueryPayment` from the `client`.
         /// </summary>
-        IHbar? MaxQueryPayment { get; }
+        Hbar? MaxQueryPayment { get; }
 
         /// <summary>
         /// The minimum amount of time to wait between retries
         /// </summary>
-        Duration MinBackoff { get; }
+        TimeSpan MinBackoff { get; }
 
         /// <summary>
         /// The node account IDs that will be queried.
         /// </summary>
-        IAccountId[] NodeAccountIds { get; }
+        AccountId[] NodeAccountIds { get; }
 
         /// <summary>
         /// The transaction ID
         /// </summary>
-        ITransactionId PaymentTransactionId { get; }
+        TransactionId PaymentTransactionId { get; }
 
         /// <summary>
         /// The exact query payment the client will pay for this query.
@@ -59,6 +61,6 @@ namespace Hedera.Hashgraph.Reference.Core
         /// If not set, the cost will be dynamically fetched from the network and used (
         /// respecting the `maxQueryPayment` setting).
         /// </summary>
-        IHbar? QueryPayment { get; }
+        Hbar? QueryPayment { get; }
     }
 }

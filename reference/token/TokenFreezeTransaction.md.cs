@@ -34,11 +34,11 @@ namespace Hedera.Hashgraph.Reference.Token
         /// [`Status.INVALID_TOKEN_ID`](reference/Status.md#INVALID_TOKEN_ID).
         ///
         /// </summary>
-        ITokenId TokenId { get; }
+        TokenId TokenId { get; }
 
         /// <summary>
         /// The account to be frozen
         /// </summary>
-        IAccountId AccountId { get; }
+        AccountId AccountId { get; }
     }
 }

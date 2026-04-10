@@ -13,7 +13,7 @@ namespace Hedera.Hashgraph.Reference.LiveHash
         /// <summary>
         /// The Account for which information is being requested.
         /// </summary>
-        IAccountId AccountId { get; }
+        AccountId AccountId { get; }
         byte[] Hash { get; }
     }
 }

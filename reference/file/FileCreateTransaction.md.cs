@@ -1,6 +1,8 @@
 using Hedera.Hashgraph.Reference.Core;
 using Hedera.Hashgraph.Reference.Cryptography;
 
+using System;
+
 namespace Hedera.Hashgraph.Reference.File
 {
     public interface IFileCreateTransaction : ITransaction
@@ -11,7 +13,7 @@ namespace Hedera.Hashgraph.Reference.File
         /// If no key is provided the file is immutable any the aforementioned transactions will
         /// err with status code [`UNAUTHORIZED`](reference/Status.md#UNAUTHORIZED).
         /// </summary>
-        IKey Keys { get; }
+        Key Keys { get; }
 
         /// <summary>
         /// These are the contents that will be set upon file creation. The contents cannot
@@ -28,6 +30,6 @@ namespace Hedera.Hashgraph.Reference.File
         ///
         /// - `Timestmap` is the EPOCH seconds and nanoseconds of a future instant.
         /// </summary>
-        Timestamp ExpirationTime { get; }
+        DateTimeOffset ExpirationTime { get; }
     }
 }

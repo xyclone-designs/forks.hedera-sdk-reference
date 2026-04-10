@@ -5,7 +5,7 @@ namespace Hedera.Hashgraph.Reference.Contract
     /// <summary>
     /// An ID type that represents a contract on a Hedera Hashgraph network.
     /// </summary>
-    public interface IContractId : IKey
+    public class ContractId : Key
     {
         /// <summary>
         /// Construct a [`ContractId`](ContractId) with [`shard`](#shard--uint64) and [`realm`](#realm--uint64) being zero.
@@ -20,25 +20,25 @@ namespace Hedera.Hashgraph.Reference.Contract
         /// <summary>
         /// Deserialize a [`ContractId`](ContractId) from its protobuf representation.
         /// </summary>
-        abstract static IContractId FromBytes(byte[] data);
+        public static ContractId FromBytes(byte[] data);
 
         /// <summary>
         /// Construct a [`ContractId`](ContractId) from a shard, realm, and evm address.
         /// </summary>
-        abstract static IContractId FromEvmAddress(long shard, long realm, string evmAddress);
+        public static ContractId FromEvmAddress(long shard, long realm, string evmAddress);
 
         /// <summary>
         /// Construct a [`ContractId`](ContractId) a solidity address.
         ///
         /// Deprecated: Use `fromEvmAddress()` instead.
         /// </summary>
-        abstract static IContractId FromSolidityAddress(string str);
+        public static ContractId FromSolidityAddress(string str);
 
         /// <summary>
         /// Construct a [`ContractId`](ContractId) from a string. The format of the string could be either just
         /// a number "4" or dot separated numbers "0.0.4".
         /// </summary>
-        abstract static IContractId FromString(string str);
+        public static ContractId FromString(string str);
 
         /// <summary>
         /// Serialize the [`ContractId`](ContractId) into its protobuf representation.

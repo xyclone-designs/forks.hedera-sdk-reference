@@ -1,14 +1,32 @@
+using System;
+
 namespace Hedera.Hashgraph.Reference.Token
 {
-    public interface ITokenRelationship
+    public class TokenRelationship
     {
-        abstract static ITokenRelationship FromBytes(byte[] bytes);
-        abstract static byte[] ToBytes();
+        public TokenRelationship(TokenId tokenId, string symbol, long balance, bool kycStatus, bool freezeStatus)
+        {
+            TokenId = tokenId;
+            Symbol = symbol;
+            Balance = balance;
+            KycStatus = kycStatus;
+            FreezeStatus = freezeStatus;
+        }
 
-        ITokenId TokenId { get; }
-        string Symbol { get; }
-        long Balance { get; }
-        bool KycStatus { get; }
-        bool FreezeStatus { get; }
+        public static TokenRelationship FromBytes(byte[] bytes)
+        {
+            throw new NotImplementedException();
+        }
+
+        public virtual byte[] ToBytes()
+        {
+            throw new NotImplementedException();
+        }
+
+        public TokenId TokenId { get; }
+        public string Symbol { get; }
+        public long Balance { get; }
+        public bool KycStatus { get; }
+        public bool FreezeStatus { get; }
     }
 }

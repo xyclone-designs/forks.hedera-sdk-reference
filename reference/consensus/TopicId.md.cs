@@ -1,42 +1,60 @@
+using System;
+
 namespace Hedera.Hashgraph.Reference.Consensus
 {
     /// <summary>
     /// An ID type that represents a topic on a Hedera Hashgraph network.
     /// </summary>
-    public interface ITopicId
+    public class TopicId
     {
         /// <summary>
         /// Construct a [`TopicId`](#) with [`shard`](#shard-uint64) and [`realm`](#realm-uint64) being zero.
         /// </summary>
-        abstract static void Constructor(long num);
+        public TopicId(long num) : this(0, 0, num) { }
         /// <summary>
         /// Construct a [`TopicId`](#) with all fields explicitly set.
         /// </summary>
-        abstract static void Constructor(long shard, long realm, long num);
+        public TopicId(long shard, long realm, long num)
+        {
+            Shard = shard;
+            Realm = realm;
+            Num = num;
+        }
+
         /// <summary>
         /// Construct a [`TopicId`](#) from a string. The format of the string could be either just
         /// a number "4" or dot separated numbers "0.0.4".
         /// </summary>
-        abstract static ITopicId FromString(string str);
+        public static TopicId FromString(string str)
+        {
+            throw new NotImplementedException();
+        }
         /// <summary>
         /// Deserialize a [`TopicId`](#) from its the protobuf representation.
         /// </summary>
-        abstract static ITopicId FromBytes(byte[] data);
+        public static TopicId FromBytes(byte[] data)
+        {
+            throw new NotImplementedException();
+        }
         /// <summary>
         /// Serialize the [`TopicId`](#) into its protobuf representation.
         /// </summary>
-        byte[] ToBytes();
+        public byte[] ToBytes()
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// The shard of this ID.
         /// </summary>
-        long Shard { get; }
+        public long Shard { get; }
         /// <summary>
         /// The realm of this ID.
         /// </summary>
-        long Realm { get; }
+        public long Realm { get; }
         /// <summary>
         /// The num of this ID.
         /// </summary>
-        long Num { get; }
+        public long Num { get; }
     }
 }

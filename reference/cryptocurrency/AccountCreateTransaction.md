@@ -67,7 +67,7 @@ const receipt = await response.getReceipt(client) // TransactionReceipt;
 const accountId = receipt.accountId // Nullable<AccountId>;
 ```
 
-- `Duration` is `number` and is the number of seconds
+- `TimeSpan` is `number` and is the number of seconds
 
 #### ** Go **
 
@@ -122,7 +122,7 @@ At most only one account can ever have a given alias on the network.
 
 ---
 
-##### `autoRenewPeriod`: `Duration`
+##### `autoRenewPeriod`: `TimeSpan`
 
 The account is charged to extend its expiration date every this many seconds. If it doesn't
 have enough balance, it extends as long as possible. If it is empty when it expires, then it

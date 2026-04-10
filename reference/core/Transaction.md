@@ -136,7 +136,7 @@ doesn't respond.
 
 ---
 
-##### `maxBackoff`: `Duration`
+##### `maxBackoff`: `TimeSpan`
 
 The maximum amount of time to wait between retries
 
@@ -150,7 +150,7 @@ Defaults to `maxTransactionFee` from the `client`.
 
 ---
 
-##### `minBackoff`: `Duration`
+##### `minBackoff`: `TimeSpan`
 
 The minimum amount of time to wait between retries
 
@@ -194,9 +194,9 @@ Any notes or descriptions that should be put into the record (max length 100).
 
 ---
 
-##### `transactionValidDuration`: `Duration`
+##### `transactionValidTimeSpan`: `TimeSpan`
 
-Duration from the valid start (within the transaction ID) that this
+TimeSpan from the valid start (within the transaction ID) that this
 transaction is valid for.
 
 **NOTE**: Defaults to 120 seconds.

@@ -93,7 +93,7 @@ If set, the new memo to be associated with the account (UTF-8 encoding max 100 b
 
 ---
 
-##### `autoRenewPeriod`: `Duration`
+##### `autoRenewPeriod`: `TimeSpan`
 
 The duration in which it will automatically extend the expiration period. If it doesn't have
 enough balance, it extends as long as possible. If it is empty when it expires, then it is
@@ -109,7 +109,7 @@ If true, the account declines receiving a staking reward. The default value is f
 
 ---
 
-##### `expirationTime`: `Timestamp`
+##### `expirationTime`: `DateTimeOffset`
 
 The new expiration time to extend to (ignored if equal to or before the current one)
 

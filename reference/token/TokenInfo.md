@@ -153,13 +153,13 @@ autoRenewPeriod interval
 
 ---
 
-##### `autoRenewPeriod`: `Duration`
+##### `autoRenewPeriod`: `TimeSpan`
 
 The interval at which the auto-renew account will be charged to extend the token's expiry
 
 ---
 
-##### `expiry`: `Timestamp`
+##### `expiry`: `DateTimeOffset`
 
 The epoch second at which the token will expire
 

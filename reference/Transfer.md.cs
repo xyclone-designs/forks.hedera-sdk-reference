@@ -5,7 +5,7 @@ namespace Hedera.Hashgraph.Reference
 {
     public interface ITransfer
     {
-        IAccountId AccountId { get; }
-        IHbar Amount { get; }
+        AccountId AccountId { get; }
+        Hbar Amount { get; }
     }
 }

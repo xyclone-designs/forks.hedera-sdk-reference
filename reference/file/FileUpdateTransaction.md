@@ -88,7 +88,7 @@ to set larger contents.
 
 ---
 
-##### `expirationTime`: `Timestamp`
+##### `expirationTime`: `DateTimeOffset`
 
 The new expiration time of this file. After this time the file will be deleted. To
 prevent file from being deleted another [`FileUpdateTransaction`](reference/file/FileUpdateTransaction.md) must be executed with a new expiration time.

@@ -113,7 +113,7 @@ If empty `keyList` - the `submitKey` is cleared.
 
 ---
 
-##### `autoRenewPeriod`: `Duration`
+##### `autoRenewPeriod`: `TimeSpan`
 
 The amount of time to extend the topic's lifetime automatically at `expirationTime` if the `autoRenewAccountId` is
 configured and has funds.

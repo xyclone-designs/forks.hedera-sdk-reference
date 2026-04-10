@@ -2,14 +2,16 @@ using Hedera.Hashgraph.Reference.Core;
 using Hedera.Hashgraph.Reference.Cryptocurrency;
 using Hedera.Hashgraph.Reference.Cryptography;
 
+using System;
+
 namespace Hedera.Hashgraph.Reference.LiveHash
 {
-    public interface ILiveHash : ITransaction
+    public interface ILiveHash 
     {
         /// <summary>
         /// The account to which the livehash is attached
         /// </summary>
-        IAccountId AccountId { get; }
+        AccountId AccountId { get; }
         /// <summary>
         /// The SHA-384 hash of a credential or certificate
         /// </summary>
@@ -18,10 +20,10 @@ namespace Hedera.Hashgraph.Reference.LiveHash
         /// A list of keys (primitive or threshold), all of which must sign to attach the livehash to an
         /// account, and any one of which can later delete it.
         /// </summary>
-        IKeyList Keys { get; }
+        KeyList Keys { get; }
         /// <summary>
         /// The duration for which the livehash will remain valid
         /// </summary>
-        Duration Duration { get; }
+        TimeSpan TimeSpan { get; }
     }
 }

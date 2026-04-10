@@ -37,7 +37,7 @@ const response = await transferTransaction.execute(client) // TransactionRespons
 const receipt = await response.getReceipt(client) // TransactionReceipt;
 ```
 
-- `Duration` is `number` and is the number of seconds
+- `TimeSpan` is `number` and is the number of seconds
 
 #### ** Go **
 

@@ -1,35 +1,43 @@
+using System;
+
 namespace Hedera.Hashgraph.Reference.Contract
 {
-    public interface IContractLogInfo
+    public class ContractLogInfo
     {
         /// <summary>
         /// Deserialize a [`ContractLogInfo`](#) from its protobuf representation.
         /// </summary>
-        abstract static IContractLogInfo FromBytes(byte[] data);
+        public static ContractLogInfo FromBytes(byte[] data)
+        {
+            throw new NotImplementedException();
+        }
 
         /// <summary>
         /// Serialize the [`ContractLogInfo`](#) into its protobuf representation.
         /// </summary>
-        byte[] ToBytes();
+        public byte[] ToBytes()
+        {
+            throw new NotImplementedException();
+        }
 
         /// <summary>
         /// Address of a contract that emitted the event
         /// </summary>
-        IContractId ContractId { get; }
+        public ContractId ContractId { get; }
 
         /// <summary>
         /// Bloom filter for a particular log
         /// </summary>
-        byte[] Bloom { get; }
+        public byte[] Bloom { get; }
 
         /// <summary>
         /// Topics of a particular event
         /// </summary>
-        byte[] Topics { get; }
+        public byte[] Topics { get; }
 
         /// <summary>
         /// Event data
         /// </summary>
-        byte[] Data { get; }
+        public byte[] Data { get; }
     }
 }

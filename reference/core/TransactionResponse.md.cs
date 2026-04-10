@@ -41,7 +41,7 @@ namespace Hedera.Hashgraph.Reference.Core
         /// <summary>
         /// The account ID of the node which the transaction was submitted to
         /// </summary>
-        IAccountId NodeId { get; }
+        AccountId NodeId { get; }
 
         /// <summary>
         /// Hash of the transaction
@@ -53,7 +53,7 @@ namespace Hedera.Hashgraph.Reference.Core
         /// <summary>
         /// Transaction ID of the transaction that was submitted
         /// </summary>
-        ITransactionId TransactionId { get; }
+        TransactionId TransactionId { get; }
 
     }
 }

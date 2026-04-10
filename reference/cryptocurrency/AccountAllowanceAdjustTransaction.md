@@ -37,7 +37,7 @@ await (
 ).getReceipt(client);
 ```
 
-- `Duration` is `number` and is the number of seconds
+- `TimeSpan` is `number` and is the number of seconds
 
 #### ** Go **
 

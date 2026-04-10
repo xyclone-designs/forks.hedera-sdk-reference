@@ -10,6 +10,6 @@ namespace Hedera.Hashgraph.Reference.File
         /// <summary>
         /// This is the file ID for which info will be queried for.
         /// </summary>
-        IFileId FileId { get; }
+        FileId FileId { get; }
     }
 }

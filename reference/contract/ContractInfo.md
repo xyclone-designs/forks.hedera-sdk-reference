@@ -40,7 +40,7 @@ ID of the account to charge for auto-renewal of this contract.
 
 ---
 
-##### `autoRenewPeriod`: `Duration`
+##### `autoRenewPeriod`: `TimeSpan`
 
 The expiration time will extend every this many seconds.
 If there are insufficient funds, then it extends as long as possible.
@@ -72,7 +72,7 @@ The memo associated with the contract (max 100 bytes).
 
 ---
 
-##### `expirationTime`: `Timestamp`
+##### `expirationTime`: `DateTimeOffset`
 
 The current time at which this contract instance (and its account) is set to expire.
 

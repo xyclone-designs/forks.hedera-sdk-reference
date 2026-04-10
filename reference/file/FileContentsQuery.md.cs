@@ -7,6 +7,6 @@ namespace Hedera.Hashgraph.Reference.File
         /// <summary>
         /// This is the fileID which contents queried for.
         /// </summary>
-        IFileId FileId { get; }
+        FileId FileId { get; }
     }
 }

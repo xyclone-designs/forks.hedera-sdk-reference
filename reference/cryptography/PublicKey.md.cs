@@ -6,56 +6,56 @@ namespace Hedera.Hashgraph.Reference.Cryptography
     /// <summary>
     /// A public key on the Hedera™ network.
     /// </summary>
-    public interface IPublicKey : IKey
+    public class PublicKey : Key
     {
         /// <summary>
         /// Parses a DER encoded Ed25519 or ECDSA public key
         ///
         /// **Note**: The use of raw bytes for an Ed25519 public key is deprecated; use `fromBytesEd25519()` instead.
         /// </summary>
-        abstract static IPublicKey FromBytes(byte[] data);
+        public static PublicKey FromBytes(byte[] data);
 
         /// <summary>
         /// Parses a DER encoded Ed25519 or ECDSA public key
         ///
         /// **Note**: Does **not** support raw bytes; the data provided must be DER encoded.
         /// </summary>
-        abstract static IPublicKey FromBytesDer(byte[] data);
+        public static PublicKey FromBytesDer(byte[] data);
 
         /// <summary>
         /// Parses an ECDSA public key from either DER encoded or raw bytes.
         /// </summary>
-        abstract static IPublicKey FromBytesEcdsa(byte[] data);
+        public static PublicKey FromBytesEcdsa(byte[] data);
 
         /// <summary>
         /// Parses an Ed25519 public key from either DER encoded or raw bytes.
         /// </summary>
-        abstract static IPublicKey FromBytesEd25519(byte[] data);
+        public static PublicKey FromBytesEd25519(byte[] data);
 
         /// <summary>
         /// Parses a HEX and DER encoded Ed25519 or ECDSA public key
         ///
         /// **Note**: The use of raw bytes for an Ed25519 public key is deprecated; use `fromStringEd25519()` instead.
         /// </summary>
-        abstract static IPublicKey FromString(string text);
+        public static PublicKey FromString(string text);
 
         /// <summary>
         /// Parses a HEX and DER encoded Ed25519 or ECDSA public key
         ///
         /// **Note**: Does **not** support raw bytes; the data provided must be DER encoded.
         /// </summary>
-        abstract static IPublicKey FromStringDer(string text);
+        public static PublicKey FromStringDer(string text);
 
         /// <summary>
         /// Parses an ECDSA public key from either HEX and DER encoded bytes or just HEX encoded raw bytes.
         /// </summary>
-        abstract static IPublicKey FromStringEcdsa(string text);
+        public static PublicKey FromStringEcdsa(string text);
 
         /// <summary>
         /// Parses an Ed25519 public key from either HEX and DER encoded bytes or just HEX encoded raw bytes.
         ///
         /// </summary>
-        abstract static IPublicKey FromStringEd25519(string text);
+        public static PublicKey FromStringEd25519(string text);
 
         /// <summary>
         /// Check if this public key is an ECDSA key.
@@ -70,7 +70,7 @@ namespace Hedera.Hashgraph.Reference.Cryptography
         /// <summary>
         /// Convert this public key into an account ID with a given shard and realm.
         /// </summary>
-        IAccountId ToAccountId(long shard, long realm);
+        AccountId ToAccountId(long shard, long realm);
 
         /// <summary>
         /// Serialize the private key into bytes.

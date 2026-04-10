@@ -4,6 +4,7 @@ using Hedera.Hashgraph.Reference.Cryptography;
 using Hedera.Hashgraph.Reference.Schedule;
 using Hedera.Hashgraph.Reference.Token;
 
+using System;
 using System.Collections.Generic;
 
 namespace Hedera.Hashgraph.Reference.Core
@@ -11,12 +12,12 @@ namespace Hedera.Hashgraph.Reference.Core
     /// <summary>
     /// Response when the client sends the node TransactionGetRecordResponse
     /// </summary>
-    public interface ITransactionRecord
+    public class TransactionRecord
     {
         /// <summary>
         /// Decode a `TransactionRecord` from an appropriate protobuf encode structure
         /// </summary>
-        abstract static ITransactionRecord FromBytes(byte[] data);
+        public static TransactionRecord FromBytes(byte[] data);
             
         /// <summary>
         /// The byte representation of the encoded protobuf type
@@ -50,7 +51,7 @@ namespace Hedera.Hashgraph.Reference.Core
         /// <summary>
         /// The timestamp the transaction came to consensus
         /// </summary>
-        Timestamp ConsensusTimestamp { get; }
+        DateTimeOffset ConsensusDateTimeOffset { get; }
         /// <summary>
         /// Result of a ContractExecuteTransaction
         /// </summary>
@@ -81,7 +82,7 @@ namespace Hedera.Hashgraph.Reference.Core
         /// <summary>
         /// In the record of an internal transaction, the consensus timestamp of the user transaction that spawned it.
         /// </summary>
-        Timestamp ParentConsensusTimestamp { get; }
+        DateTimeOffset ParentConsensusDateTimeOffset { get; }
 
         /// <summary>
         /// In the record of a UtilPrng transaction with no output range, a pseudorandom 384-bit string.
@@ -106,7 +107,7 @@ namespace Hedera.Hashgraph.Reference.Core
         /// <summary>
         /// All NFT Token transfers as a result of this transaction
         /// </summary>
-        IDictionary<ITokenId, IList<ITokenNftTransfer>> TokenNftTransfers { get; }
+        IDictionary<TokenId, IList<ITokenNftTransfer>> TokenNftTransfers { get; }
 
         /// <summary>
         /// All fungible token transfers as a result of this transaction as a list
@@ -118,12 +119,12 @@ namespace Hedera.Hashgraph.Reference.Core
         ///
         /// ** Note**: These token transfers are different from the ones set in [`TransferTransaction`] (../cryptocurrency/TransferTransaction.md)
         /// </summary>
-        IDictionary<ITokenId, IList<IAccountId>> TokenTransfers { get; }
+        IDictionary<TokenId, IList<AccountId>> TokenTransfers { get; }
 
         /// <summary>
         /// Fee set on the transaction
         /// </summary>
-        IHbar TransactionFee { get; }
+        Hbar TransactionFee { get; }
 
         /// <summary>
         /// Hash of the transaction
@@ -133,7 +134,7 @@ namespace Hedera.Hashgraph.Reference.Core
         /// <summary>
         /// Transaction ID of the transaction
         /// </summary>
-        ITransactionId TransactionId { get; }
+        TransactionId TransactionId { get; }
 
         /// <summary>
         /// Memo set on the transaction

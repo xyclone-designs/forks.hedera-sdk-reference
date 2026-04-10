@@ -59,7 +59,7 @@ if err != nil {
 
 ---
 
-##### `duration`: `Duration`
+##### `duration`: `TimeSpan`
 
 ---
 

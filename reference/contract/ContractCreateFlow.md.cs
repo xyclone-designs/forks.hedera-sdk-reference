@@ -1,6 +1,8 @@
 using Hedera.Hashgraph.Reference.Cryptocurrency;
 using Hedera.Hashgraph.Reference.Cryptography;
 
+using System;
+
 namespace Hedera.Hashgraph.Reference.Contract
 {
     /// <summary>
@@ -21,7 +23,7 @@ namespace Hedera.Hashgraph.Reference.Contract
         /// If this is null, then such modifications are not possible, and there is no administrator that can override the normal operation of this smart contract instance.
         /// Note that if it is created with no admin keys, then there is no administrator to authorize changing the admin keys, so there can never be any admin keys for that instance.
         /// </summary>
-        IKey AdminKey { get; }
+        Key AdminKey { get; }
 
         /// <summary>
         /// Gas to run the constructor.
@@ -31,19 +33,19 @@ namespace Hedera.Hashgraph.Reference.Contract
         /// <summary>
         /// Initial number of tinybars to put into the cryptocurrency account associated with and owned by the smart contract.
         /// </summary>
-        IHbar InitialBalance { get; }
+        Hbar InitialBalance { get; }
 
         /// <summary>
         /// `AccountId` of the account to which this account is proxy staked.
         /// If `proxyAccountID` is null, or is an invalid account, or is an account that isn't a node, then this account is automatically proxy staked to a node chosen by the network, but without earning payments.
         /// If the `proxyAccountID` account refuses to accept proxy staking , or if it is not currently running a node, then it will behave as if `proxyAccountID` was null.
         /// </summary>
-        IAccountId ProxyAccountId { get; }
+        AccountId ProxyAccountId { get; }
 
         /// <summary>
         /// The instance will charge its account every this many seconds to renew for this long.
         /// </summary>
-        Duration AutoRenewPeriod { get; }
+        TimeSpan AutoRenewPeriod { get; }
 
         /// <summary>
         /// Parameters to pass to the constructor.

@@ -10,7 +10,7 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
         /// <summary>
         /// The current balance, in tinybars.
         /// </summary>
-        IHbar Hbars { get; }
+        Hbar Hbars { get; }
 
         /// <summary>
         /// The token balances possessed by the target account.
@@ -19,14 +19,14 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
         /// balance in the smallest denomination. For token of type NON\_FUNGIBLE\_UNIQUE - the number of
         /// NFTs held by the account
         /// </summary>
-        ITokenId Tokens { get; }
+        TokenId Tokens { get; }
 
         /// <summary>
         /// The token decimals for each token
         ///
         /// Tokens divide into <tt>10<sup>decimals</sup></tt> pieces
         /// </summary>
-        ITokenId TokenDecimals { get; }
+        TokenId TokenDecimals { get; }
 
     }
 }

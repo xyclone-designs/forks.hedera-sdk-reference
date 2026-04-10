@@ -10,6 +10,6 @@ namespace Hedera.Hashgraph.Reference.File
         /// <summary>
         /// This is the ID of the file to delete.
         /// </summary>
-        IFileId FileId { get; }
+        FileId FileId { get; }
     }
 }

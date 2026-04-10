@@ -6,4 +6,4 @@
 
 ### `cents`: `Uint32`
 
-### `expirationTime`: `Timestamp`
+### `expirationTime`: `DateTimeOffset`

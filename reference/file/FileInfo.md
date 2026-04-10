@@ -30,7 +30,7 @@ The length of this file's contents.
 
 ---
 
-### `expirationTime` : `Timestamp`
+### `expirationTime` : `DateTimeOffset`
 
 The expiration time of this file. When current time surpasses the expiration time the
 file is deleted from the network. To update the expiration time use [`FileUpdateTransaction`](reference/file/FileUpdateTransaction.md).

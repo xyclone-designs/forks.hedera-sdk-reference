@@ -54,7 +54,7 @@ handle := hedera.NewTopicMessageQuery().
 
 ### Properties
 
-#### `consensusTimestamp`: `Timestamp`
+#### `consensusDateTimeOffset`: `DateTimeOffset`
 
 The consensus timestamp of this topic message. If this message was chunked, this
 field would be equal to the last chunk's consensus timestamp.

@@ -17,7 +17,7 @@ var transactionId = new TransactionId(new AccountId(23847), Instant.ofEpochSecon
 ```javascript
 // create from..
 const transactionId = TransactionId.fromString("0.0.23847@1588539964.632521325")
-const transactionId = new TransactionId(new AccountId(0, 0, 23847), new Timestamp(1588539964, 4);
+const transactionId = new TransactionId(new AccountId(0, 0, 23847), new DateTimeOffset(1588539964, 4);
 ```
 
 ### ** Go **
@@ -32,7 +32,7 @@ txID := NewTransactionIDWithValidStart(AccountID{Account: 23847}, time.Unix(1588
 
 ### Constructor
 
-##### `constructor` ( [`AccoundId`](../cryptocurrency/AccountId.md), `validStart`: `Timestamp` )
+##### `constructor` ( [`AccoundId`](../cryptocurrency/AccountId.md), `validStart`: `DateTimeOffset` )
 
 Construct a transaction ID from an account ID and a timestamp
 
@@ -73,7 +73,7 @@ Fetch the record of the transaction.
 
 ---
 
-##### `withValidStart` ( [`AccoundId`](../cryptocurrency/AccountId.md), `validStart`: `Timestamp` ): `TransactionId`
+##### `withValidStart` ( [`AccoundId`](../cryptocurrency/AccountId.md), `validStart`: `DateTimeOffset` ): `TransactionId`
 
 Create a transaction id.
 
@@ -127,9 +127,9 @@ The scheduled status of the transaction
 
 ---
 
-##### `validStart`: `Timestamp`
+##### `validStart`: `DateTimeOffset`
 
 The timestamp of this transaction
 
-Each transaction ID must have a unique timestamp. Timestamp generation in the SDK fuzzes the current
+Each transaction ID must have a unique timestamp. DateTimeOffset generation in the SDK fuzzes the current
 time so collisions are less likely

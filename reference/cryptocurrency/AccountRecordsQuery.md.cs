@@ -13,6 +13,6 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
         /// <summary>
         /// The account ID for which the records should be retrieved
         /// </summary>
-        IAccountId AccountId { get; }
+        AccountId AccountId { get; }
     }
 }

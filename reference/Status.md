@@ -21,7 +21,7 @@ to.
 
 ##### TRANSACTION\_EXPIRED
 
-Pre-Check error when TransactionValidStart + transactionValidDuration is less than current
+Pre-Check error when TransactionValidStart + transactionValidTimeSpan is less than current
 consensus time.
 
 ##### INVALID\_TRANSACTION\_START
@@ -30,7 +30,7 @@ Transaction start time is greater than current consensus time
 
 ##### INVALID\_TRANSACTION\_DURATION
 
-The given transactionValidDuration was either non-positive, or greater than the maximum
+The given transactionValidTimeSpan was either non-positive, or greater than the maximum
 valid duration of 180 secs.
 
 ##### INVALID\_SIGNATURE

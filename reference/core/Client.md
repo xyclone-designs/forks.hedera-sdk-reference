@@ -231,7 +231,7 @@ Is automatic entity ID checksum validation enabled.
 
 ---
 
-##### `closeTimeout` : `Duration`
+##### `closeTimeout` : `TimeSpan`
 
 Maximum amount of time closing a network can take.
 
@@ -271,7 +271,7 @@ Max number of attempts a request executed with this client will do.
 
 ---
 
-##### `maxBackoff` () : `Duration`
+##### `maxBackoff` () : `TimeSpan`
 
 The maximum amount of time to wait between retries
 
@@ -283,7 +283,7 @@ Max number of times any node in the network can receive a bad gRPC status before
 
 ---
 
-##### `minBackoff` () : `Duration`
+##### `minBackoff` () : `TimeSpan`
 
 The minimum amount of time to wait between retries
 
@@ -301,7 +301,7 @@ The list of network records
 
 ---
 
-##### `networkUpdatePeriod` : `Duration`
+##### `networkUpdatePeriod` : `TimeSpan`
 
 If present, the client will periodically attempt to update its consensus node network in the background using
 an [`AddressBookQuery`](../network/AddressBookQuery.md) against its current mirror network.
@@ -321,7 +321,7 @@ The key of the operator
 
 ---
 
-##### `requestTimeout`: `Duration`
+##### `requestTimeout`: `TimeSpan`
 
 Maximum amount of time a request can run
 

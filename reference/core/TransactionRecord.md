@@ -52,7 +52,7 @@ top-level id, in consensus order. Always empty if the top-level status is UNKNOW
 
 ---
 
-### `consensusTimestamp`: `Timestamp`
+### `consensusDateTimeOffset`: `DateTimeOffset`
 
 The timestamp the transaction came to consensus
 
@@ -91,7 +91,7 @@ List of accounts with the corresponding staking rewards paid as a result of a tr
 
 ---
 
-### `parentConsensusTimestamp`: `Timestamp`
+### `parentConsensusDateTimeOffset`: `DateTimeOffset`
 
 In the record of an internal transaction, the consensus timestamp of the user transaction that spawned it.
 

@@ -23,6 +23,6 @@ namespace Hedera.Hashgraph.Reference.Core
         /// <summary>
         /// The transaction ID to query the record for
         /// </summary>
-        ITransactionId TransactionId { get; }
+        TransactionId TransactionId { get; }
     }
 }

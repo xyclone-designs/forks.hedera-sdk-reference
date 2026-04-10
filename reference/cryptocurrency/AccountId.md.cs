@@ -1,12 +1,13 @@
 using Hedera.Hashgraph.Reference.Core;
 using Hedera.Hashgraph.Reference.Cryptography;
+using Hedera.Hashgraph.Reference.Token;
 
 namespace Hedera.Hashgraph.Reference.Cryptocurrency
 {
     /// <summary>
     /// The ID for a cryptocurrency account
     /// </summary>
-    public interface IAccountId
+    public class AccountId
     {
         /// <summary>
         /// Construct a [`AccountId`](AccountId.md) with [`shard`](#shard--uint64) and [`realm`](#realm--uint64) being zero.
@@ -21,23 +22,23 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
         /// <summary>
         /// Deserialize an account ID from its protobuf representation.
         /// </summary>
-        abstract static IAccountId FromBytes(byte[] data);
+        abstract static AccountId FromBytes(byte[] data);
 
         /// <summary>
         /// Retrieve the account id from an EVM address.
         /// </summary>
-        abstract static IAccountId FromEvmAddress(EvmAddress evmAddress);
+        abstract static AccountId FromEvmAddress(IEvmAddress evmAddress);
 
         /// <summary>
         /// Construct an account ID from a solidity address.
         /// </summary>
-        abstract static IAccountId FromSolidityAddress(string str);
+        abstract static AccountId FromSolidityAddress(string str);
 
         /// <summary>
         /// Construct an [`AccountId`](AccountId.md) from a string.
         /// `str` must match `^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.((?:[0-9a-fA-F][0-9a-fA-F])+)$`
         /// </summary>
-        abstract static IAccountId FromString(string str);
+        abstract static AccountId FromString(string str);
 
         /// <summary>
         /// Get the checksum for this account ID if it constructed with one.
@@ -85,7 +86,7 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
         /// <summary>
         /// The EOA 20-byte address to create that is derived from the keccak-256 hash of a ECDSA_SECP256K1 primitive key.
         /// </summary>
-        EvmAddress EvmAddress { get; }
+        IEvmAddress EvmAddress { get; }
 
         /// <summary>
         /// A non-negative account number unique within its realm

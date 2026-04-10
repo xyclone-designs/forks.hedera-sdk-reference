@@ -74,7 +74,7 @@ Access control for submitMessage. If unspecified, no access control is performed
 
 ---
 
-##### `autoRenewPeriod`: `Duration`
+##### `autoRenewPeriod`: `TimeSpan`
 
 The initial lifetime of the topic and the amount of time to attempt to extend the topic's lifetime by
 automatically at the topic's `expirationTime`, if the `autoRenewAccountId` is configured

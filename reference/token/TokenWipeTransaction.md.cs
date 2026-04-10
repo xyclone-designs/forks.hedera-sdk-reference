@@ -39,7 +39,7 @@ namespace Hedera.Hashgraph.Reference.Token
         /// The token for which the account will be wiped. If token does not exist, transaction results in
         /// [`Status.INVALID_TOKEN_ID`](reference/Status.md#INVALID_TOKEN_ID).
         /// </summary>
-        ITokenId TokenId { get; }
+        TokenId TokenId { get; }
 
         /// <summary>
         /// The amount of tokens to wipe from the specified account. Amount must be a positive non-zero number in the lowest
@@ -50,6 +50,6 @@ namespace Hedera.Hashgraph.Reference.Token
         /// <summary>
         /// The account to be wiped
         /// </summary>
-        IAccountId AccountId { get; }
+        AccountId AccountId { get; }
     }
 }

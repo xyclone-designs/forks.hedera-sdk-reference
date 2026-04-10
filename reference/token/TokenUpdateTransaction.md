@@ -40,7 +40,7 @@ await (
 ).getReceipt(client);
 ```
 
-- `Duration` is `number` and is the number of seconds
+- `TimeSpan` is `number` and is the number of seconds
 
 #### ** Go **
 
@@ -133,7 +133,7 @@ The new Supply key of the Token. If the Token does not have currently a Supply k
 
 ---
 
-##### `expirationTime`: [`Timestamp`](reference/Timestamp.md)
+##### `expirationTime`: [`DateTimeOffset`](reference/DateTimeOffset.md)
 
 The new expiry time of the token. Expiry can be updated even if admin key is not set. If the provided expiry is earlier
 than the current token expiry, transaction wil resolve to
@@ -148,7 +148,7 @@ The new account which will be automatically charged to renew the token's expirat
 
 ---
 
-##### `autoRenewPeriod`: [`Duration`](reference/Duration.md)
+##### `autoRenewPeriod`: [`TimeSpan`](reference/TimeSpan.md)
 
 The new interval at which the auto-renew account will be charged to extend the token's expiry.
 

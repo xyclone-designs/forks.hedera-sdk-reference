@@ -1,5 +1,4 @@
 using Hedera.Hashgraph.Reference.Cryptocurrency;
-using Hedera.Hashgraph.Reference.Cryptography;
 
 using System;
 using System.Collections.Generic;
@@ -17,7 +16,7 @@ namespace Hedera.Hashgraph.Reference.Core
         /// **NOTE**: The bytes can be a protobuf encoded `TransactionBody`, `Transaction`, `SignedTransaction`
         /// or `TransactionList`
         /// </summary>
-        abstract static ITransaction FromBytes(byte[] data);
+        public static Transaction FromBytes(byte[] data);
 
         /// <summary>
         /// Add a signature to the transaction
@@ -59,7 +58,7 @@ namespace Hedera.Hashgraph.Reference.Core
         /// <summary>
         /// Get the transaction signatures
         /// </summary>
-        IDictionary<IAccountId, IDictionary<IPublicKey, byte[]>> GetSignatures();
+        IDictionary<AccountId, IDictionary<IPublicKey, byte[]>> GetSignatures();
 
         /// <summary>
         /// Generate the SHA-384 hash of the transaction
@@ -75,7 +74,7 @@ namespace Hedera.Hashgraph.Reference.Core
         ///
         /// The key for the returned map is the node account ID
         /// </summary>
-        IAccountId GetTransactionHashPerNode();
+        AccountId GetTransactionHashPerNode();
 
         /// <summary>
         /// Convert the transaction into a scheduled version
@@ -114,7 +113,7 @@ namespace Hedera.Hashgraph.Reference.Core
         ///
         /// This value is set by the SDK
         /// </summary>
-        IHbar DefaultMaxTransactionFee { get; }
+        Hbar DefaultMaxTransactionFee { get; }
 
         /// <summary>
         /// The number of times to retry submitting this transaction. Transactions are retried when Hedera
@@ -126,19 +125,19 @@ namespace Hedera.Hashgraph.Reference.Core
         /// <summary>
         /// The maximum amount of time to wait between retries
         /// </summary>
-        Duration MaxBackoff { get; }
+        TimeSpan MaxBackoff { get; }
 
         /// <summary>
         /// The maximum transaction fee the client is willing to pay.
         ///
         /// Defaults to `maxTransactionFee` from the `client`.
         /// </summary>
-        IHbar MaxTransactionFee { get; }
+        Hbar MaxTransactionFee { get; }
 
         /// <summary>
         /// The minimum amount of time to wait between retries
         /// </summary>
-        Duration MinBackoff { get; }
+        TimeSpan MinBackoff { get; }
 
         /// <summary>
         /// The list of node account IDs that this transaction will be submitted to.
@@ -148,7 +147,7 @@ namespace Hedera.Hashgraph.Reference.Core
         /// a node is down, busy, or otherwise reports a fatal error, the SDK will try again with a different
         /// node.
         /// </summary>
-        IAccountId[] NodeAccountIds { get; }
+        AccountId[] NodeAccountIds { get; }
 
         /// <summary>
         /// Declares if we should generate new transaction IDs when a transaction fails with
@@ -167,7 +166,7 @@ namespace Hedera.Hashgraph.Reference.Core
         ///
         /// If two transactions have the same transactionID, they won't both have an effect
         /// </summary>
-        ITransactionId TransactionId { get; }
+        TransactionId TransactionId { get; }
 
         /// <summary>
         /// Any notes or descriptions that should be put into the record (max length 100).
@@ -175,11 +174,11 @@ namespace Hedera.Hashgraph.Reference.Core
         string TransactionMemo { get; }
 
         /// <summary>
-        /// Duration from the valid start (within the transaction ID) that this
+        /// TimeSpan from the valid start (within the transaction ID) that this
         /// transaction is valid for.
         ///
         /// **NOTE**: Defaults to 120 seconds.
         /// </summary>
-        Duration TransactionValidDuration { get; }
+        TimeSpan TransactionValidTimeSpan { get; }
     }
 }

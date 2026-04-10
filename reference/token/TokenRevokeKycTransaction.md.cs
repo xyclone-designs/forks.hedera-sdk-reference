@@ -32,11 +32,11 @@ namespace Hedera.Hashgraph.Reference.Token
         /// The token for which this account will get his KYC revoked. If token does not exist, transaction results in
         /// [`Status.INVALID_TOKEN_ID`](reference/Status.md#INVALID_TOKEN_ID).
         /// </summary>
-        ITokenId TokenId { get; }
+        TokenId TokenId { get; }
 
         /// <summary>
         /// The account to be KYC Revoked
         /// </summary>
-        IAccountId AccountId { get; }
+        AccountId AccountId { get; }
     }
 }

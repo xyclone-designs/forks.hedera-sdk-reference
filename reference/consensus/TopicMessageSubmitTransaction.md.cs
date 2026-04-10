@@ -7,7 +7,7 @@ namespace Hedera.Hashgraph.Reference.Consensus
         /// <summary>
         /// Topic to submit message to.
         /// </summary>
-        ITopicId TopicId { get; }
+        TopicId TopicId { get; }
 
         /// <summary>
         /// Message to be submitted. Max size of the Transaction (including signatures) is 6KiB.

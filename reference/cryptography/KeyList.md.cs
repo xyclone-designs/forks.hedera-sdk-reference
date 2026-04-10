@@ -26,16 +26,16 @@ namespace Hedera.Hashgraph.Reference.Cryptography
     /// includes `setKey` in `AccountCreateTransaction` and `setSubmitKey` in
     /// `TopicCreateTransaction`.
     /// </summary>
-    public interface IKeyList : IList<IKey>, IKey
+    public class KeyList : List<Key>, Key
     {
         /// <summary>
         /// Construct a new `KeyList` from a list of keys
         /// </summary>
-        abstract static IKeyList Of(params IKey[] keyArray);
+        public static KeyList Of(params Key[] keyArray);
         /// <summary>
         /// Create a new, empty list of keys with the given threshold.
         /// </summary>
-        abstract static IKeyList WithThreshold(uint threshold);
+        public static KeyList WithThreshold(uint threshold);
 
         /// <summary>
         /// Stringify the `KeyList` structure into a readable format
@@ -45,7 +45,7 @@ namespace Hedera.Hashgraph.Reference.Cryptography
         /// <summary>
         /// The list of keys
         /// </summary>
-        IList<IKey> Keys { get; }
+        IList<Key> Keys { get; }
         /// <summary>
         /// A threshold indicating that a valid signature set must have at least
         /// this many signatures.

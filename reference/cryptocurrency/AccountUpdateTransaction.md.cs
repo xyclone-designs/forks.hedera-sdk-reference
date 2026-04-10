@@ -1,6 +1,8 @@
 using Hedera.Hashgraph.Reference.Core;
 using Hedera.Hashgraph.Reference.Cryptography;
 
+using System;
+
 namespace Hedera.Hashgraph.Reference.Cryptocurrency
 {
     /// <summary>
@@ -15,7 +17,7 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
         /// <summary>
         /// The account ID which is being updated in this transaction
         /// </summary>
-        IAccountId AccountId { get; }
+        AccountId AccountId { get; }
 
         /// <summary>
         /// If set, the new memo to be associated with the account (UTF-8 encoding max 100 bytes)
@@ -29,7 +31,7 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
         ///
         /// Defaults to 90 days (or 7,776,000 seconds).
         /// </summary>
-        Duration AutoRenewPeriod { get; }
+        TimeSpan AutoRenewPeriod { get; }
 
         /// <summary>
         /// If true, the account declines receiving a staking reward. The default value is false.
@@ -39,7 +41,7 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
         /// <summary>
         /// The new expiration time to extend to (ignored if equal to or before the current one)
         /// </summary>
-        Timestamp ExpirationTime { get; }
+        DateTimeOffset ExpirationTime { get; }
 
         /// <summary>
         /// The new key.
@@ -49,7 +51,7 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
         /// If `receiverSignatureRequired` is true, then the key must also sign
         /// any transfer into the account.
         /// </summary>
-        IKey Key { get; }
+        Key Key { get; }
 
         /// <summary>
         /// The maximum number of tokens that an Account can be implicitly associated with. Up to a 1000
@@ -66,7 +68,7 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
         /// account refuses to accept proxy staking , or if it is not currently running a node, then it
         /// will behave as if proxyAccountID was null.
         /// </summary>
-        IAccountId ProxyAccountId { get; }
+        AccountId ProxyAccountId { get; }
 
         /// <summary>
         /// If true, this account's key must sign any transaction depositing
@@ -79,7 +81,7 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
         /// <summary>
         /// ID of the account to which this contract is staking.
         /// </summary>
-        IAccountId? StakedNodeAccountId { get; }
+        AccountId? StakedNodeAccountId { get; }
 
         /// <summary>
         /// ID of the node this contract is staked to.

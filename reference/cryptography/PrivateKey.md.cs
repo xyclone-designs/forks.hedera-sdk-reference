@@ -8,80 +8,80 @@ namespace Hedera.Hashgraph.Reference.Cryptography
     ///
     /// > :bulb: **Tip:** Use "" for an empty passphrase
     /// </summary>
-    public interface IPrivateKey : IKey
+    public class PrivateKey : Key
     {
         /// <summary>
         /// Parses a DER encoded Ed25519 or ECDSA private key
         ///
         /// **Note**: The use of raw bytes for an Ed25519 private key is deprecated; use `fromBytesEd25519()` instead.
         /// </summary>
-        abstract static IPrivateKey FromBytes(byte[] data);
+        public static PrivateKey FromBytes(byte[] data);
         /// <summary>
         /// Parses a DER encoded Ed25519 or ECDSA private key
         ///
         /// **Note**: Does **not** support raw bytes; the data provided must be DER encoded.
         /// </summary>
-        abstract static IPrivateKey FromBytesDer(byte[] data);
+        public static PrivateKey FromBytesDer(byte[] data);
         /// <summary>
         /// Parses an ECDSA private key from either DER encoded or raw bytes.
         /// </summary>
-        abstract static IPrivateKey FromBytesEcdsa(byte[] data);
+        public static PrivateKey FromBytesEcdsa(byte[] data);
         /// <summary>
         /// Parses an Ed25519 private key from either DER encoded or raw bytes.
         /// </summary>
-        abstract static IPrivateKey FromBytesEd25519(byte[] data);
+        public static PrivateKey FromBytesEd25519(byte[] data);
         /// <summary>
         /// Recovers an ed25519 private key from a 24, 22, or 12 word mnemonic. 24 and
         /// 12 word mnemonics use a BIP-32 word list and SLIP-10 derivation. 22 word
         /// mnemonics use a legacy word list from the original Hedera mobile wallets.
         /// </summary>
-        abstract static IPrivateKey FromMnemonic(string mnemonic, string passphrase);
+        public static PrivateKey FromMnemonic(string mnemonic, string passphrase);
         /// <summary>
         /// Parse a private key from a PEM encoded string.
         /// </summary>
-        abstract static IPrivateKey FromPem(string pem);
+        public static PrivateKey FromPem(string pem);
         /// <summary>
         /// Extract the ECDSA private key from a seed.
         /// </summary>
-        abstract static IPrivateKey FromSeedECDSAsecp256k1(byte[] seed);
+        public static PrivateKey FromSeedECDSAsecp256k1(byte[] seed);
         /// <summary>
         /// Extract the ED25519 private key from a seed.
         /// </summary>
-        abstract static IPrivateKey FromSeedED25519(byte[] seed);
+        public static PrivateKey FromSeedED25519(byte[] seed);
         /// <summary>
         /// Parses a HEX and DER encoded Ed25519 or ECDSA private key
         ///
         /// **Note**: The use of raw bytes for an Ed25519 private key is deprecated; use `fromStringEd25519()` instead.
         /// </summary>
-        abstract static IPrivateKey FromString(string text);
+        public static PrivateKey FromString(string text);
         /// <summary>
         /// Parses a HEX and DER encoded Ed25519 or ECDSA private key
         ///
         /// **Note**: Does **not** support raw bytes; the data provided must be DER encoded.
         /// </summary>
-        abstract static IPrivateKey FromStringDer(string text);
+        public static PrivateKey FromStringDer(string text);
         /// <summary>
         /// Parses an ECDSA private key from either HEX and DER encoded bytes or just HEX encoded raw bytes.
         /// </summary>
-        abstract static IPrivateKey FromStringEcdsa(string text);
+        public static PrivateKey FromStringEcdsa(string text);
         /// <summary>
         /// Parses an Ed25519 private key from either HEX and DER encoded bytes or just HEX encoded raw bytes.
         /// </summary>
-        abstract static IPrivateKey FromStringEd25519(string text);
+        public static PrivateKey FromStringEd25519(string text);
         /// <summary>
         /// Recovers an PrivateKey from an encrypted keystore encoded as a byte slice.
         /// </summary>
-        abstract static IPrivateKey FromKeystore(byte[] data, string passphrase);
+        public static PrivateKey FromKeystore(byte[] data, string passphrase);
         /// <summary>
         /// Generates a new Ed25519 private key.
         ///
         /// Deprecated: Use `generateEd5519()` or `generateEcdsa()` instead.
         /// </summary>
-        abstract static IPrivateKey Generate();
+        public static PrivateKey Generate();
         /// <summary>
         /// Generates a new ECDSA private key.
         /// </summary>
-        abstract static IPrivateKey GenerateEcdsa();
+        public static PrivateKey GenerateEcdsa();
         /// <summary>
         /// Generates a new Ed25519 private key.
         ///
@@ -92,7 +92,7 @@ namespace Hedera.Hashgraph.Reference.Cryptography
         /// unexpected number of words.
         ///
         /// </summary>
-        abstract static IPrivateKey GenerateEd25519();
+        public static PrivateKey GenerateEd25519();
 
         /// <summary>
         /// Given a wallet/account index, derive a child key compatible with the iOS and Android wallets.
@@ -132,7 +132,7 @@ namespace Hedera.Hashgraph.Reference.Cryptography
         /// Note: The account ID created will use the `publicKey` property of this `PrivateKey`,
         /// not the `PrivateKey` bytes.
         /// </summary>
-        IAccountId ToAccountId(long shard, long realm);
+        AccountId ToAccountId(long shard, long realm);
 
         /// <summary>
         /// Serialize the private key into bytes.

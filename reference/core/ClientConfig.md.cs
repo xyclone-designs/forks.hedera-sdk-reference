@@ -13,7 +13,7 @@ namespace Hedera.Hashgraph.Reference.Core
         /// The key is the address and the value is the serialized form of
         /// [`AccountId`](../cryptocurrency/AccountId.md)
         /// </summary>
-        IDictionary <string, string> Network { get; }
+        IDictionary <string, string> NetworkMap { get; }
 
         /// <summary>
         /// The name of the network
@@ -27,7 +27,7 @@ namespace Hedera.Hashgraph.Reference.Core
         ///
         /// Each value in the list is the address to a mirror node
         /// </summary>
-        IList<string> MirrorNetwork { get; }
+        IList<string> MirrorNetworkAddresses { get; }
 
         /// <summary>
         /// The name of the mirror network
@@ -39,7 +39,7 @@ namespace Hedera.Hashgraph.Reference.Core
         /// <summary>
         /// The operator for the given client
         /// </summary>
-        Operator Operator { get; }
+        IOperatorConfig Operator { get; }
 
         /// <summary>
         /// Set the name of the given network.

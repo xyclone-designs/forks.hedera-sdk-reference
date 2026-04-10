@@ -20,18 +20,15 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
         ///
         /// Deprecated: use `ApproveHbarAllowance` instead.
         /// </summary>
-        IAccountId AddHbarApproval();
-
+        AccountId AddHbarApproval();
         /// <summary>
         /// Approve an Hbar allowance
         /// </summary>
-        IAccountId ApproveHbarAllowance();
-
+        AccountId ApproveHbarAllowance();
         /// <summary>
         /// Get the current list of hbar approves for this transaction.
         /// </summary>
-        HbarAllowance GetHbarApprovals();
-
+        IHbarAllowance GetHbarApprovals();
         /// <summary>
         /// Add a fungible token approve
         ///
@@ -39,18 +36,15 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
         ///
         /// Deprecated: use `approveTokenAllowance` instead.
         /// </summary>
-        ITokenId AddTokenApprovals();
-
+        TokenId AddTokenApprovals();
         /// <summary>
         /// Approve a fungible token allowance.
         /// </summary>
-        ITokenId ApproveTokenAllowance();
-
+        TokenId ApproveTokenAllowance();
         /// <summary>
         /// Get the current list of hbar approves for this transaction.
         /// </summary>
         TokenAllowance GetTokenApprovals();
-
         /// <summary>
         /// Add a non-fungible token approve
         ///
@@ -59,12 +53,10 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
         /// Deprecated: use `approveTokenNftAllowance` instead.
         /// </summary>
         NftId AddTokenNftApproval();
-
         /// <summary>
         /// Approve a non-fungible token allowance
         /// </summary>
         NftId ApproveTokenNftAllowance();
-
         /// <summary>
         /// Add all non-fungible tokens to approve
         ///
@@ -72,18 +64,16 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
         ///
         /// Deprecated: use `approveTokenNftAllowanceAllSerials` instead.
         /// </summary>
-        ITokenId AddAllTokenNftApprovals();
-
+        TokenId AddAllTokenNftApprovals();
         /// <summary>
         /// Approve an allowance of all serial numbers of a non-fungible token.
         /// </summary>
-        ITokenId ApproveTokenNftAllowanceAllSerials();
-
+        TokenId ApproveTokenNftAllowanceAllSerials();
         /// <summary>
         /// Get the list of all non-fungible token approves for this transaction
         ///
         /// </summary>
-        TokenNftAllowance GetTokenNftApprovals();
+        ITokenNftAllowance GetTokenNftApprovals();
 
     }
 }

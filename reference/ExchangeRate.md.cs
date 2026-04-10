@@ -1,10 +1,11 @@
+using System;
 
 namespace Hedera.Hashgraph.Reference
 {
     public interface IExchangeRate
     {
-        IHbar Hbars { get; }
+        Hbar Hbars { get; }
         int Cents { get; }
-        Timestamp ExpirationTime { get; }
+        DateTimeOffset ExpirationTime { get; }
     }
 }

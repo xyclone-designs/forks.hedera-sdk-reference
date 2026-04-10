@@ -7,6 +7,6 @@ namespace Hedera.Hashgraph.Reference.Consensus
         /// <summary>
         /// The `topicId` which should be deleted
         /// </summary>
-        ITopicId TopicId { get; }
+        TopicId TopicId { get; }
     }
 }

@@ -66,7 +66,7 @@ The new key to control updates/deletion of the contract.
 
 ---
 
-##### `expirationTime`: `Timestamp`
+##### `expirationTime`: `DateTimeOffset`
 
 The new expiry of the contract, no earlier than the current expiry.
 
@@ -82,7 +82,7 @@ The new id of the account to which the contract is proxy staked.
 
 ---
 
-##### `autoRenewPeriod`: `Duration`
+##### `autoRenewPeriod`: `TimeSpan`
 
 ***Not yet implemented***
 <br>

@@ -1,6 +1,8 @@
 using Hedera.Hashgraph.Reference.Core;
 using Hedera.Hashgraph.Reference.File;
 
+using System;
+
 namespace Hedera.Hashgraph.Reference.System
 {
     /// <summary>
@@ -9,18 +11,18 @@ namespace Hedera.Hashgraph.Reference.System
     /// </summary>
     public interface IFreezeTransaction : ITransaction
     {
-        Timestamp StartTime { get; }
+        DateTimeOffset StartTime { get; }
 
         /// <summary>
         /// Deprecated with no replacement
         /// </summary>
-        Timestamp EndTime { get; }
+        DateTimeOffset EndTime { get; }
 
         /// <summary>
         /// If set, the file whose contents should be used for a network software update during the maintenance
         /// window.
         /// </summary>
-        IFileId FileId { get; }
+        FileId FileId { get; }
 
         /// <summary>
         /// If set, the expected hash of the contents of the update file (used to verify the update).

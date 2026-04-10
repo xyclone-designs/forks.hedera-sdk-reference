@@ -1,3 +1,5 @@
+using System;
+
 namespace Hedera.Hashgraph.Reference.Consensus
 {
     public interface ITopicMessageChunk
@@ -5,7 +7,7 @@ namespace Hedera.Hashgraph.Reference.Consensus
         /// <summary>
         /// The consensus timestamp of this topic message chunk.
         /// </summary>
-        Timestamp ConsensusTimestamp { get; set; }
+        DateTimeOffset ConsensusDateTimeOffset { get; set; }
         /// <summary>
         /// The contents of this topic message chunk.
         /// </summary>
@@ -18,6 +20,5 @@ namespace Hedera.Hashgraph.Reference.Consensus
         /// The sequence number of this topic message chunk.
         /// </summary>
         long SequenceNumber { get; set; }
-
     }
 }

@@ -39,5 +39,5 @@ namespace Hedera.Hashgraph.Reference.Cryptography
     /// **Note**: [`ContractId`](../contract/ContractId.md) can represent either a regular
     /// contract ID or a delegatable contract ID.
     /// </summary>
-    public interface IKey { }
+    public class Key { }
 }

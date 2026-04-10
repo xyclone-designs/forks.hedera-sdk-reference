@@ -107,7 +107,7 @@ If the `proxyAccountID` account refuses to accept proxy staking , or if it is no
 
 ---
 
-##### `autoRenewPeriod`: `Duration`
+##### `autoRenewPeriod`: `TimeSpan`
 
 The instance will charge its account every this many seconds to renew for this long.
 

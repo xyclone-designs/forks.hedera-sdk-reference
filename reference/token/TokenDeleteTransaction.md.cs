@@ -15,6 +15,6 @@ namespace Hedera.Hashgraph.Reference.Token
         /// <summary>
         /// The Token to be Deleted
         /// </summary>
-        ITokenId TokenId { get; }
+        TokenId TokenId { get; }
     }
 }

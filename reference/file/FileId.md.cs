@@ -1,49 +1,63 @@
+using System;
+
 namespace Hedera.Hashgraph.Reference.File
 {
     /// <summary>
     /// An ID type that represents a file on a Hedera Hashgraph network.
     /// </summary>
-    public interface IFileId
+    public class FileId
     {
         /// <summary>
         /// Construct a [`FileId`](#) with [`shard`](#shard-uint64) and [`realm`](#realm-uint64) being zero.
         /// </summary>
-        abstract static void Constructor(long num);
-
+        public FileId(long num) : this(0, 0, num) { }
         /// <summary>
         /// Construct a [`FileId`](#) with all fields explicitly set.
         /// </summary>
-        abstract static void Constructor(long shard, long realm, long num);
+        public FileId(long shard, long realm, long num)
+        {
+            Shard = shard;
+            Realm = realm;
+            Num = num;
+        }
 
         /// <summary>
         /// Construct a [`FileId`](#) from a string. The format of the string could be either just
         /// a number "4" or dot separated numbers "0.0.4".
         /// </summary>
-        abstract static IFileId FromString(string str);
-
+        public static FileId FromString(string str)
+        {
+            throw new NotImplementedException();
+        }
         /// <summary>
         /// Deserialize a [`FileId`](#) from its the protobuf representation.
         /// </summary>
-        abstract static IFileId FromBytes(byte[] data);
+        public static FileId FromBytes(byte[] data)
+        {
+            throw new NotImplementedException();
+        }
 
         /// <summary>
         /// Serialize the [`FileId`](#) into its protobuf representation.
         /// </summary>
-        byte[] ToBytes();
+        public virtual byte[] ToBytes()
+        {
+            throw new NotImplementedException();
+        }
 
         /// <summary>
         /// The shard of this ID.
         /// </summary>
-        long Shard { get; }
+        public long Shard { get; }
 
         /// <summary>
         /// The realm of this ID.
         /// </summary>
-        long Realm { get; }
+        public long Realm { get; }
 
         /// <summary>
         /// The num of this ID.
         /// </summary>
-        long Num { get; }
+        public long Num { get; }
     }
 }

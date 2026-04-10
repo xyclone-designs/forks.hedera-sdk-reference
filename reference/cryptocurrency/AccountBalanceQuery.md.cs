@@ -13,12 +13,12 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
     /// > `AccountBalanceQuery` is a completely free query and does not even require
     /// > `setOperator` to be called on the client.
     /// </summary>
-    public interface IAccountBalanceQuery : IQuery<IHbar>
+    public interface IAccountBalanceQuery : IQuery<Hbar>
     {
         /// <summary>
         /// The account ID for which information is requested
         /// </summary>
-        IAccountId AccountId { get; }
+        AccountId AccountId { get; }
 
         /// <summary>
         /// The contract ID for which information is requested

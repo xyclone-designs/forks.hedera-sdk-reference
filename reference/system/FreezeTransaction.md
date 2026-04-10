@@ -58,11 +58,11 @@ if err != nil {
 
 ### Properties
 
-##### `startTime`: `Timestamp`
+##### `startTime`: `DateTimeOffset`
 
 ---
 
-##### `endTime`: `Timestamp`
+##### `endTime`: `DateTimeOffset`
 
 Deprecated with no replacement
 

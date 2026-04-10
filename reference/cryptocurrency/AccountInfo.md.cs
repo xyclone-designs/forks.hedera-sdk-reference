@@ -1,7 +1,8 @@
-
 using Hedera.Hashgraph.Reference.Cryptography;
 using Hedera.Hashgraph.Reference.LiveHash;
 using Hedera.Hashgraph.Reference.Token;
+
+using System;
 using System.Collections.Generic;
 
 namespace Hedera.Hashgraph.Reference.Cryptocurrency
@@ -9,12 +10,12 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
     /// <summary>
     /// Info about the account (a state proof can be generated for this)
     /// </summary>
-    public interface IAccountInfo
+    public class AccountInfo
     {
         /// <summary>
         /// Deserialize a [`AccountInfo`](AccountInfo) from its protobuf representation.
         /// </summary>
-        abstract static IAccountInfo FromBytes(byte[] data);
+        public static AccountInfo FromBytes(byte[] data);
 
         /// <summary>
         /// Serialize the [`AccountInfo`](AccountInfo) into its protobuf representation.
@@ -24,7 +25,7 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
         /// <summary>
         /// The account ID for which this information applies
         /// </summary>
-        IAccountId AccountId { get; }
+        AccountId AccountId { get; }
 
         /// <summary>
         /// The memo associated with the account
@@ -43,12 +44,12 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
         ///
         /// Defaults to 90 days (or 7,776,000 seconds).
         /// </summary>
-        Timestamp AutoRenewPeriod { get; }
+        DateTimeOffset AutoRenewPeriod { get; }
 
         /// <summary>
         /// The current balance of account in tinybars
         /// </summary>
-        IHbar Balance { get; }
+        Hbar Balance { get; }
 
         /// <summary>
         /// The Contract Account ID comprising both the contract instance and the cryptocurrency
@@ -64,7 +65,7 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
         /// <summary>
         /// The TimeStamp time at which this account is set to expire.
         /// </summary>
-        Timestamp ExpirationTime { get; }
+        DateTimeOffset ExpirationTime { get; }
 
         /// <summary>
         /// All Hbar allowances approved by the account owner.
@@ -86,7 +87,7 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
         /// The key for the account, which must sign in order to transfer out, or to modify the
         /// account in any way other than extending its expiration date.
         /// </summary>
-        IKey Key { get; }
+        Key Key { get; }
 
         /// <summary>
         /// The ID of the ledger which returned this response
@@ -118,24 +119,24 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
         /// If the proxyAccountID account refuses to accept proxy staking , or if it is not currently
         /// running a node, then it will behave as if proxyAccountID was null.
         /// </summary>
-        IAccountId ProxyAccountId { get; }
+        AccountId ProxyAccountId { get; }
 
         /// <summary>
         /// The total number of tinybars proxy staked to this account
         /// </summary>
-        IHbar ProxyReceived { get; }
+        Hbar ProxyReceived { get; }
 
         /// <summary>
         /// The threshold amount for which an account record is created (and this account charged
         /// for them) for any transaction above this amount.
         /// </summary>
-        IHbar ReceiveRecordThreshold { get; }
+        Hbar ReceiveRecordThreshold { get; }
 
         /// <summary>
         /// The threshold amount for which an account record is created (and this account charged
         /// for them) for any send/withdraw transaction.
         /// </summary>
-        IHbar SendRecordThreshold { get; }
+        Hbar SendRecordThreshold { get; }
 
         /// <summary>
         /// Staking metadata for this contract.
@@ -145,16 +146,16 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
         /// <summary>
         /// All fungible token allowances approved by the account owner.
         /// </summary>
-        TokenAllowance TokenAllowances { get; }
+        ITokenAllowance TokenAllowances { get; }
 
         /// <summary>
         /// All non-fungible token allowances approved by the account owner.
         /// </summary>
-        TokenNftAllowance TokenNftAllowances { get; }
+        ITokenNftAllowance TokenNftAllowances { get; }
 
         /// <summary>
         /// All tokens related to this account.
         /// </summary>
-        IDictionary<ITokenId, ITokenRelationship> TokenRelationships { get; }
+        IDictionary<TokenId, ITokenRelationship> TokenRelationships { get; }
     }
 }

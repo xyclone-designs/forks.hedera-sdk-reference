@@ -23,7 +23,7 @@ account, and any one of which can later delete it.
 
 ---
 
-### `duration`: `Duration`
+### `duration`: `TimeSpan`
 
 The duration for which the livehash will remain valid
 

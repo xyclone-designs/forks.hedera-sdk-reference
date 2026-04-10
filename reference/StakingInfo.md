@@ -24,7 +24,7 @@ If true, this account or contract declined to receive a staking reward.
 
 ---
 
-##### `stakePeriodStart`: `Timestamp`
+##### `stakePeriodStart`: `DateTimeOffset`
 
 The staking period during which either the staking settings for this account or contract changed (such as starting
 staking or changing staked\_node\_id) or the most recent reward was earned, whichever is later. If this account or contract

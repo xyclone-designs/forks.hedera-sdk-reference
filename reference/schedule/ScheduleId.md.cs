@@ -1,72 +1,103 @@
 using Hedera.Hashgraph.Reference.Core;
+using System;
 
 namespace Hedera.Hashgraph.Reference.Schedule
 {
     /// <summary>
     /// The ID for an a cryptocurrency schedule
     /// </summary>
-    public interface IScheduleId
+    public class ScheduleId
     {
         /// <summary>
         /// Construct a [`ScheduleId`](#) with [`shard`](#shard-uint64) and [`realm`](#realm-uint64) being zero.
         /// </summary>
-        abstract static void Constructor(long num);
+        public ScheduleId(long num) : this(0, 0, num) { }
         /// <summary>
         /// Construct a [`ScheduleId`](#) with all fields explicitly set.
         /// </summary>
-        abstract static void Constructor(long shard, long realm, long num);
+        public ScheduleId(long shard, long realm, long num)
+        {
+            Shard = shard;
+            Realm = realm;
+            Num = num;
+        }
 
         /// <summary>
         /// Construct an [`ScheduleId`](#) from a string.
         /// `str` must match `^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.((?:[0-9a-fA-F][0-9a-fA-F])+)$`
         /// </summary>
-        abstract static IScheduleId FromString(string str);
+        public static ScheduleId FromString(string str)
+        {
+            throw new NotImplementedException();
+        }
         /// <summary>
         /// Deserialize an schedule ID from its the protobuf representation.
         /// </summary>
-        abstract static IScheduleId FromBytes(byte[] data);
+        public static ScheduleId FromBytes(byte[] data)
+        {
+            throw new NotImplementedException();
+        }
         /// <summary>
         /// Construct an schedule ID from a solidity address.
         /// </summary>
-        abstract static IScheduleId FromSolidityAddress(string str);
+        public static ScheduleId FromSolidityAddress(string str)
+        {
+            throw new NotImplementedException();
+        }
 
         /// <summary>
         /// Get the checksum for this schedule ID if it constructed with one.
         /// </summary>
-        string GetChecksum();
+        public virtual string GetChecksum()
+        {
+            throw new NotImplementedException();
+        }
         /// <summary>
         /// Validate the schedule ID's checksum matches the client's network.
         ///
         /// Note: The client must contain a network with a known [`NetworkName`](reference/NetworkName.md)
         /// </summary>
-        void ValidateChecksum(IClient client);
+        public virtual void ValidateChecksum(IClient client)
+        {
+            throw new NotImplementedException();
+        }
 
         /// <summary>
         /// Serialize this ID into its protobuf representation.
         /// </summary>
-        byte[] ToBytes();
-        /// <summary>
-        /// Stringify this ID into `{shard}.{realm}.{num}`
-        /// </summary>
-        string ToString();
+        public virtual byte[] ToBytes()
+        {
+            throw new NotImplementedException();
+        }
         /// <summary>
         /// Stringify this ID into `{shard}.{realm}.{num}-{checksum}` using the client's network.
         ///
         /// Note: The client must contain a network with a known [`NetworkName`](reference/NetworkName.md)
         /// </summary>
-        string ToStringWithChecksum(IClient client);
+        public virtual string ToStringWithChecksum(IClient client)
+        {
+            throw new NotImplementedException();
+        }
 
         /// <summary>
         /// The shard number (nonnegative);
         /// </summary>
-        long Shard { get; }
+        public long Shard { get; }
         /// <summary>
         /// The realm number (nonnegative);
         /// </summary>
-        long Realm { get; }
+        public long Realm { get; }
         /// <summary>
         /// A nonnegative schedule number unique within its realm
         ///</summary>
-        long Num { get; }
+        public long Num { get; }
+
+        /// <summary>
+        /// Stringify this ID into `{shard}.{realm}.{num}`
+        /// </summary>
+        public override string ToString()
+        {
+            return string.Format("{0}.{1}.{2}", Shard, Realm, Num);
+        }
     }
 }

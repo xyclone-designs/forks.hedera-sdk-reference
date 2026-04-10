@@ -28,7 +28,7 @@ doesn't respond.
 
 ---
 
-##### `maxBackoff`: `Duration`
+##### `maxBackoff`: `TimeSpan`
 
 The maximum amount of time to wait between retries
 
@@ -42,7 +42,7 @@ Defaults to `maxQueryPayment` from the `client`.
 
 ---
 
-##### `minBackoff`: `Duration`
+##### `minBackoff`: `TimeSpan`
 
 The minimum amount of time to wait between retries
 

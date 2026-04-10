@@ -36,7 +36,7 @@ The alias of this account
 
 ---
 
-##### `autoRenewPeriod`: `Timestamp`
+##### `autoRenewPeriod`: `DateTimeOffset`
 
 The duration for expiration time will extend every this many seconds. If there are
 insufficient funds, then it extends as long as possible. If it is empty when it expires,
@@ -65,7 +65,7 @@ The ethereum transaction nonce associated with this account.
 
 ---
 
-##### `expirationTime`: `Timestamp`
+##### `expirationTime`: `DateTimeOffset`
 
 The TimeStamp time at which this account is set to expire.
 

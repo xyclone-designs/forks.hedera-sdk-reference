@@ -2,13 +2,15 @@ using Hedera.Hashgraph.Reference.Core;
 using Hedera.Hashgraph.Reference.Cryptocurrency;
 using Hedera.Hashgraph.Reference.Cryptography;
 
+using System;
+
 namespace Hedera.Hashgraph.Reference.LiveHash
 {
     public interface ILiveHashAddTransaction : ITransaction
     {
-        IAccountId AccountId { get; }
+        AccountId AccountId { get; }
         byte[] Hash { get; }
-        IKeyList Keys { get; }
-        Duration Duration { get; }
+        KeyList Keys { get; }
+        TimeSpan TimeSpan { get; }
     }
 }

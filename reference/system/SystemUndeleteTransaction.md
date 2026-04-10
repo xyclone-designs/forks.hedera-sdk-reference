@@ -24,12 +24,12 @@ new SystemUndeleteTransaction()
 ```js
 await new SystemUndeleteTransaction()
     .setContractId(new ContractId(10))
-    .setExpirationTime(Timestamp.generate())
+    .setExpirationTime(DateTimeOffset.generate())
     .execute(client);
 
 await new SystemUndeleteTransaction()
     .setFileId(new FileId(10))
-    .setExpirationTime(Timestamp.generate())
+    .setExpirationTime(DateTimeOffset.generate())
     .execute(client);
 ```
 
@@ -81,7 +81,7 @@ if err != nil {
 
 ---
 
-##### `expirationTime`: `Timestamp`
+##### `expirationTime`: `DateTimeOffset`
 
 ---
 
