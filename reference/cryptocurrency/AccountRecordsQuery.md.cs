@@ -8,7 +8,7 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
     /// <tt> ledger.keepRecordsInState=true</tt> was true during
     /// <tt> handleTransaction</tt>.
     /// </summary>
-    public interface IAccountRecordsQuery : IQuery<ITransactionRecord[]>
+    public interface IAccountRecordsQuery : IQuery<TransactionRecord[]>
     {
         /// <summary>
         /// The account ID for which the records should be retrieved

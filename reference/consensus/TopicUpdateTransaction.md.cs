@@ -39,14 +39,14 @@ namespace Hedera.Hashgraph.Reference.Consensus
         /// If unspecified, no change.
         /// If empty `keyList` - the `adminKey` is cleared.
         /// </summary>
-        Key AdminKey { get; }
+        IKey AdminKey { get; }
 
         /// <summary>
         /// Access control for `submitMessage`.
         /// If unspecified, no change.
         /// If empty `keyList` - the `submitKey` is cleared.
         /// </summary>
-        Key SubmitKey { get; }
+        IKey SubmitKey { get; }
 
         /// <summary>
         /// The amount of time to extend the topic's lifetime automatically at `expirationTime` if the `autoRenewAccountId` is

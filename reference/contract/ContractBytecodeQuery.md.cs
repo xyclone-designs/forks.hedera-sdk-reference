@@ -10,6 +10,6 @@ namespace Hedera.Hashgraph.Reference.Contract
         /// <summary>
         /// This is the contract ID which bytecode will be queried for.
         /// </summary>
-        IContractId ContractId { get; set; }
+        ContractId ContractId { get; set; }
     }
 }

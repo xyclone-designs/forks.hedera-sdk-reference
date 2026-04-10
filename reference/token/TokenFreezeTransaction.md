@@ -17,7 +17,7 @@ If the provided token has been deleted, the transaction will resolve to
 If an Association between the provided token and account is not found, the transaction will resolve to
 [`Status.TOKEN_NOT_ASSOCIATED_TO_ACCOUNT`](reference/Status.md#TOKEN_NOT_ASSOCIATED_TO_ACCOUNT).
 
-If Freeze Key is not present in the Token, transaction results in TOKEN_HAS_NO_Freeze_KEY.
+If Freeze IKey is not present in the Token, transaction results in TOKEN_HAS_NO_Freeze_KEY.
 [`Status.TOKEN_HAS_NO_FREEZE_KEY`](reference/Status.md#TOKEN_HAS_NO_FREEZE_KEY).
 
 Once executed the Account is marked as Frozen and will not be able to receive or send tokens unless unfrozen.

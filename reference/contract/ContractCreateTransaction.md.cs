@@ -22,7 +22,7 @@ namespace Hedera.Hashgraph.Reference.Contract
         /// If this is null, then such modifications are not possible, and there is no administrator that can override the normal operation of this smart contract instance.
         /// Note that if it is created with no admin keys, then there is no administrator to authorize changing the admin keys, so there can never be any admin keys for that instance.
         /// </summary>
-        Key AdminKey { get; }
+        IKey AdminKey { get; }
 
         /// <summary>
         /// Gas to run the constructor.

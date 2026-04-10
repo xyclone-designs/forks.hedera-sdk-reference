@@ -61,30 +61,30 @@ namespace Hedera.Hashgraph.Reference.Token
         ///
         /// Note: This key **MUST** sign the transaction if present.
         /// </summary>
-        Key AdminKey { get; }
+        IKey AdminKey { get; }
 
         /// <summary>
         /// The key which can grant or revoke KYC of an account for the token's transactions. If empty, KYC is not required,
         /// and KYC grant or revoke operations are not possible.
         /// </summary>
-        Key KycKey { get; }
+        IKey KycKey { get; }
 
         /// <summary>
         /// The key which can sign to freeze or unfreeze an account for token transactions. If empty, freezing is not possible
         /// </summary>
-        Key FreezeKey { get; }
+        IKey FreezeKey { get; }
 
         /// <summary>
         /// The key which can wipe the token balance of an account. If empty, wipe is not possible
         /// </summary>
-        Key WipeKey { get; }
+        IKey WipeKey { get; }
 
         /// <summary>
         /// The key which can change the supply of a token. The key is used to sign Token Mint/Burn operations
         ///
         /// Note: This key **MUST** sign the transaction if present.
         /// </summary>
-        Key SupplyKey { get; }
+        IKey SupplyKey { get; }
 
         /// <summary>
         /// The default Freeze status (frozen or unfrozen) of Hedera accounts relative to this token. If true, an account must
@@ -111,9 +111,9 @@ namespace Hedera.Hashgraph.Reference.Token
         TimeSpan AutoRenewPeriod { get; }
 
         /// <summary>
-        /// The Key which can pause and unpause the Token. If Empty the token pause status defaults to
+        /// The IKey which can pause and unpause the Token. If Empty the token pause status defaults to
         /// PauseNotApplicable, otherwise Unpaused.
         /// </summary>
-        Key PauseKey { get; }
+        IKey PauseKey { get; }
     }
 }

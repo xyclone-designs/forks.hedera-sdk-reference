@@ -12,7 +12,7 @@ namespace Hedera.Hashgraph.Reference.Consensus
     /// </summary>
     public class TopicInfo
     {
-        public TopicInfo(TopicId topicId, string topicMemo, byte[] runningHash, ulong sequenceNumber, DateTimeOffset expirationTime, Key? adminKey, Key? submitKey, TimeSpan autoRenewPeriod, AccountId autoRenewAccountId, LedgerId ledgerId)
+        public TopicInfo(TopicId topicId, string topicMemo, byte[] runningHash, ulong sequenceNumber, DateTimeOffset expirationTime, IKey? adminKey, IKey? submitKey, TimeSpan autoRenewPeriod, AccountId autoRenewAccountId, LedgerId ledgerId)
         {
             TopicId = topicId;
             TopicMemo = topicMemo;
@@ -64,11 +64,11 @@ namespace Hedera.Hashgraph.Reference.Consensus
         /// <summary>
         /// The key that is required to sign transactions that mutate this topic.
         /// </summary>
-        public Key? AdminKey { get; }
+        public IKey? AdminKey { get; }
         /// <summary>
         /// The key that is required to sign transactions that submit messages to this topic.
         /// </summary>
-        public Key? SubmitKey { get; }
+        public IKey? SubmitKey { get; }
         /// <summary>
         /// The duration since topic creation when this topic will be auto renewed and the auto renew account will be charged.
         /// </summary>

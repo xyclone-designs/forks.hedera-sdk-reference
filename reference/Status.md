@@ -1004,7 +1004,7 @@ All contract storage allocated to the current price regime has been consumed.
 ##### INVALID\_ALIAS\_KEY
 
 An alias used in a CryptoTransfer transaction is not the serialization of a primitive Key
-message--that is, a Key with a single Ed25519 or ECDSA(secp256k1) public key and no
+message--that is, a IKey with a single Ed25519 or ECDSA(secp256k1) public key and no
 unknown protobuf fields.
 
 ##### SPENDER\_ACCOUNT\_SAME\_AS\_OWNER

@@ -3,7 +3,7 @@ using Hedera.Hashgraph.Reference.Core;
 namespace Hedera.Hashgraph.Reference.Token
 {
     /// <summary>
-    /// Mints tokens to the Token's treasury Account. If no Supply Key is defined, the transaction will resolve to
+    /// Mints tokens to the Token's treasury Account. If no Supply IKey is defined, the transaction will resolve to
     /// [`Status.TOKEN_HAS_NO_SUPPLY_KEY`](reference/Status.md#TOKEN_HAS_NO_SUPPLY_KEY).
     /// The operation increases the Total Supply of the Token. The maximum total supply a token can have is 2^63-1.
     /// The amount provided must be in the lowest denomination possible. Example:

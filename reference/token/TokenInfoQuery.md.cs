@@ -2,7 +2,7 @@ using Hedera.Hashgraph.Reference.Core;
 
 namespace Hedera.Hashgraph.Reference.Token
 {
-    public interface ITokenInfoQuery : IQuery<ITokenInfo>
+    public interface ITokenInfoQuery : IQuery<TokenInfo>
     {
         TokenId TokenId { get; }
     }

@@ -57,7 +57,7 @@ namespace Hedera.Hashgraph.Reference.Schedule
         ///
         /// Note: The client must contain a network with a known [`NetworkName`](reference/NetworkName.md)
         /// </summary>
-        public virtual void ValidateChecksum(IClient client)
+        public virtual void ValidateChecksum(Client client)
         {
             throw new NotImplementedException();
         }
@@ -74,7 +74,7 @@ namespace Hedera.Hashgraph.Reference.Schedule
         ///
         /// Note: The client must contain a network with a known [`NetworkName`](reference/NetworkName.md)
         /// </summary>
-        public virtual string ToStringWithChecksum(IClient client)
+        public virtual string ToStringWithChecksum(Client client)
         {
             throw new NotImplementedException();
         }

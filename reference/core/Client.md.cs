@@ -9,7 +9,7 @@ namespace Hedera.Hashgraph.Reference.Core
     /// <summary>
     /// Managed client for use on the Hedera Hashgraph network.
     /// </summary>
-    public class Client
+    public abstract class Client
     {
         /// <summary>
         /// Construct a client for a specific network.
@@ -24,26 +24,37 @@ namespace Hedera.Hashgraph.Reference.Core
         ///
         /// Network constants are made available to use.
         /// </summary>
-        public static Client ForNetwork(IDictionary<string, AccountId> network);
+        public static Client ForNetwork(IDictionary<string, AccountId> network)
+        {
+            throw new NotImplementedException();
+        }
         /// <summary>
         /// Construct a Hedera client pre-configured for Mainnet access.
         ///
         /// Will initially be filled with a hard-coded address book for the consensus node network, but in the background the client will immediately attempt to update its consensus node network using an [`AddressBookQuery`](../network/AddressBookQuery.md) against the mirror network.  If the query fails, the consensus node network will remain unchanged and the query failure will be logged.
         /// </summary>
-        public static Client ForMainnet();
+        public static Client ForMainnet()
+        {
+            throw new NotImplementedException();
+        }
         /// <summary>
         /// Construct a Hedera client pre-configured for Testnet access.
         ///
         /// Will initially be filled with a hard-coded address book for the consensus node network, but in the background the client will immediately attempt to update its consensus node network using an [`AddressBookQuery`](../network/AddressBookQuery.md) against the mirror network.  If the query fails, the consensus node network will remain unchanged and the query failure will be logged.
         /// </summary>
-        public static Client ForTestnet();
+        public static Client ForTestnet()
+        {
+            throw new NotImplementedException();
+        }
         /// <summary>
         /// Construct a Hedera client pre-configured for Previewnet access.
         ///
         /// Will initially be filled with a hard-coded address book for the consensus node network, but in the background the client will immediately attempt to update its consensus node network using an [`AddressBookQuery`](../network/AddressBookQuery.md) against the mirror network.  If the query fails, the consensus node network will remain unchanged and the query failure will be logged.
         /// </summary>
-        public static Client ForPreviewnet();
-
+        public static Client ForPreviewnet()
+        {
+            throw new NotImplementedException();
+        }
         /// <summary>
         /// Construct a Hedera client for a given name.
         ///
@@ -51,7 +62,10 @@ namespace Hedera.Hashgraph.Reference.Core
         ///
         /// For a valid name, the behavior is identical to `for[Mainnet|Testnet|Previewnet]()`
         /// </summary>
-        public static Client ForName(string name);
+        public static Client ForName(string name)
+        {
+            throw new NotImplementedException();
+        }
         /// <summary>
         /// Configure a client from the JSON configuration string.
         ///
@@ -106,45 +120,48 @@ namespace Hedera.Hashgraph.Reference.Core
         ///
         /// </details>
         /// </summary>
-        public static Client FromConfig(string data);
+        public static Client FromConfig(string data)
+        {
+            throw new NotImplementedException();
+        }
         /// <summary>
         /// Configure a client from the JSON configuration file. The file must have the same structure as the JSON in [`fromConfig`](#fromconfig--data--string---client)
         /// </summary>
-        public static Client FromConfigFile(string filename);
+        public static Client FromConfigFile(string filename)
+        {
+            throw new NotImplementedException();
+        }
 
         /// <summary>
         /// Close all open connections with the Hedera network; and, release all
         /// associated resources.
         /// </summary>
-        void Close();
-
+        public abstract void Close();
         /// <summary>
         /// Ping a single node
         ///
         /// **NOTE**: This method will **not** throw if the node doesn't respond with a successful status code,
         /// instead the network will de-prioritize it.
         /// </summary>
-        void Ping(AccountId nodeAccountId);
-
+        public abstract void Ping(AccountId nodeAccountId);
         /// <summary>
         /// Ping all nodes in the current network.
         ///
         /// **NOTE**: This method will **not** throw if a node doesn't respond with a successful status code,
         /// instead the network will de-prioritize it.
         /// </summary>
-        void PingAll();
+        public abstract void PingAll();
 
         /// <summary>
         /// Replaces the current network with one which is given in an `AddressBook` (which presumably was acquired via an [`AddressBookQuery`](../network/AddressBookQuery.md))
         /// </summary>
-        void SetNetworkFromAddressBook(IAddressBook addressBook);
+        public abstract void SetNetworkFromAddressBook(IAddressBook addressBook);
 
         /// <summary>
         /// Sets the account that will, by default, pay for transactions and queries built
         /// with this client.
         /// </summary>
-        IClient SetOperator(AccountId accountId, IPrivateKey privateKey);
-
+        public abstract Client SetOperator(AccountId accountId, IPrivateKey privateKey);
         /// <summary>
         /// Sets the account that will, by default, pay for transactions and queries built
         /// with this client.
@@ -155,100 +172,83 @@ namespace Hedera.Hashgraph.Reference.Core
         /// This form is made available for integrating the SDK to sign
         /// from an external source such as the Ledger Hardware Wallet.
         /// </summary>
-        IClient SetOperatorWith(AccountId accountId, IPublicKey publicKey, Func<byte[], byte[]> transactionSigner);
+        public abstract Client SetOperatorWith(AccountId accountId, IPublicKey publicKey, Func<byte[], byte[]> transactionSigner);
 
         /// <summary>
         /// Is automatic entity ID checksum validation enabled.
         /// </summary>
-        bool AutoValidateChecksums { get; }
-
+        public bool AutoValidateChecksums { get; }
         /// <summary>
         /// Maximum amount of time closing a network can take.
         /// </summary>
-        TimeSpan CloseTimeout { get; }
-
+        public TimeSpan CloseTimeout { get; }
         /// <summary>
         /// The maximum query payment.
         ///
         /// **NOTE**: Defaults to 1 Hbar.
         /// </summary>
-        Hbar DefaultMaxQueryPayment { get; }
-
+        public Hbar DefaultMaxQueryPayment { get; }
         /// <summary>
         /// The default maximum fee used for transactions.
         /// </summary>
-        Hbar DefaultMaxTransactionFee { get; }
-
+        public Hbar DefaultMaxTransactionFee { get; }
         /// <summary>
         /// Declares if we should generate new transaction IDs when a transaction fails with `TRANSACTION_EXPIRED`.
         ///
         /// **NOTE**: Defaults to `true`
         /// </summary>
-        bool DefaultRegenerateTransactionId { get; }
-
+        public bool DefaultRegenerateTransactionId { get; }
         /// <summary>
         /// Current LedgerId of the network; corresponds to ledger ID in entity ID checksum calculations.
         /// </summary>
-        ILedgerId LedgerId { get; }
-
+        public LedgerId LedgerId { get; }
         /// <summary>
         /// Max number of attempts a request executed with this client will do.
         /// </summary>
-        long MaxAttempts { get; }
-
+        public long MaxAttempts { get; }
         /// <summary>
         /// The maximum amount of time to wait between retries
         /// </summary>
-        TimeSpan MaxBackoff { get; }
-
+        public TimeSpan MaxBackoff { get; }
         /// <summary>
         /// Max number of times any node in the network can receive a bad gRPC status before being removed from the network.
         /// </summary>
-        long MaxNodeAttempts { get; }
-
+        public long MaxNodeAttempts { get; }
         /// <summary>
         /// The minimum amount of time to wait between retries
         /// </summary>
-        TimeSpan MinBackoff { get; }
-
+        public TimeSpan MinBackoff { get; }
         /// <summary>
         /// The mirror network node list
         /// </summary>
-        IList<string> MirrorNetwork { get; }
-
+        public IList<string> MirrorNetwork { get; }
         /// <summary>
         /// The list of network records
         /// </summary>
-        AccountId Network { get; }
-
+        public AccountId Network { get; }
         /// <summary>
         /// If present, the client will periodically attempt to update its consensus node network in the background using
         /// an [`AddressBookQuery`](../network/AddressBookQuery.md) against its current mirror network.
         /// If the query fails, the consensus node network will remain unchanged and the query failure will be logged.
         /// </summary>
-        TimeSpan NetworkUpdatePeriod { get; }
-
+        public TimeSpan NetworkUpdatePeriod { get; }
         /// <summary>
         /// The ID of the operator
         /// </summary>
-        AccountId? OperatorAccountId { get; }
-
+        public AccountId? OperatorAccountId { get; }
         /// <summary>
         /// The key of the operator
         /// </summary>
-        IPublicKey? OperatorPublicKey { get; }
-
+        public IPublicKey? OperatorPublicKey { get; }
         /// <summary>
         /// Maximum amount of time a request can run
         /// </summary>
-        TimeSpan RequestTimeout { get; }
-
+        public TimeSpan RequestTimeout { get; }
         /// <summary>
         /// Is certificate verification enabled
         ///
         /// Only available in Java and Go SDKs
         /// </summary>
-        bool VerifyCertificates { get; }
-
+        public bool VerifyCertificates { get; }
     }
 }

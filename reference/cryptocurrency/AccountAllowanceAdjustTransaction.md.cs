@@ -56,7 +56,7 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
         /// <summary>
         /// Get the current list of hbar allowances for this transaction.
         /// </summary>
-        TokenAllowance GetTokenAllowances();
+        ITokenAllowance GetTokenAllowances();
         /// <summary>
         /// Add a non-fungible token allowance
         ///

@@ -6,7 +6,7 @@ generated and stored for 25 hours for any transfer that exceeds the thresholds. 
 charged for each record generated, so the thresholds are useful for limiting record generation to
 happen only for large transactions.
 
-The Key field is the key used to sign transactions for this account. If the account has
+The IKey field is the key used to sign transactions for this account. If the account has
 receiverSigRequired set to true, then all cryptocurrency transfers must be signed by this
 account's key, both for transfers in and out. If it is false, then only transfers out have to be
 signed by it. When the account is created, the payer account is charged enough hbars so that the

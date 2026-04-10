@@ -6,7 +6,7 @@ namespace Hedera.Hashgraph.Reference.File
 {
     public class FileInfo
     {
-        public FileInfo(FileId fileId, long size, DateTimeOffset expirationTime, bool isDeleted, KeyList keys, LedgerId ledgerId)
+        public FileInfo(FileId fileId, long size, DateTimeOffset expirationTime, bool isDeleted, IKeyList keys, LedgerId ledgerId)
         {
             FileId = fileId;
             Size = size;
@@ -52,7 +52,7 @@ namespace Hedera.Hashgraph.Reference.File
         /// <summary>
         /// The keys that are required to sign transactions that mutate this file.
         /// </summary>
-        public KeyList Keys { get; }
+        public IKeyList Keys { get; }
         /// <summary>
         /// The ID of the ledger which returned this response
         /// </summary>

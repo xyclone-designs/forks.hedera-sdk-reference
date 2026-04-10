@@ -95,7 +95,7 @@ operations
 
 ##### `pauseKey`: [`Key`](reference/cryptography/Key.md)
 
-The Key which can pause and unpause the Token.
+The IKey which can pause and unpause the Token.
 
 ---
 
@@ -109,9 +109,9 @@ is immutable
 ##### `defaultFreezeStatus`: `bool/`
 
 The default Freeze status (not applicable, frozen or unfrozen) of Hedera accounts relative to
-this token. FreezeNotApplicable is returned if Token Freeze Key is empty. Frozen is returned
-if Token Freeze Key is set and defaultFreeze is set to true. Unfrozen is returned if Token
-Freeze Key is set and defaultFreeze is set to false
+this token. FreezeNotApplicable is returned if Token Freeze IKey is empty. Frozen is returned
+if Token Freeze IKey is set and defaultFreeze is set to true. Unfrozen is returned if Token
+Freeze IKey is set and defaultFreeze is set to false
 
  - `null`: FreezeNotApplicable
  - `false`: Unfrozen

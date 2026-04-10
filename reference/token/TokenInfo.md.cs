@@ -20,12 +20,12 @@ namespace Hedera.Hashgraph.Reference.Token
             uint decimals,
             ulong totalSupply,
             AccountId treasuryAccountId,
-            Key? adminKey,
-            Key? kycKey,
-            Key? freezeKey,
-            Key? wipeKey,
-            Key? supplyKey,
-            Key? feeScheduleKey,
+            IKey? adminKey,
+            IKey? kycKey,
+            IKey? freezeKey,
+            IKey? wipeKey,
+            IKey? supplyKey,
+            IKey? feeScheduleKey,
             bool defaultFreezeStatus,
             bool defaultKycStatus,
             bool isDeleted,
@@ -37,7 +37,7 @@ namespace Hedera.Hashgraph.Reference.Token
             TokenType tokenType,
             TokenSupplyType supplyType,
             long maxSupply,
-            Key? pauseKey,
+            IKey? pauseKey,
             bool pauseStatus,
             LedgerId ledgerId)
         {
@@ -116,40 +116,40 @@ namespace Hedera.Hashgraph.Reference.Token
         /// The key which can perform update/delete operations on the token. If empty, the token can be
         /// perceived as immutable (not being able to be updated/deleted)
         /// </summary>
-        public Key? AdminKey { get; }
+        public IKey? AdminKey { get; }
         /// <summary>
         /// The key which can grant or revoke KYC of an account for the token's transactions. If empty,
         /// KYC is not required, and KYC grant or revoke operations are not possible.
         /// </summary>
-        public Key? KycKey { get; }
+        public IKey? KycKey { get; }
         /// <summary>
         /// The key which can freeze or unfreeze an account for token transactions. If empty, freezing is
         /// not possible
         /// </summary>
-        public Key? FreezeKey { get; }
+        public IKey? FreezeKey { get; }
         /// <summary>
         /// The key which can wipe token balance of an account. If empty, wipe is not possible
         /// </summary>
-        public Key? WipeKey { get; }
+        public IKey? WipeKey { get; }
         /// <summary>
         /// The key which can change the supply of a token. The key is used to sign Token Mint/Burn
         /// operations
         /// </summary>
-        public Key? SupplyKey { get; }
+        public IKey? SupplyKey { get; }
         /// <summary>
-        /// The Key which can pause and unpause the Token.
+        /// The IKey which can pause and unpause the Token.
         /// </summary>
-        public Key? PauseKey { get; }
+        public IKey? PauseKey { get; }
         /// <summary>
         /// The key which can change the custom fee schedule of the token; if not set, the fee schedule
         /// is immutable
         /// </summary>
-        public Key? FeeScheduleKey { get; }
+        public IKey? FeeScheduleKey { get; }
         /// <summary>
         /// The default Freeze status (not applicable, frozen or unfrozen) of Hedera accounts relative to
-        /// this token. FreezeNotApplicable is returned if Token Freeze Key is empty. Frozen is returned
-        /// if Token Freeze Key is set and defaultFreeze is set to true. Unfrozen is returned if Token
-        /// Freeze Key is set and defaultFreeze is set to false
+        /// this token. FreezeNotApplicable is returned if Token Freeze IKey is empty. Frozen is returned
+        /// if Token Freeze IKey is set and defaultFreeze is set to true. Unfrozen is returned if Token
+        /// Freeze IKey is set and defaultFreeze is set to false
         ///
         /// - `null`: FreezeNotApplicable
         /// - `false`: Unfrozen

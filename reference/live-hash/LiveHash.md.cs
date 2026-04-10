@@ -20,7 +20,7 @@ namespace Hedera.Hashgraph.Reference.LiveHash
         /// A list of keys (primitive or threshold), all of which must sign to attach the livehash to an
         /// account, and any one of which can later delete it.
         /// </summary>
-        KeyList Keys { get; }
+        IKeyList Keys { get; }
         /// <summary>
         /// The duration for which the livehash will remain valid
         /// </summary>

@@ -1,6 +1,6 @@
 > class `TokenBurnTransaction` extends [`Transaction`](reference/core/Transaction.md)
 
-Burns tokens from the Token's treasury Account. If no Supply Key is defined, the transaction will resolve to
+Burns tokens from the Token's treasury Account. If no Supply IKey is defined, the transaction will resolve to
 [`Status.TOKEN_HAS_NO_SUPPLY_KEY`](reference/Status.md#TOKEN_HAS_NO_SUPPLY_KEY).
 The operation decreases the Total Supply of the Token. Total supply cannot go below zero.
 The amount provided must be in the lowest denomination possible. Example:

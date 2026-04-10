@@ -10,7 +10,7 @@ namespace Hedera.Hashgraph.Reference.LiveHash
     {
         AccountId AccountId { get; }
         byte[] Hash { get; }
-        KeyList Keys { get; }
+        IKeyList Keys { get; }
         TimeSpan TimeSpan { get; }
     }
 }

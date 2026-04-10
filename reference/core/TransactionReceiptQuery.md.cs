@@ -5,7 +5,7 @@ namespace Hedera.Hashgraph.Reference.Core
     /// <br> Once a transaction reaches consensus, then information about whether it succeeded or failed will be available until the end of the receipt period. <br>
     /// This query is free.
     /// </summary>
-    public interface ITransactionReceiptQuery : IQuery<ITransactionReceipt>
+    public interface ITransactionReceiptQuery : IQuery<TransactionReceipt>
     {
         /// <summary>
         /// Whether receipts of processing duplicate transactions should be returned along with the

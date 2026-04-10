@@ -85,7 +85,7 @@ Test vectors provided by the [BIP39](https://github.com/bitcoin/bips/blob/master
 * Seed: `01f5bced59dec48e362f2c45b5de68b9fd6c92c6634f44d6d40aab69056506f0e35524a518034ddc1192e1dacd32c1ed3eaa3c3b131c88ed8e7e54c49a5d0998`
 ---
 
-## SLIP10 Key Derivation
+## SLIP10 IKey Derivation
 
 Test vectors provided by the [SLIP10](https://github.com/satoshilabs/slips/blob/master/slip-0010.md) standards. Test for proper key derivation from a given hex seed and derivation chain.
 
@@ -249,7 +249,7 @@ Test vectors provided by the [SLIP10](https://github.com/satoshilabs/slips/blob/
 * Public key bytes: `0047150c75db263559a70d5778bf36abbab30fb061ad69f69ece61a72b0cfa4fc0`
 ---
 
-## ED25519 Key Derivation
+## ED25519 IKey Derivation
 
 Test vectors provided by Hedera. Test for proper ED25519 key derivation from a given mnemonic and derivation chain.
 
@@ -360,7 +360,7 @@ Test vectors provided by Hedera. Test for proper ED25519 key derivation from a g
 * Public key bytes: `cf525500706faa7752dca65a086c9381d30d72cc67f23bf334f330579074a890`
 ---
 
-## ECDSAsecp256k1 Key Derivation
+## ECDSAsecp256k1 IKey Derivation
 
 Test vectors provided by Hedera. Test for proper ECDSAsecp256k1 key derivation from a given mnemonic and derivation chain.
 

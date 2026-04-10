@@ -44,17 +44,17 @@ namespace Hedera.Hashgraph.Reference
         ///
         /// **NOTE**: If `NetworkName` is `OTHER` this will err.
         /// </summary>
-        public static LedgerId FromNetworkName(NetworkName networkName)
-        {
-            return networkName switch
-            {
-                NetworkName.MainNet => MAINNET,
-                NetworkName.TestNet => TESTNET,
-                NetworkName.PreviewNet => PREVIEWNET,
+        //public static LedgerId FromNetworkName(NetworkName networkName)
+        //{
+        //    return networkName switch
+        //    {
+        //        NetworkName.MainNet => MAINNET,
+        //        NetworkName.TestNet => TESTNET,
+        //        NetworkName.PreviewNet => PREVIEWNET,
 
-                _ => throw new ArgumentException("networkName must be MAINNET, TESTNET, or PREVIEWNET"),
-            };
-        }
+        //        _ => throw new ArgumentException("networkName must be MAINNET, TESTNET, or PREVIEWNET"),
+        //    };
+        //}
 
         /// <summary>
         /// Return if this ledger ID represents a mainnet ledger ID.
@@ -94,16 +94,16 @@ namespace Hedera.Hashgraph.Reference
         /// **NOTE**: If the ledger ID is not a recognzied ledger ID the resulting
         /// `NetworkName` will be `OTHER`.
         /// </summary>
-        public virtual NetworkName ToNetworkName()
-        {
-            return true switch
-            {
-                true when IsMainnet => NetworkName.MainNet,
-                true when IsTestnet => NetworkName.TestNet,
-                true when IsPreviewnet => NetworkName.PreviewNet,
+        //public virtual NetworkName ToNetworkName()
+        //{
+        //    return true switch
+        //    {
+        //        true when IsMainnet => NetworkName.MainNet,
+        //        true when IsTestnet => NetworkName.TestNet,
+        //        true when IsPreviewnet => NetworkName.PreviewNet,
 
-                _ => NetworkName.Other
-            };
-        }
+        //        _ => NetworkName.Other
+        //    };
+        //}
     }
 }

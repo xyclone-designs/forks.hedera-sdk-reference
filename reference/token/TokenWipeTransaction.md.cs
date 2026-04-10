@@ -21,7 +21,7 @@ namespace Hedera.Hashgraph.Reference.Token
     /// If an Association between the provided token and account is not found, the transaction will resolve to
     /// [`Status.TOKEN_NOT_ASSOCIATED_TO_ACCOUNT`](reference/Status.md#TOKEN_NOT_ASSOCIATED_TO_ACCOUNT).
     ///
-    /// If Wipe Key is not present in the Token, transaction results in TOKEN_HAS_NO_WIPE_KEY.
+    /// If Wipe IKey is not present in the Token, transaction results in TOKEN_HAS_NO_WIPE_KEY.
     /// [`Status.TOKEN_HAS_NO_WIPE_KEY`](reference/Status.md#TOKEN_HAS_NO_WIPE_KEY).
     ///
     /// If the provided account is the Token's Treasury Account, transaction results in CANNOT_WIPE_TOKEN_TREASURY_ACCOUNT

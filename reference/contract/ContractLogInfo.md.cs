@@ -4,6 +4,13 @@ namespace Hedera.Hashgraph.Reference.Contract
 {
     public class ContractLogInfo
     {
+        public ContractLogInfo(ContractId contractId, byte[] bloom, byte[] topics, byte[] data)
+        {
+            ContractId = contractId;
+            Bloom = bloom;
+            Topics = topics;
+            Data = data;
+        }
         /// <summary>
         /// Deserialize a [`ContractLogInfo`](#) from its protobuf representation.
         /// </summary>

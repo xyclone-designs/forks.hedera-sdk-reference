@@ -9,6 +9,6 @@ namespace Hedera.Hashgraph.Reference.Consensus
         /// <summary>
         /// This is the topic ID for which info will be queried for.
         /// </summary>
-        ITopicId TopicId { get; set; }
+        TopicId TopicId { get; set; }
     }
 }

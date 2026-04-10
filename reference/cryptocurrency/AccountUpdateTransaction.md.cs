@@ -51,7 +51,7 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
         /// If `receiverSignatureRequired` is true, then the key must also sign
         /// any transfer into the account.
         /// </summary>
-        Key Key { get; }
+        IKey Key { get; }
 
         /// <summary>
         /// The maximum number of tokens that an Account can be implicitly associated with. Up to a 1000

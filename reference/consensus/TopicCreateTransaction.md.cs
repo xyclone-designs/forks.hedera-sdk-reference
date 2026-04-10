@@ -13,11 +13,11 @@ namespace Hedera.Hashgraph.Reference.Consensus
         /// If no adminKey is specified, updateTopic may only be used to extend the topic's `expirationTime`, and deletion
         /// is disallowed.
         /// </summary>
-        Key AdminKey { get; }
+        IKey AdminKey { get; }
         /// <summary>
         /// Access control for submitMessage. If unspecified, no access control is performed (all submissions are allowed).
         /// </summary>
-        Key SubmitKey { get; }
+        IKey SubmitKey { get; }
         /// <summary>
         /// The initial lifetime of the topic and the amount of time to attempt to extend the topic's lifetime by
         /// automatically at the topic's `expirationTime`, if the `autoRenewAccountId` is configured

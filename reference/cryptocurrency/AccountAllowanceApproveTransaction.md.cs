@@ -44,7 +44,7 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
         /// <summary>
         /// Get the current list of hbar approves for this transaction.
         /// </summary>
-        TokenAllowance GetTokenApprovals();
+        ITokenAllowance GetTokenApprovals();
         /// <summary>
         /// Add a non-fungible token approve
         ///

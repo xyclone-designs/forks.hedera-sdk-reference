@@ -140,7 +140,7 @@ namespace Hedera.Hashgraph.Reference
         FAIL_BALANCE,
 
         /// <summary>
-        /// Key not provided in the transaction body
+        /// IKey not provided in the transaction body
         /// </summary>
         KEY_REQUIRED,
 
@@ -1247,7 +1247,7 @@ namespace Hedera.Hashgraph.Reference
 
         /// <summary>
         /// An alias used in a CryptoTransfer transaction is not the serialization of a primitive Key
-        /// message--that is, a Key with a single Ed25519 or ECDSA(secp256k1) public key and no
+        /// message--that is, a IKey with a single Ed25519 or ECDSA(secp256k1) public key and no
         /// unknown protobuf fields.
         /// </summary>
         INVALID_ALIAS_KEY,

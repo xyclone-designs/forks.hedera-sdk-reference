@@ -18,7 +18,7 @@ namespace Hedera.Hashgraph.Reference.Contract
         /// <summary>
         /// The `ContractId` for which information is being requested.
         /// </summary>
-        IContractId ContractId();
+        ContractId ContractId();
 
         /// <summary>
         /// The amount of gas to use for the call.

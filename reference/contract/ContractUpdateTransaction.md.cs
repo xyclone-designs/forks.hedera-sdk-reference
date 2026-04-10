@@ -16,7 +16,7 @@ namespace Hedera.Hashgraph.Reference.Contract
         /// <summary>
         /// The new key to control updates/deletion of the contract.
         /// </summary>
-        Key AdminKey { get; }
+        IKey AdminKey { get; }
         /// <summary>
         /// The new expiry of the contract, no earlier than the current expiry.
         /// </summary>

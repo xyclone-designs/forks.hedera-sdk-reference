@@ -19,7 +19,7 @@ namespace Hedera.Hashgraph.Reference.File
         /// If no key is provided the file is immutable any the aforementioned transactions will
         /// err with status code [`UNAUTHORIZED`](reference/Status.md#UNAUTHORIZED).
         /// </summary>
-        Key Keys { get; }
+        IKey Keys { get; }
 
         /// <summary>
         /// These are the new contents of the file after execution. The contents cannot

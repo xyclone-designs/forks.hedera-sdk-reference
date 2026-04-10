@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Hedera.Hashgraph.Reference
 {
-    public readonly struct HbarUnit : Comparable<HbarUnit>, IEquatable<HbarUnit>
+    public readonly struct HbarUnit : IComparable<HbarUnit>, IEquatable<HbarUnit>
     {
         public const string TINYBAR_NAME = "TINYBAR";
         public const string MICROBAR_NAME = "MICROBAR";

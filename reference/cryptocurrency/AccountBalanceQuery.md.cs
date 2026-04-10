@@ -23,6 +23,6 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
         /// <summary>
         /// The contract ID for which information is requested
         /// </summary>
-        IContractId ContractId { get; }
+        ContractId ContractId { get; }
     }
 }

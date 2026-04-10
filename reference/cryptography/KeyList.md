@@ -6,7 +6,7 @@ type.
 
 **KeyList**:
 A list of keys that requires all keys (M-of-M) to sign unless otherwise specified in
-documentation. A KeyList may contain repeated keys, but all repeated keys are only required to
+documentation. A IKeyList may contain repeated keys, but all repeated keys are only required to
 sign once.
 
 **ThresholdKey**:

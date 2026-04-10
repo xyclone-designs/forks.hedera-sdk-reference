@@ -43,32 +43,32 @@ namespace Hedera.Hashgraph.Reference.Token
         /// The new Admin key of the Token. If Token is immutable, transaction will resolve to
         /// [`Status.TOKEN_IS_IMMUTABlE`](reference/Status.md#TOKEN_IS_IMMUTABlE).
         /// </summary>
-        Key AdminKey { get; }
+        IKey AdminKey { get; }
 
         /// <summary>
         /// The new KYC key of the Token. If Token does not have currently a KYC key, transaction will resolve to
         /// [`Status.TOKEN_HAS_NO_KYC_KEY`](reference/Status.md#TOKEN_HAS_NO_KYC_KEY).
         /// </summary>
-        Key KycKey { get; }
+        IKey KycKey { get; }
 
         /// <summary>
         /// The new Freeze key of the Token. If the Token does not have currently a Freeze key, transaction will resolve to
         /// [`Status.TOKEN_HAS_NO_FREEZE_KEY`](reference/Status.md#TOKEN_HAS_NO_FREEZE_KEY).
         ///
         /// </summary>
-        Key FreezeKey { get; }
+        IKey FreezeKey { get; }
 
         /// <summary>
         /// The new Wipe key of the Token. If the Token does not have currently a Wipe key, transaction will resolve to
         /// [`Status.TOKEN_HAS_NO_WIPE_KEY`](reference/Status.md#TOKEN_HAS_NO_WIPE_KEY).
         /// </summary>
-        Key WipeKey { get; }
+        IKey WipeKey { get; }
 
         /// <summary>
         /// The new Supply key of the Token. If the Token does not have currently a Supply key, transaction will resolve to
         /// [`Status.TOKEN_HAS_NO_SUPPLY_KEY`](reference/Status.md#TOKEN_HAS_NO_SUPPLY_KEY).
         /// </summary>
-        Key SupplyKey { get; }
+        IKey SupplyKey { get; }
 
         /// <summary>
         /// The new expiry time of the token. Expiry can be updated even if admin key is not set. If the provided expiry is earlier
@@ -89,9 +89,9 @@ namespace Hedera.Hashgraph.Reference.Token
         TimeSpan AutoRenewPeriod { get; }
 
         /// <summary>
-        /// The Key which can pause and unpause the Token. If the Token does not currently
+        /// The IKey which can pause and unpause the Token. If the Token does not currently
         /// have a pause key, transaction will resolve to TOKEN\_HAS\_NO\_PAUSE\_KEY
         /// </summary>
-        Key PauseKey { get; }
+        IKey PauseKey { get; }
     }
 }

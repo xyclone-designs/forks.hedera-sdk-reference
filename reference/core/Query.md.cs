@@ -14,12 +14,12 @@ namespace Hedera.Hashgraph.Reference.Core
         ///
         /// The return type of this method is dictated by the derived class.
         /// </summary>
-        O Execute(IClient client);
+        O Execute(Client client);
 
         /// <summary>
         /// Return the cost to execute this query on the chosen Hedera network node.
         /// </summary>
-        Hbar GetCost(IClient client);
+        Hbar GetCost(Client client);
 
         /// <summary>
         /// The number of times to retry submitting this transaction. Transactions are retried when Hedera

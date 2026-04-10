@@ -17,7 +17,7 @@ If the provided token has been deleted, the transaction will resolve to
 If an Association between the provided token and account is not found, the transaction will resolve to
 [`Status.TOKEN_NOT_ASSOCIATED_TO_ACCOUNT`](reference/Status.md#TOKEN_NOT_ASSOCIATED_TO_ACCOUNT).
 
-If GrantKyc Key is not present in the Token, transaction results in TOKEN_HAS_NO_GrantKyc_KEY.
+If GrantKyc IKey is not present in the Token, transaction results in TOKEN_HAS_NO_GrantKyc_KEY.
 [`Status.TOKEN_HAS_NO_KYC_KEY`](reference/Status.md#TOKEN_HAS_NO_KYC_KEY).
 
 Once executed the Account is marked as KYC Granted.

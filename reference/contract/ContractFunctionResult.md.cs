@@ -24,7 +24,7 @@ namespace Hedera.Hashgraph.Reference.Contract
         /// <summary>
         /// The smart contract instance whose function was called
         /// </summary>
-        IContractId ContractId { get; }
+        ContractId ContractId { get; }
 
         /// <summary>
         /// Message In case there was an error during smart contract execution
@@ -44,7 +44,7 @@ namespace Hedera.Hashgraph.Reference.Contract
         /// <summary>
         /// The log info for events returned by the function
         /// </summary>
-        IContractLogInfo Logs { get; }
+        ContractLogInfo Logs { get; }
 
         /// <summary>
         /// The list of smart contracts that were created by the function call
@@ -56,16 +56,16 @@ namespace Hedera.Hashgraph.Reference.Contract
         /// there is no longer a simple relationship between the new contract's 0.0.X id
         /// and its Solidity address.)
         /// </summary>
-        IContractId CreatedContractIds { get; }
+        ContractId CreatedContractIds { get; }
 
         /// <summary>
         /// The list of state reads and changes caused by this function call
         /// </summary>
-        IContractStateChange StateChanges { get; }
+        ContractStateChange StateChanges { get; }
 
         /// <summary>
         /// The contracts evm address represented as a contract ID with `ContractId.evmAddress` set accordingly.
         /// </summary>
-        IContractId EvmAddress { get; }
+        ContractId EvmAddress { get; }
     }
 }

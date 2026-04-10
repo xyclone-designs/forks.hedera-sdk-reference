@@ -9,7 +9,7 @@ namespace Hedera.Hashgraph.Reference.Cryptography
     ///
     /// **KeyList**:
     /// A list of keys that requires all keys (M-of-M) to sign unless otherwise specified in
-    /// documentation. A KeyList may contain repeated keys, but all repeated keys are only required to
+    /// documentation. A IKeyList may contain repeated keys, but all repeated keys are only required to
     /// sign once.
     ///
     /// **ThresholdKey**:
@@ -26,16 +26,16 @@ namespace Hedera.Hashgraph.Reference.Cryptography
     /// includes `setKey` in `AccountCreateTransaction` and `setSubmitKey` in
     /// `TopicCreateTransaction`.
     /// </summary>
-    public class KeyList : List<Key>, Key
+    public interface IKeyList : IList<IKey>, IKey
     {
         /// <summary>
         /// Construct a new `KeyList` from a list of keys
         /// </summary>
-        public static KeyList Of(params Key[] keyArray);
+        public abstract static IKeyList Of(params IKey[] keyArray);
         /// <summary>
         /// Create a new, empty list of keys with the given threshold.
         /// </summary>
-        public static KeyList WithThreshold(uint threshold);
+        public abstract static IKeyList WithThreshold(uint threshold);
 
         /// <summary>
         /// Stringify the `KeyList` structure into a readable format
@@ -45,7 +45,7 @@ namespace Hedera.Hashgraph.Reference.Cryptography
         /// <summary>
         /// The list of keys
         /// </summary>
-        IList<Key> Keys { get; }
+        IList<IKey> Keys { get; }
         /// <summary>
         /// A threshold indicating that a valid signature set must have at least
         /// this many signatures.

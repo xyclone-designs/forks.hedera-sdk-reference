@@ -6,7 +6,7 @@ namespace Hedera.Hashgraph.Reference.Cryptography
     /// Compatible with (both original and current) Hedera mobile wallets
     /// and MyHbarWallet.
     /// </summary>
-    public class Mnemonic
+    public interface IMnemonic
     {
         /// <summary>
         /// Deserialize a mnemonic from a string containing a list of words separated by spaces
@@ -17,7 +17,7 @@ namespace Hedera.Hashgraph.Reference.Cryptography
         /// words not found in the word list; there is a checksum mismatch; or, an
         /// unexpected number of words.
         /// </summary>
-        public static Mnemonic FromString(string text);
+        public abstract static IMnemonic FromString(string text);
         /// <summary>
         /// Create a mnemonic from the given list of words.
         ///
@@ -27,16 +27,16 @@ namespace Hedera.Hashgraph.Reference.Cryptography
         /// words not found in the word list; there is a checksum mismatch; or, an
         /// unexpected number of words.
         /// </summary>
-        public static Mnemonic FromWords(string[] words);
+        public abstract static IMnemonic FromWords(string[] words);
         /// <summary>
         /// Returns a new random 12-word mnemonic from the BIP-39 standard English word list.
         /// </summary>
-        public static Mnemonic Generate12();
+        public abstract static IMnemonic Generate12();
         /// <summary>
         /// Returns a new random 24-word mnemonic from the BIP-39 standard English word list.
         ///
         /// </summary>
-        public static Mnemonic Generate24();
+        public abstract static IMnemonic Generate24();
 
         /// <summary>
         /// Derive a private key from the current mnemonic

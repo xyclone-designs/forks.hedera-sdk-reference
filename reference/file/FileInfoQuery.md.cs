@@ -5,7 +5,7 @@ namespace Hedera.Hashgraph.Reference.File
     /// <summary>
     /// Query a file's current state.
     /// </summary>
-    public interface IFileInfoQuery : IQuery<IFileInfo>
+    public interface IFileInfoQuery : IQuery<FileInfo>
     {
         /// <summary>
         /// This is the file ID for which info will be queried for.

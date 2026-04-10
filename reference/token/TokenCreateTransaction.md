@@ -200,7 +200,7 @@ The interval at which the auto-renew account will be charged to extend the token
 
 ##### `pauseKey`: [`Key`](reference/cryptography/Key.md)
 
-The Key which can pause and unpause the Token. If Empty the token pause status defaults to
+The IKey which can pause and unpause the Token. If Empty the token pause status defaults to
 PauseNotApplicable, otherwise Unpaused.
 
 ---

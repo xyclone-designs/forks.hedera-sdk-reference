@@ -1,5 +1,6 @@
 using Hedera.Hashgraph.Reference.Cryptocurrency;
-
+using Hedera.Hashgraph.Reference.Cryptography;
+using Hedera.Hashgraph.Reference.Schedule;
 using System;
 using System.Collections.Generic;
 
@@ -16,7 +17,7 @@ namespace Hedera.Hashgraph.Reference.Core
         /// **NOTE**: The bytes can be a protobuf encoded `TransactionBody`, `Transaction`, `SignedTransaction`
         /// or `TransactionList`
         /// </summary>
-        public static Transaction FromBytes(byte[] data);
+        // public static Transaction FromBytes(byte[] data);
 
         /// <summary>
         /// Add a signature to the transaction
@@ -33,7 +34,7 @@ namespace Hedera.Hashgraph.Reference.Core
         /// [`TransactionRecord`](TransactionRecord.md)
         /// for more information.
         /// </summary>
-        ITransactionResponse Execute(IClient client);
+        ITransactionResponse Execute(Client client);
 
         /// <summary>
         /// Freeze the transaction getting it ready to be signed or executed.
@@ -53,7 +54,7 @@ namespace Hedera.Hashgraph.Reference.Core
         /// The client's operator will be used to generate a transaction ID, and the client's network will be
         /// used to generate a list of node account IDs
         /// </summary>
-        ITransaction FreezeWith(IClient client);
+        ITransaction FreezeWith(Client client);
 
         /// <summary>
         /// Get the transaction signatures
@@ -100,7 +101,7 @@ namespace Hedera.Hashgraph.Reference.Core
         ///
         /// **NOTE**: If the operator has already signed this will be ignored
         /// </summary>
-        ITransaction SignWithOperator(IClient client);
+        ITransaction SignWithOperator(Client client);
 
         /// <summary>
         /// Encodes this transaction to a byte array that can be later decoded into

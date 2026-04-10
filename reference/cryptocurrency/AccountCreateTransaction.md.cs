@@ -13,7 +13,7 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
     /// charged for each record generated, so the thresholds are useful for limiting record generation to
     /// happen only for large transactions.
     ///
-    /// The Key field is the key used to sign transactions for this account. If the account has
+    /// The IKey field is the key used to sign transactions for this account. If the account has
     /// receiverSigRequired set to true, then all cryptocurrency transfers must be signed by this
     /// account's key, both for transfers in and out. If it is false, then only transfers out have to be
     /// signed by it. When the account is created, the payer account is charged enough hbars so that the
@@ -86,7 +86,7 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
         /// The key that must sign each transfer out of the account. If receiverSigRequired is true, then
         /// it must also sign any transfer into the account.
         /// </summary>
-        Key Key { get; }
+        IKey Key { get; }
 
         /// <summary>
         /// The maximum number of tokens that an Account can be implicitly associated with. Defaults to 0
