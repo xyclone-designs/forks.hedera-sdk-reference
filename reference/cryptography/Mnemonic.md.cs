@@ -1,3 +1,5 @@
+using System;
+
 namespace Hedera.Hashgraph.Reference.Cryptography
 {
     /// <summary>
@@ -17,7 +19,7 @@ namespace Hedera.Hashgraph.Reference.Cryptography
         /// words not found in the word list; there is a checksum mismatch; or, an
         /// unexpected number of words.
         /// </summary>
-        public abstract static IMnemonic FromString(string text);
+        public static IMnemonic FromString(string text) => throw new NotImplementedException();
         /// <summary>
         /// Create a mnemonic from the given list of words.
         ///
@@ -27,16 +29,16 @@ namespace Hedera.Hashgraph.Reference.Cryptography
         /// words not found in the word list; there is a checksum mismatch; or, an
         /// unexpected number of words.
         /// </summary>
-        public abstract static IMnemonic FromWords(string[] words);
+        public static IMnemonic FromWords(string[] words) => throw new NotImplementedException();
         /// <summary>
         /// Returns a new random 12-word mnemonic from the BIP-39 standard English word list.
         /// </summary>
-        public abstract static IMnemonic Generate12();
+        public static IMnemonic Generate12() => throw new NotImplementedException();
         /// <summary>
         /// Returns a new random 24-word mnemonic from the BIP-39 standard English word list.
         ///
         /// </summary>
-        public abstract static IMnemonic Generate24();
+        public static IMnemonic Generate24() => throw new NotImplementedException();
 
         /// <summary>
         /// Derive a private key from the current mnemonic
