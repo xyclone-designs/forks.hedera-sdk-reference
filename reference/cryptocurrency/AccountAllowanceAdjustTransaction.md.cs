@@ -18,21 +18,21 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
     public interface IAccountAllowanceAdjustTransaction : ITransaction
     {
         /// <summary>
-        /// Add a Hbar allowance
+        /// Add a IHbar allowance
         ///
         /// Transaction fee payer is implicitly the allowance owner.
         ///
         /// Deprecated: use `[grant|revoke]HbarAllowance` instead.
         /// </summary>
-        AccountId AddHbarAllowance();
+        IAccountId AddHbarAllowance();
         /// <summary>
-        /// Increase an Hbar Allowance.
+        /// Increase an IHbar Allowance.
         /// </summary>
-        AccountId GrantHbarAllowance();
+        IAccountId GrantHbarAllowance();
         /// <summary>
-        /// Decrease an Hbar Allowance.
+        /// Decrease an IHbar Allowance.
         /// </summary>
-        AccountId RevokeHbarAllowance();
+        IAccountId RevokeHbarAllowance();
         /// <summary>
         /// Get the current list of hbar allowances for this transaction.
         /// </summary>
@@ -44,15 +44,15 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
         ///
         /// Deprecated: use `[grant|revoke]TokenAllowance` instead.
         /// </summary>
-        TokenId AddTokenAllowance();
+        ITokenId AddTokenAllowance();
         /// <summary>
         /// Increase a fungible token allowance.
         /// </summary>
-        TokenId GrantTokenAllowance();
+        ITokenId GrantTokenAllowance();
         /// <summary>
         /// Decrease a fungible token allowance.
         /// </summary>
-        TokenId RevokeTokenAllowance();
+        ITokenId RevokeTokenAllowance();
         /// <summary>
         /// Get the current list of hbar allowances for this transaction.
         /// </summary>
@@ -64,15 +64,15 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
         ///
         /// Deprecated: use `[grant|revoke]TokenNftAllowance` instead.
         /// </summary>
-        NftId AddTokenNftAllowance();
+        INftId AddTokenNftAllowance();
         /// <summary>
         /// Add serials to a non-fungible token allowance.
         /// </summary>
-        NftId GrantTokenNftAllowance();
+        INftId GrantTokenNftAllowance();
         /// <summary>
         /// Remove serials from a non-fungible token allowance.
         /// </summary>
-        NftId RevokeTokenNftAllowance();
+        INftId RevokeTokenNftAllowance();
         /// <summary>
         /// Add all non-fungible tokens to allowance
         ///
@@ -80,15 +80,15 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
         ///
         /// Deprecated: use `[grant|revoke]TokenNftAllowanceAllSerials` instead.
         /// </summary>
-        TokenId AddAllTokenNftAllowance();
+        ITokenId AddAllTokenNftAllowance();
         /// <summary>
         /// Add all serials to a non-fungible token allowance.
         /// </summary>
-        TokenId GrantTokenNftAllowanceAllSerials();
+        ITokenId GrantTokenNftAllowanceAllSerials();
         /// <summary>
         /// Remove all serials from a non-fungible token allowance.
         /// </summary>
-        TokenId RevokeTokenNftAllowanceAllSerials();
+        ITokenId RevokeTokenNftAllowanceAllSerials();
         /// <summary>
         /// Get the list of all non-fungible token allowances for this transaction
         /// </summary>

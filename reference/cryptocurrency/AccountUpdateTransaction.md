@@ -33,7 +33,7 @@ response = await (
             .setAccountId(account)
             .setKey(key2.publicKey)
             .setNodeAccountIds([response.nodeId])
-            .setMaxTransactionFee(new Hbar(1))
+            .setMaxTransactionFee(new IHbar(1))
             .freezeWith(client)
             .sign(key1)
     ).sign(key2)

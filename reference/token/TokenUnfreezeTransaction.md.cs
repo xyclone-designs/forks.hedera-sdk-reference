@@ -32,12 +32,11 @@ namespace Hedera.Hashgraph.Reference.Token
         /// The token for which this account will be unfrozen. If token does not exist, transaction results in
         /// [`Status.INVALID_TOKEN_ID`](reference/Status.md#INVALID_TOKEN_ID).
         /// </summary>
-        TokenId TokenId { get; }
+        ITokenId TokenId { get; }
 
         /// <summary>
         /// The account to be unfrozen
         /// </summary>
-        AccountId AccountId { get; }
-
+        IAccountId AccountId { get; }
     }
 }

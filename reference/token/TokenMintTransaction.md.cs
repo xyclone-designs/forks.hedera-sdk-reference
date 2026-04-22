@@ -16,7 +16,7 @@ namespace Hedera.Hashgraph.Reference.Token
         /// The token for which to mint tokens. If token does not exist, transaction results in
         /// [`Status.INVALID_TOKEN_ID`](reference/Status.md#INVALID_TOKEN_ID).
         /// </summary>
-        TokenId TokenId { get; }
+        ITokenId TokenId { get; }
 
         /// <summary>
         /// The amount to mint to the Treasury Account. Amount must be a positive non-zero number represented in the lowest

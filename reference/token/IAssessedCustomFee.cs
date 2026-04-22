@@ -1,8 +1,9 @@
 
 namespace Hedera.Hashgraph.Reference.Token
 {
-    public class AssessedCustomFee
+    public interface IAssessedCustomFee
     {
         // NOTE: .md file not found in repository. Interface created for build success and nothing more
     }
+    public interface IAssessedCustomFee<TSelf> : IAssessedCustomFee where TSelf : IAssessedCustomFee<TSelf> { }
 }

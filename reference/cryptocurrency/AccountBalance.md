@@ -12,7 +12,7 @@ var balances = new AccountBalanceQuery()
     .execute(client);
 
 
-System.out.println(balances.hbar); // Hbar balances
+System.out.println(balances.hbar); // IHbar balances
 System.out.println(balances.tokens.get(new TokenId(3)); // Balance for token ID 3
 System.out.println(balances.tokenDecimals.get(new TokenId(3)); // Token ID 3's decimal field
 ```
@@ -24,7 +24,7 @@ const balances = await new AccountBalanceQuery()
     .setAccountId("3") // balance of node 3
     .execute(client);
 
-console.log(balances.hbar); // Hbar balances
+console.log(balances.hbar); // IHbar balances
 console.log(balances.tokens.get(new TokenId(3)); // Balance for token ID 3
 console.log(balances.tokenDecimals.get(new TokenId(3)); // Token ID 3's decimal field
 ```
@@ -39,7 +39,7 @@ if err != nil {
     println(err.Error())
 }
 
-println(balances.Hbar); // Hbar balances
+println(balances.Hbar); // IHbar balances
 println(balances.Tokens.Get(TokenID{Token: 3}); // Balance for token ID 3
 println(balances.TokenDecimals.get(TokenID{Token: 3}); // Token ID 3's decimal field
 ```

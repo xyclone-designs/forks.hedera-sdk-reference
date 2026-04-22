@@ -16,8 +16,8 @@ namespace Hedera.Hashgraph.Reference.System
     /// </summary>
     public interface ISystemDeleteTransaction : ITransaction
     {
-        FileId FileId { get; }
-        ContractId ContractId { get; }
+        IFileId IFileId { get; }
+        IContractId ContractId { get; }
         DateTimeOffset ExpirationTime { get; }
     }
 }

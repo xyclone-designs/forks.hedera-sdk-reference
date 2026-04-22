@@ -33,11 +33,11 @@ namespace Hedera.Hashgraph.Reference.Token
         /// [`Status.INVALID_TOKEN_ID`](reference/Status.md#INVALID_TOKEN_ID).
         ///
         /// </summary>
-        TokenId TokenId { get; }
+        ITokenId TokenId { get; }
 
         /// <summary>
         /// The account to be KYCed
         /// </summary>
-        AccountId AccountId { get; }
+        IAccountId AccountId { get; }
     }
 }

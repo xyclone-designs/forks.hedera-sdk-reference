@@ -10,12 +10,12 @@ namespace Hedera.Hashgraph.Reference.Error
         /// <summary>
         /// The receipt of the transaction that failed; the only initialized field is [`TransactionReceipt.status`](../core/TransactionReceipt.md#status--status)
         /// </summary>
-        TransactionReceipt Receipt { get; }
+        ITransactionReceipt Receipt { get; }
 
         /// <summary>
         /// The ID of the transaction that failed. This can be `null` if a query fails pre-check without an
         /// associated payment transaction.
         /// </summary>
-        TransactionId TransactionId { get; }
+        ITransactionId TransactionId { get; }
     }
 }

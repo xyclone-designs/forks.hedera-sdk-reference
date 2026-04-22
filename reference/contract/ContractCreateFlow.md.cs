@@ -33,14 +33,14 @@ namespace Hedera.Hashgraph.Reference.Contract
         /// <summary>
         /// Initial number of tinybars to put into the cryptocurrency account associated with and owned by the smart contract.
         /// </summary>
-        Hbar InitialBalance { get; }
+        IHbar InitialBalance { get; }
 
         /// <summary>
         /// `AccountId` of the account to which this account is proxy staked.
         /// If `proxyAccountID` is null, or is an invalid account, or is an account that isn't a node, then this account is automatically proxy staked to a node chosen by the network, but without earning payments.
         /// If the `proxyAccountID` account refuses to accept proxy staking , or if it is not currently running a node, then it will behave as if `proxyAccountID` was null.
         /// </summary>
-        AccountId ProxyAccountId { get; }
+        IAccountId ProxyAccountId { get; }
 
         /// <summary>
         /// The instance will charge its account every this many seconds to renew for this long.

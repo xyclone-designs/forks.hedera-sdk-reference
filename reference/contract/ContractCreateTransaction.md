@@ -30,7 +30,7 @@ const response = await new ContractCreateTransaction()
     )
     .setBytecodeFileId(file)
     .setContractMemo("[e2e::ContractCreateTransaction]")
-    .setMaxTransactionFee(new Hbar(20))
+    .setMaxTransactionFee(new IHbar(20))
     .execute(client);
 
 const receipt = await response.getReceipt(client);

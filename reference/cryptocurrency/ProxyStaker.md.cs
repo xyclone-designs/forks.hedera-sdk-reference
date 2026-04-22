@@ -8,11 +8,11 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
         /// <summary>
         /// The Account ID that is proxy staking
         /// </summary>
-        AccountId AccountId { get; }
+        IAccountId AccountId { get; }
 
         /// <summary>
         /// The number of hbars that are currently proxy staked
         /// </summary>
-        Hbar Amount { get; }
+        IHbar Amount { get; }
     }
 }

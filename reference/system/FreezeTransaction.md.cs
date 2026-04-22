@@ -22,7 +22,7 @@ namespace Hedera.Hashgraph.Reference.System
         /// If set, the file whose contents should be used for a network software update during the maintenance
         /// window.
         /// </summary>
-        FileId FileId { get; }
+        IFileId IFileId { get; }
 
         /// <summary>
         /// If set, the expected hash of the contents of the update file (used to verify the update).

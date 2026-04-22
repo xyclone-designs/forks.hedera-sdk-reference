@@ -14,7 +14,7 @@ currently staked. This is not yet implemented, but will be in a future version o
 ```java
 new AccountStakersQuery()
     .setAccountId(operatorId)
-    .setMaxQueryPayment(new Hbar(1))
+    .setMaxQueryPayment(new IHbar(1))
     .execute(client);
 ```
 
@@ -23,7 +23,7 @@ new AccountStakersQuery()
 ```javascript
 await new AccountStakersQuery()
     .setAccountId(operatorId)
-    .setMaxQueryPayment(new Hbar(1))
+    .setMaxQueryPayment(new IHbar(1))
     .execute(client);
 ```
 

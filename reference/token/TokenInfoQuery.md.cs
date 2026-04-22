@@ -2,8 +2,8 @@ using Hedera.Hashgraph.Reference.Core;
 
 namespace Hedera.Hashgraph.Reference.Token
 {
-    public interface ITokenInfoQuery : IQuery<TokenInfo>
+    public interface ITokenInfoQuery : IQuery<ITokenInfo>
     {
-        TokenId TokenId { get; }
+        ITokenId TokenId { get; }
     }
 }

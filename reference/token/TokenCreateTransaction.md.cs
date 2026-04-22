@@ -53,7 +53,7 @@ namespace Hedera.Hashgraph.Reference.Token
         /// <summary>
         /// The account which will act as a treasury for the token. This account will receive the specified initial supply
         /// </summary>
-        AccountId TreasuryAccountId { get; }
+        IAccountId TreasuryAccountId { get; }
 
         /// <summary>
         /// The key which can perform update/delete operations on the token. If empty, the token can be perceived as immutable
@@ -103,7 +103,7 @@ namespace Hedera.Hashgraph.Reference.Token
         ///
         /// Note: This `AccountId` **MUST** sign the transaction if present.
         /// </summary>
-        AccountId AutoRenewAccountId { get; }
+        IAccountId AutoRenewAccountId { get; }
 
         /// <summary>
         /// The interval at which the auto-renew account will be charged to extend the token's expiry

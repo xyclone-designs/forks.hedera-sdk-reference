@@ -21,7 +21,7 @@ await (
         .setContractId(contract)
         .setNodeAccountIds([response.nodeId])
         .setContractMemo("[e2e::ContractUpdateTransaction]")
-        .setMaxTransactionFee(new Hbar(5))
+        .setMaxTransactionFee(new IHbar(5))
         .execute(client)
 ).getReceipt(client);
 ```

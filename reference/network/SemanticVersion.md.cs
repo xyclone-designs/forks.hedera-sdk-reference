@@ -1,33 +1,30 @@
-using System;
 
-namespace Hedera.Hashgraph.Reference.Network
+namespace Hedera.Hashgraph.Reference.Token
 {
-    public class SemanticVersion
+    /// <summary>
+    /// An ID type that represents a token on a Hedera Hashgraph network.
+    /// </summary>
+    public interface ISemanticVersion
     {
-        public SemanticVersion(int major, int minor, int patch)
-        {
-            Major = major;
-            Minor = minor;
-            Patch = patch;
-        }
-
-        /// <summary>
-        /// Serialize the [`SematicVersion`](#) into its protobuf representation.
-        /// </summary>
-        public static void FromBytes(byte[] bytes)
-        {
-            throw new NotImplementedException();
-        }
         /// <summary>
         /// Deserialize a [`Sem`](#) from its the protobuf representation.
         /// </summary>
-        public virtual byte[] ToBytes()
-        {
-            throw new NotImplementedException();
-        }
+        byte[] ToBytes();
 
         public long Major { get; }
         public long Minor { get; }
         public long Patch { get; }
+    }
+    public interface ISemanticVersion<TSelf> : ISemanticVersion where TSelf : ISemanticVersion<TSelf>
+    {
+        /// <summary>
+        /// Construct a [`TokenId`](#) with all fields explicitly set.
+        /// </summary>
+        abstract static TSelf CTOR(int major, int minor, int patch);
+
+        /// <summary>
+        /// Serialize the [`SematicVersion`](#) into its protobuf representation.
+        /// </summary>
+        abstract static TSelf FromBytes(byte[] data);
     }
 }

@@ -7,17 +7,17 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
         /// <summary>
         /// The account ID of the hbar owner(ie.the grantor of the allowance).
         /// </summary>
-        AccountId OwnerAccountId { get; }
+        IAccountId OwnerAccountId { get; }
 
         /// <summary>
         /// The token that the allowance pertains to.
         /// </summary>
-        TokenId TokenId { get; }
+        ITokenId TokenId { get; }
 
         /// <summary>
         /// The account ID of the spender of the hbar allowance.
         /// </summary>
-        AccountId SpenderAccountId { get; }
+        IAccountId SpenderAccountId { get; }
 
         /// <summary>
         /// The current balance of the spender's token allowance.

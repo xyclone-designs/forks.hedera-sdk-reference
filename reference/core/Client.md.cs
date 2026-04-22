@@ -9,7 +9,7 @@ namespace Hedera.Hashgraph.Reference.Core
     /// <summary>
     /// Managed client for use on the Hedera Hashgraph network.
     /// </summary>
-    public abstract class Client
+    public interface IClient
     {
         /// <summary>
         /// Construct a client for a specific network.
@@ -24,37 +24,25 @@ namespace Hedera.Hashgraph.Reference.Core
         ///
         /// Network constants are made available to use.
         /// </summary>
-        public static Client ForNetwork(IDictionary<string, AccountId> network)
-        {
-            throw new NotImplementedException();
-        }
+        abstract static IClient ForNetwork(IDictionary<string, IAccountId> network);
         /// <summary>
         /// Construct a Hedera client pre-configured for Mainnet access.
         ///
         /// Will initially be filled with a hard-coded address book for the consensus node network, but in the background the client will immediately attempt to update its consensus node network using an [`AddressBookQuery`](../network/AddressBookQuery.md) against the mirror network.  If the query fails, the consensus node network will remain unchanged and the query failure will be logged.
         /// </summary>
-        public static Client ForMainnet()
-        {
-            throw new NotImplementedException();
-        }
+        abstract static IClient ForMainnet();
         /// <summary>
         /// Construct a Hedera client pre-configured for Testnet access.
         ///
         /// Will initially be filled with a hard-coded address book for the consensus node network, but in the background the client will immediately attempt to update its consensus node network using an [`AddressBookQuery`](../network/AddressBookQuery.md) against the mirror network.  If the query fails, the consensus node network will remain unchanged and the query failure will be logged.
         /// </summary>
-        public static Client ForTestnet()
-        {
-            throw new NotImplementedException();
-        }
+        abstract static IClient ForTestnet();
         /// <summary>
         /// Construct a Hedera client pre-configured for Previewnet access.
         ///
         /// Will initially be filled with a hard-coded address book for the consensus node network, but in the background the client will immediately attempt to update its consensus node network using an [`AddressBookQuery`](../network/AddressBookQuery.md) against the mirror network.  If the query fails, the consensus node network will remain unchanged and the query failure will be logged.
         /// </summary>
-        public static Client ForPreviewnet()
-        {
-            throw new NotImplementedException();
-        }
+        abstract static IClient ForPreviewnet();
         /// <summary>
         /// Construct a Hedera client for a given name.
         ///
@@ -62,10 +50,7 @@ namespace Hedera.Hashgraph.Reference.Core
         ///
         /// For a valid name, the behavior is identical to `for[Mainnet|Testnet|Previewnet]()`
         /// </summary>
-        public static Client ForName(string name)
-        {
-            throw new NotImplementedException();
-        }
+        abstract static IClient ForName(string name);
         /// <summary>
         /// Configure a client from the JSON configuration string.
         ///
@@ -120,48 +105,41 @@ namespace Hedera.Hashgraph.Reference.Core
         ///
         /// </details>
         /// </summary>
-        public static Client FromConfig(string data)
-        {
-            throw new NotImplementedException();
-        }
+        abstract static IClient FromConfig(string data);
         /// <summary>
         /// Configure a client from the JSON configuration file. The file must have the same structure as the JSON in [`fromConfig`](#fromconfig--data--string---client)
         /// </summary>
-        public static Client FromConfigFile(string filename)
-        {
-            throw new NotImplementedException();
-        }
+        abstract static IClient FromConfigFile(string filename);
 
         /// <summary>
         /// Close all open connections with the Hedera network; and, release all
         /// associated resources.
         /// </summary>
-        public abstract void Close();
+        void Close();
         /// <summary>
         /// Ping a single node
         ///
         /// **NOTE**: This method will **not** throw if the node doesn't respond with a successful status code,
         /// instead the network will de-prioritize it.
         /// </summary>
-        public abstract void Ping(AccountId nodeAccountId);
+        void Ping(IAccountId nodeAccountId);
         /// <summary>
         /// Ping all nodes in the current network.
         ///
         /// **NOTE**: This method will **not** throw if a node doesn't respond with a successful status code,
         /// instead the network will de-prioritize it.
         /// </summary>
-        public abstract void PingAll();
-
+        void PingAll();
         /// <summary>
         /// Replaces the current network with one which is given in an `AddressBook` (which presumably was acquired via an [`AddressBookQuery`](../network/AddressBookQuery.md))
         /// </summary>
-        public abstract void SetNetworkFromAddressBook(IAddressBook addressBook);
+        void SetNetworkFromAddressBook(IAddressBook addressBook);
 
         /// <summary>
         /// Sets the account that will, by default, pay for transactions and queries built
         /// with this client.
         /// </summary>
-        public abstract Client SetOperator(AccountId accountId, IPrivateKey privateKey);
+        IClient SetOperator(IAccountId accountId, IPrivateKey privateKey);
         /// <summary>
         /// Sets the account that will, by default, pay for transactions and queries built
         /// with this client.
@@ -172,7 +150,7 @@ namespace Hedera.Hashgraph.Reference.Core
         /// This form is made available for integrating the SDK to sign
         /// from an external source such as the Ledger Hardware Wallet.
         /// </summary>
-        public abstract Client SetOperatorWith(AccountId accountId, IPublicKey publicKey, Func<byte[], byte[]> transactionSigner);
+        IClient SetOperatorWith(IAccountId accountId, IPublicKey publicKey, Func<byte[], byte[]> transactionSigner);
 
         /// <summary>
         /// Is automatic entity ID checksum validation enabled.
@@ -185,13 +163,13 @@ namespace Hedera.Hashgraph.Reference.Core
         /// <summary>
         /// The maximum query payment.
         ///
-        /// **NOTE**: Defaults to 1 Hbar.
+        /// **NOTE**: Defaults to 1 IHbar.
         /// </summary>
-        public Hbar DefaultMaxQueryPayment { get; }
+        public IHbar DefaultMaxQueryPayment { get; }
         /// <summary>
         /// The default maximum fee used for transactions.
         /// </summary>
-        public Hbar DefaultMaxTransactionFee { get; }
+        public IHbar DefaultMaxTransactionFee { get; }
         /// <summary>
         /// Declares if we should generate new transaction IDs when a transaction fails with `TRANSACTION_EXPIRED`.
         ///
@@ -201,7 +179,7 @@ namespace Hedera.Hashgraph.Reference.Core
         /// <summary>
         /// Current LedgerId of the network; corresponds to ledger ID in entity ID checksum calculations.
         /// </summary>
-        public LedgerId LedgerId { get; }
+        public ILedgerId LedgerId { get; }
         /// <summary>
         /// Max number of attempts a request executed with this client will do.
         /// </summary>
@@ -225,7 +203,7 @@ namespace Hedera.Hashgraph.Reference.Core
         /// <summary>
         /// The list of network records
         /// </summary>
-        public AccountId Network { get; }
+        public IAccountId Network { get; }
         /// <summary>
         /// If present, the client will periodically attempt to update its consensus node network in the background using
         /// an [`AddressBookQuery`](../network/AddressBookQuery.md) against its current mirror network.
@@ -235,7 +213,7 @@ namespace Hedera.Hashgraph.Reference.Core
         /// <summary>
         /// The ID of the operator
         /// </summary>
-        public AccountId? OperatorAccountId { get; }
+        public IAccountId? OperatorAccountId { get; }
         /// <summary>
         /// The key of the operator
         /// </summary>

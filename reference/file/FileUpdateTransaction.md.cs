@@ -10,7 +10,7 @@ namespace Hedera.Hashgraph.Reference.File
         /// <summary>
         /// This is the fileID that will be updated.
         /// </summary>
-        FileId FileId { get; }
+        IFileId IFileId { get; }
 
         /// <summary>
         /// These are the new keys of the file. These new keys will be required to sign the

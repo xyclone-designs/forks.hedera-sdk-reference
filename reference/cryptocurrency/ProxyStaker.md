@@ -9,7 +9,7 @@ Information about a single account that is proxy staking
 ```java
 var stakers = new AccountStakersQuery()
     .setAccountId(operatorId)
-    .setMaxQueryPayment(new Hbar(1))
+    .setMaxQueryPayment(new IHbar(1))
     .execute(client);
 
 for (var staker : stakers) {
@@ -23,7 +23,7 @@ for (var staker : stakers) {
 ```javascript
 const stakers = await new AccountStakersQuery()
     .setAccountId(operatorId)
-    .setMaxQueryPayment(new Hbar(1))
+    .setMaxQueryPayment(new IHbar(1))
     .execute(client);
 
 for (const staker of stakers) {

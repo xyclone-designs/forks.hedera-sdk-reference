@@ -13,7 +13,7 @@ namespace Hedera.Hashgraph.Reference.Core
         /// <summary>
         /// Fetch the receipt for the current transaction ID using the same node account ID
         /// </summary>
-        TransactionReceipt GetReceipt(Client client);
+        ITransactionReceipt GetReceipt(IClient client);
 
         /// <summary>
         /// Create a transaction receipt query for this particular transaction ID and node account ID
@@ -24,9 +24,9 @@ namespace Hedera.Hashgraph.Reference.Core
         /// Fetch the transaction record for the current transaction ID using the same node account ID
         ///
         /// **Note**: Will fetch the receipt first, then fetch the record because fetching the record in a
-        /// loop will cost more Hbar.
+        /// loop will cost more IHbar.
         /// </summary>
-        TransactionRecord GetRecord(Client client);
+        ITransactionRecord GetRecord(IClient client);
 
         /// <summary>
         /// Create a transaction record query for this particular transaction ID and node account ID
@@ -41,7 +41,7 @@ namespace Hedera.Hashgraph.Reference.Core
         /// <summary>
         /// The account ID of the node which the transaction was submitted to
         /// </summary>
-        AccountId NodeId { get; }
+        IAccountId NodeId { get; }
 
         /// <summary>
         /// Hash of the transaction
@@ -53,7 +53,6 @@ namespace Hedera.Hashgraph.Reference.Core
         /// <summary>
         /// Transaction ID of the transaction that was submitted
         /// </summary>
-        TransactionId TransactionId { get; }
-
+        ITransactionId TransactionId { get; }
     }
 }

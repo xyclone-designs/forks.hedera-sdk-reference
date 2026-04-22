@@ -9,24 +9,16 @@ using System.Collections.Generic;
 
 namespace Hedera.Hashgraph.Reference.Core
 {
-    /// <summary>
-    /// Response when the client sends the node TransactionGetRecordResponse
-    /// </summary>
-    public abstract class TransactionRecord
+    public interface ITransactionRecord
     {
-        /// <summary>
-        /// Decode a `TransactionRecord` from an appropriate protobuf encode structure
-        /// </summary>
-        public static TransactionRecord FromBytes(byte[] data) => throw new NotImplementedException();
-
         /// <summary>
         /// The byte representation of the encoded protobuf type
         /// </summary>
-        public abstract byte[] ToBytes();
+        byte[] ToBytes();
         /// <summary>
         /// Stringification of all the current values
         /// </summary>
-        public override string ToString() => throw new NotImplementedException();
+        string ToString();
 
         /// <summary>
         /// In the record of an internal CryptoCreate transaction triggered by a user transaction with a
@@ -36,7 +28,7 @@ namespace Hedera.Hashgraph.Reference.Core
         /// <summary>
         /// In the record of an internal transaction, the consensus timestamp of the user transaction that spawned it.
         /// </summary>
-        public IList<AssessedCustomFee> AssessedCustomFees { get; }
+        public IList<IAssessedCustomFee> AssessedCustomFees { get; }
         /// <summary>
         /// In the record of an internal transaction, the consensus timestamp of the user transaction that spawned it.
         /// </summary>
@@ -45,7 +37,7 @@ namespace Hedera.Hashgraph.Reference.Core
         /// The records of processing all child transaction spawned by the transaction with the given
         /// top-level id, in consensus order.Always empty if the top-level status is UNKNOWN.
         /// </summary>
-        public TransactionRecord Children { get; }
+        public ITransactionRecord Children { get; }
         /// <summary>
         /// The timestamp the transaction came to consensus
         /// </summary>
@@ -57,10 +49,9 @@ namespace Hedera.Hashgraph.Reference.Core
         /// <summary>
         /// The records of processing all consensus transaction with the same id as the distinguished record above, in chronological order.
         /// </summary>
-        public TransactionRecord Duplicates { get; }
+        public ITransactionRecord Duplicates { get; }
         /// <summary>
         /// The keccak256 hash of the ethereumData.
-
         /// **NOTE**: This field will only be populated for EthereumTransaction.
         /// </summary>
         public byte[] EthereumHash { get; }
@@ -87,29 +78,29 @@ namespace Hedera.Hashgraph.Reference.Core
         /// <summary>
         /// Receipt for the transaction
         /// </summary>
-        public TransactionReceipt Receipt { get; }
+        public ITransactionReceipt Receipt { get; }
         /// <summary>
         /// In the record of an internal transaction, the consensus timestamp of the user transaction that spawned it.
         /// </summary>
-        public ScheduleId ScheduleRef { get; }
+        public IScheduleId ScheduleRef { get; }
         /// <summary>
         /// All NFT Token transfers as a result of this transaction
         /// </summary>
-        public IDictionary<TokenId, IList<TokenNftTransfer>> TokenNftTransfers { get; }
+        public IDictionary<ITokenId, IList<ITokenNftTransfer>> TokenNftTransfers { get; }
         /// <summary>
         /// All fungible token transfers as a result of this transaction as a list
         /// </summary>
-        public IList<TokenTransfer> TokenTransferList { get; }
+        public IList<ITokenTransfer> TokenTransferList { get; }
         /// <summary>
         /// Any token transfers made in this transaction
         ///
         /// ** Note**: These token transfers are different from the ones set in [`TransferTransaction`] (../cryptocurrency/TransferTransaction.md)
         /// </summary>
-        public IDictionary<TokenId, IList<AccountId>> TokenTransfers { get; }
+        public IDictionary<ITokenId, IList<IAccountId>> TokenTransfers { get; }
         /// <summary>
         /// Fee set on the transaction
         /// </summary>
-        public Hbar TransactionFee { get; }
+        public IHbar TransactionFee { get; }
         /// <summary>
         /// Hash of the transaction
         /// </summary>
@@ -117,16 +108,26 @@ namespace Hedera.Hashgraph.Reference.Core
         /// <summary>
         /// Transaction ID of the transaction
         /// </summary>
-        public TransactionId TransactionId { get; }
+        public ITransactionId TransactionId { get; }
         /// <summary>
         /// Memo set on the transaction
         /// </summary>
         public string TransactionMemo { get; }
         /// <summary>
         /// Any transfers made in this transaction
-
         /// ** Note**: Includes fee payments
         /// </summary>
         public ITransfer[] Transfers { get; }
+    }
+
+    /// <summary>
+    /// Response when the client sends the node TransactionGetRecordResponse
+    /// </summary>
+    public interface ITransactionRecord<TSelf> : ITransactionRecord where TSelf : ITransactionRecord<TSelf>
+    {
+        /// <summary>
+        /// Decode a `TransactionRecord` from an appropriate protobuf encode structure
+        /// </summary>
+        abstract static TSelf FromBytes(byte[] data);
     }
 }

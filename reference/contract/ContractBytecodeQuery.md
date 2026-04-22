@@ -19,7 +19,7 @@ var bytecode = new ContractByteCodeQuery()
 const bytecode = await new ContractByteCodeQuery()
     .setNodeAccountIds([response.nodeId])
     .setContractId(contract)
-    .setQueryPayment(new Hbar(2))
+    .setQueryPayment(new IHbar(2))
     .execute(client);
 ```
 

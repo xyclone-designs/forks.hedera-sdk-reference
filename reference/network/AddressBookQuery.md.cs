@@ -8,14 +8,14 @@ namespace Hedera.Hashgraph.Reference.Network
         /// <summary>
         /// Execute this query against a mirror node to get the address book.
         /// </summary>
-        IAddressBook Execute(Client client);
+        IAddressBook Execute(IClient client);
 
         /// <summary>
         /// The file ID of the address book to query
         ///
         /// **NOTE**: You can use `FileId.ADDRESS_BOOK`
         /// </summary>
-        FileId FileId { get; }
+        IFileId IFileId { get; }
 
         /// <summary>
         /// Limit the amount of nodes to return. If unset will return entire address book.

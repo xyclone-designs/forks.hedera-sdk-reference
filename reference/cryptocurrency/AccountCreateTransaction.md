@@ -43,7 +43,7 @@ var key = PrivateKey.generate();
 
 var accountId = new AccountCreateTransaction()
     .setKey(key)
-    .setInitialBalance(new Hbar(10)) // 10 hbars
+    .setInitialBalance(new IHbar(10)) // 10 hbars
     .setEvmAddress(evmAddress) // bytes
     .execute(client) // TransactionResponse
     .getReceipt(client) // TransactionReceipt
@@ -57,7 +57,7 @@ const key = PrivateKey.generate();
 
 const transaction = new AccountCreateTransaction({
     key: newKey,
-    initialBalance: new Hbar(10),
+    initialBalance: new IHbar(10),
     evmAddress: evmAddress,
 
 });
@@ -76,7 +76,7 @@ newKey := hedera.GeneratePrivateKey()
 
 response, err := hedera.NewAccountCreateTransaction().
     SetKey(newKey).
-    SetInitialBalance(10 * hedera.Hbar) // 10 Hbars
+    SetInitialBalance(10 * hedera.Hbar) // 10 IHbars
     SetEvmAddress(evmAddress) // bytes
     Execute(client) // TransactionResponse
 if err != nil {

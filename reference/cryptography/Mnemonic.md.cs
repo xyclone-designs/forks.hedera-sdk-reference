@@ -1,4 +1,3 @@
-using System;
 
 namespace Hedera.Hashgraph.Reference.Cryptography
 {
@@ -10,36 +9,6 @@ namespace Hedera.Hashgraph.Reference.Cryptography
     /// </summary>
     public interface IMnemonic
     {
-        /// <summary>
-        /// Deserialize a mnemonic from a string containing a list of words separated by spaces
-        ///
-        /// ###### Errors
-        ///
-        /// - [`BadMnemonic`](../error/BadMnemonic.md) — when the mnemonic contains
-        /// words not found in the word list; there is a checksum mismatch; or, an
-        /// unexpected number of words.
-        /// </summary>
-        public static IMnemonic FromString(string text) => throw new NotImplementedException();
-        /// <summary>
-        /// Create a mnemonic from the given list of words.
-        ///
-        /// ###### Errors
-        ///
-        /// - [`BadMnemonic`](../error/BadMnemonic.md) — when the mnemonic contains
-        /// words not found in the word list; there is a checksum mismatch; or, an
-        /// unexpected number of words.
-        /// </summary>
-        public static IMnemonic FromWords(string[] words) => throw new NotImplementedException();
-        /// <summary>
-        /// Returns a new random 12-word mnemonic from the BIP-39 standard English word list.
-        /// </summary>
-        public static IMnemonic Generate12() => throw new NotImplementedException();
-        /// <summary>
-        /// Returns a new random 24-word mnemonic from the BIP-39 standard English word list.
-        ///
-        /// </summary>
-        public static IMnemonic Generate24() => throw new NotImplementedException();
-
         /// <summary>
         /// Derive a private key from the current mnemonic
         /// </summary>
@@ -62,5 +31,37 @@ namespace Hedera.Hashgraph.Reference.Cryptography
         /// The list of words that define this mnemonic
         /// </summary>
         string[] Words { get; }
+    }
+    public interface IMnemonic<TSelf> : IMnemonic where TSelf : IMnemonic<TSelf>
+    {
+        /// <summary>
+        /// Deserialize a mnemonic from a string containing a list of words separated by spaces
+        ///
+        /// ###### Errors
+        ///
+        /// - [`BadMnemonic`](../error/BadMnemonic.md) — when the mnemonic contains
+        /// words not found in the word list; there is a checksum mismatch; or, an
+        /// unexpected number of words.
+        /// </summary>
+        abstract static IMnemonic FromString(string text);
+        /// <summary>
+        /// Create a mnemonic from the given list of words.
+        ///
+        /// ###### Errors
+        ///
+        /// - [`BadMnemonic`](../error/BadMnemonic.md) — when the mnemonic contains
+        /// words not found in the word list; there is a checksum mismatch; or, an
+        /// unexpected number of words.
+        /// </summary>
+        abstract static IMnemonic FromWords(string[] words);
+        /// <summary>
+        /// Returns a new random 12-word mnemonic from the BIP-39 standard English word list.
+        /// </summary>
+        abstract static IMnemonic Generate12();
+        /// <summary>
+        /// Returns a new random 24-word mnemonic from the BIP-39 standard English word list.
+        ///
+        /// </summary>
+        abstract static IMnemonic Generate24();
     }
 }

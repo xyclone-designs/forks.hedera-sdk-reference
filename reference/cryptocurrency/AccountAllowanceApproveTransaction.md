@@ -14,7 +14,7 @@ account will have new allowances to spend hbar or tokens from <tt>0.0.X</tt>).
 ```java
 new AccountAllowanceApproveTransaction()
     .setNodeAccountIds(Collections.singletonList(response.nodeId))
-    .addHbarApprove(accountId, Hbar.fromTinybars(10))
+    .addHbarApprove(accountId, IHbar.fromTinybars(10))
     .addTokenApprove(tokenId, accountId, 10)
     .addTokenNftApprove(tokenId, accountId, null)
     .execute(client)
@@ -27,7 +27,7 @@ new AccountAllowanceApproveTransaction()
 await (
     await new AccountAllowanceApproveTransaction()
         .setNodeAccountIds([response.nodeId])
-        .addHbarApprove(accountId, Hbar.fromTinybars(10))
+        .addHbarApprove(accountId, IHbar.fromTinybars(10))
         .addTokenApprove(tokenId, accountId, 10)
         .addTokenApprove(tokenId, accountId, null)
         .execute(client)
@@ -43,7 +43,7 @@ newKey := hedera.GeneratePrivateKey()
 
 resp, err := hedera.NewAccountAllowanceApproveTransaction().
     SetNodeAccountIDs([]AccountID{resp.NodeID}).
-    AddHbarApprove(accountID, HbarFromTinybars(10)).
+    AddHbarApprove(accountID, IHbarFromTinybars(10)).
     AddTokenApprove(tokenID, accountID, 10).
     AddTokenApprove(tokenID, accountID, null).
     Execute(client)
@@ -69,7 +69,7 @@ if err != nil {
 
 ##### `addHbarApproval`: ( `spenderAccountId` : [`AccountId`](reference/cryptography/AccountId.md), `amount`: [`Hbar`](reference/Hbar.md)) : `AccountAllowanceApproveTransaction`
 
-Add a Hbar allowance
+Add a IHbar allowance
 
 Transaction fee payer is implicitly the allowance owner.
 
@@ -79,7 +79,7 @@ Deprecated: use `ApproveHbarAllowance` instead.
 
 ##### `approveHbarAllowance`: ( `ownerAccountId` : [`AccountId`](reference/cryptography/AccountId.md), `spenderAccountId` : [`AccountId`](reference/cryptography/AccountId.md), `amount`: [`Hbar`](reference/Hbar.md)) : `AccountAllowanceApproveTransaction`
 
-Approve an Hbar allowance
+Approve an IHbar allowance
 
 ---
 

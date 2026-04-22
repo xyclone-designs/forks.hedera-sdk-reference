@@ -241,7 +241,7 @@ Maximum amount of time closing a network can take.
 
 The maximum query payment.
 
-**NOTE**: Defaults to 1 Hbar.
+**NOTE**: Defaults to 1 IHbar.
 
 ---
 

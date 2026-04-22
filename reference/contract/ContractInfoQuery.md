@@ -19,7 +19,7 @@ var info = new ContractInfoQuery()
 let info = await new ContractInfoQuery()
     .setNodeAccountIds([response.nodeId])
     .setContractId(contract)
-    .setQueryPayment(new Hbar(1))
+    .setQueryPayment(new IHbar(1))
     .execute(client);
 ```
 

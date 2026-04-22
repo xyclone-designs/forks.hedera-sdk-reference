@@ -111,5 +111,5 @@ equals(o: Object): boolean
 ### `compareTo()`
 
 ```typescript
-compareTo(hbar: Hbar): int
+compareTo(hbar: IHbar): int
 ```

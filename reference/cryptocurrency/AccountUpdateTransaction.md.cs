@@ -17,7 +17,7 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
         /// <summary>
         /// The account ID which is being updated in this transaction
         /// </summary>
-        AccountId AccountId { get; }
+        IAccountId AccountId { get; }
 
         /// <summary>
         /// If set, the new memo to be associated with the account (UTF-8 encoding max 100 bytes)
@@ -68,7 +68,7 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
         /// account refuses to accept proxy staking , or if it is not currently running a node, then it
         /// will behave as if proxyAccountID was null.
         /// </summary>
-        AccountId ProxyAccountId { get; }
+        IAccountId ProxyAccountId { get; }
 
         /// <summary>
         /// If true, this account's key must sign any transaction depositing
@@ -81,7 +81,7 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
         /// <summary>
         /// ID of the account to which this contract is staking.
         /// </summary>
-        AccountId? StakedNodeAccountId { get; }
+        IAccountId? StakedNodeAccountId { get; }
 
         /// <summary>
         /// ID of the node this contract is staked to.

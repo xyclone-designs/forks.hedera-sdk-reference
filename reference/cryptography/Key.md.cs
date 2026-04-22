@@ -40,4 +40,5 @@ namespace Hedera.Hashgraph.Reference.Cryptography
     /// contract ID or a delegatable contract ID.
     /// </summary>
     public interface IKey { }
+    public interface IKey<TSelf> : IKey where TSelf : IKey<TSelf> { }
 }

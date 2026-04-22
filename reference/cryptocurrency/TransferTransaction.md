@@ -18,8 +18,8 @@ are in the same order as the accounts, skipping those accounts that don't need a
 var key = PrivateKey.generate();
 
 new TransferTransaction()
-    .addHbarTransfer(new AccountId(1451), new Hbar(10)) // 10 hbars
-    .addHbarTransfer(client.getOperatorAccountId()), new Hbar(10).negate()) // -10 hbars
+    .addHbarTransfer(new AccountId(1451), new IHbar(10)) // 10 hbars
+    .addHbarTransfer(client.getOperatorAccountId()), new IHbar(10).negate()) // -10 hbars
     .execute(client) // TransactionResponse
     .getReceipt(client); // TransactionReceipt
 ```
@@ -30,8 +30,8 @@ new TransferTransaction()
 const key = PrivateKey.generate();
 
 const transaction = new TransferTransaction()
-    .addHbarTransfer(new AccountId(1451), new Hbar(10)) // 10 hbars
-    .addHbarTransfer(client.operatorAccountId), new Hbar(10).negate()); // -10 hbars
+    .addHbarTransfer(new AccountId(1451), new IHbar(10)) // 10 hbars
+    .addHbarTransfer(client.operatorAccountId), new IHbar(10).negate()); // -10 hbars
 
 const response = await transferTransaction.execute(client) // TransactionResponse;
 const receipt = await response.getReceipt(client) // TransactionReceipt;
@@ -45,8 +45,8 @@ const receipt = await response.getReceipt(client) // TransactionReceipt;
 newKey := hedera.GeneratePrivateKey()
 
 response, err := hedera.NewTransferTransaction().
-    AddHbarTransfer(AccountID{Account: 1451}, hedera.NewHbar(10)). // 10 Hbars
-    AddHbarTransfer(client.GetOperatorAccountID(), hedera.NewHbar(10).Negate()). // -10 Hbars
+    AddHbarTransfer(AccountID{Account: 1451}, hedera.NewHbar(10)). // 10 IHbars
+    AddHbarTransfer(client.GetOperatorAccountID(), hedera.NewHbar(10).Negate()). // -10 IHbars
     Execute(client) // TransactionResponse
 if err != nil {
     println(err.Error())
@@ -70,19 +70,19 @@ if err != nil {
 
 ##### `addHbarTransfer` ( `accountId`: [`AccountId`](reference/cryptocurrency/AccountId.md), `amount`: [`Hbar`](reference/Hbar.md) ): `TransferTransaction`
 
-Add an Hbar transfer
+Add an IHbar transfer
 
 ---
 
 ##### `addApprovedHbarTransfer` ( `accountId`: [`AccountId`](reference/cryptocurrency/AccountId.md), `amount`: [`Hbar`](reference/Hbar.md) ): `TransferTransaction`
 
-Add an approved Hbar transfer
+Add an approved IHbar transfer
 
 ---
 
 ##### `getHbarTransfers` (): `Map` < `[`AccountId`](reference/cryptocurrency/AccountId.md), [`Hbar`](reference/Hbar.md) >
 
-The Hbar transfers
+The IHbar transfers
 
 ---
 

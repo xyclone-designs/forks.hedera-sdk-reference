@@ -58,7 +58,7 @@ The receipts of processing all transactions with the given id, in consensus time
 
 ##### `exchangeRate`: [`ExchangeRate`](../ExchangeRate.md)
 
-Current exchange rant for Hbar to USD
+Current exchange rant for IHbar to USD
 
 ---
 

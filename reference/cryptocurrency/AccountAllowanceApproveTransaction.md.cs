@@ -14,17 +14,17 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
     public interface IAccountAllowanceApproveTransaction : ITransaction
     {
         /// <summary>
-        /// Add a Hbar allowance
+        /// Add a IHbar allowance
         ///
         /// Transaction fee payer is implicitly the allowance owner.
         ///
         /// Deprecated: use `ApproveHbarAllowance` instead.
         /// </summary>
-        AccountId AddHbarApproval();
+        IAccountId AddHbarApproval();
         /// <summary>
-        /// Approve an Hbar allowance
+        /// Approve an IHbar allowance
         /// </summary>
-        AccountId ApproveHbarAllowance();
+        IAccountId ApproveHbarAllowance();
         /// <summary>
         /// Get the current list of hbar approves for this transaction.
         /// </summary>
@@ -36,11 +36,11 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
         ///
         /// Deprecated: use `approveTokenAllowance` instead.
         /// </summary>
-        TokenId AddTokenApprovals();
+        ITokenId AddTokenApprovals();
         /// <summary>
         /// Approve a fungible token allowance.
         /// </summary>
-        TokenId ApproveTokenAllowance();
+        ITokenId ApproveTokenAllowance();
         /// <summary>
         /// Get the current list of hbar approves for this transaction.
         /// </summary>
@@ -52,11 +52,11 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
         ///
         /// Deprecated: use `approveTokenNftAllowance` instead.
         /// </summary>
-        NftId AddTokenNftApproval();
+        INftId AddTokenNftApproval();
         /// <summary>
         /// Approve a non-fungible token allowance
         /// </summary>
-        NftId ApproveTokenNftAllowance();
+        INftId ApproveTokenNftAllowance();
         /// <summary>
         /// Add all non-fungible tokens to approve
         ///
@@ -64,11 +64,11 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
         ///
         /// Deprecated: use `approveTokenNftAllowanceAllSerials` instead.
         /// </summary>
-        TokenId AddAllTokenNftApprovals();
+        ITokenId AddAllTokenNftApprovals();
         /// <summary>
         /// Approve an allowance of all serial numbers of a non-fungible token.
         /// </summary>
-        TokenId ApproveTokenNftAllowanceAllSerials();
+        ITokenId ApproveTokenNftAllowanceAllSerials();
         /// <summary>
         /// Get the list of all non-fungible token approves for this transaction
         ///

@@ -12,7 +12,7 @@ ethereum transaction RLP formats. Other formats will error.
 ```java
 new EthereumFlow()
     .setEthereumData(ethereumData)
-    .setMaxHbarGasAllowance(new Hbar(10))
+    .setMaxHbarGasAllowance(new IHbar(10))
     .execute(client)
     .getReceipt(client);
 ```
@@ -22,7 +22,7 @@ new EthereumFlow()
 ```javascript
 const response = await new EthereumFlow()
     .setEthereumData(ethereumData)
-    .setMaxHbarGasAllowance(new Hbar(10))
+    .setMaxHbarGasAllowance(new IHbar(10))
     .execute(client);
 
 const receipt = await response.getReceipt(client);

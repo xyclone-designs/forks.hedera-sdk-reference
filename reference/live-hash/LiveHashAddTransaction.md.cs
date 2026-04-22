@@ -8,7 +8,7 @@ namespace Hedera.Hashgraph.Reference.LiveHash
 {
     public interface ILiveHashAddTransaction : ITransaction
     {
-        AccountId AccountId { get; }
+        IAccountId AccountId { get; }
         byte[] Hash { get; }
         IKeyList Keys { get; }
         TimeSpan TimeSpan { get; }

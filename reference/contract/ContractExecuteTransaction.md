@@ -26,7 +26,7 @@ await (
             "setMessage",
             new ContractFunctionParameters().addString("new message")
         )
-        .setMaxTransactionFee(new Hbar(5))
+        .setMaxTransactionFee(new IHbar(5))
         .execute(client)
 ).getReceipt(client);
 ```

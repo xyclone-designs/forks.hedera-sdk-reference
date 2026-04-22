@@ -3,7 +3,7 @@ namespace Hedera.Hashgraph.Reference.Core
     /// <summary>
     /// Get the record for a transaction.
     /// </summary>
-    public interface ITransactionRecordQuery : IQuery<TransactionRecord>
+    public interface ITransactionRecordQuery : IQuery<ITransactionRecord>
     {
         /// <summary>
         /// Whether the response should include the records of any child transactions spawned by the
@@ -23,6 +23,6 @@ namespace Hedera.Hashgraph.Reference.Core
         /// <summary>
         /// The transaction ID to query the record for
         /// </summary>
-        TransactionId TransactionId { get; }
+        ITransactionId TransactionId { get; }
     }
 }

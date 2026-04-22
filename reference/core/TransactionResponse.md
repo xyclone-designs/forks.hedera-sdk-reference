@@ -24,7 +24,7 @@ Create a transaction receipt query for this particular transaction ID and node a
 Fetch the transaction record for the current transaction ID using the same node account ID
 
 **Note**: Will fetch the receipt first, then fetch the record because fetching the record in a
-loop will cost more Hbar.
+loop will cost more IHbar.
 
 ---
 

@@ -32,7 +32,7 @@ namespace Hedera.Hashgraph.Reference.Consensus
         /// <summary>
         /// `TopicId` to be updated.
         /// </summary>
-        TopicId TopicId { get; }
+        ITopicId TopicId { get; }
 
         /// <summary>
         /// Access control for update/delete of the topic.
@@ -59,7 +59,7 @@ namespace Hedera.Hashgraph.Reference.Consensus
         /// If specified as the default value (0.0.0), the `autoRenewAccountId` will be removed.
         /// If unspecified, no change.
         /// </summary>
-        AccountId AutoRenewAccountId { get; }
+        IAccountId AutoRenewAccountId { get; }
 
         /// <summary>
         /// Short publicly visible memo about the topic. No guarantee of uniqueness. Null for "do not update".

@@ -2,16 +2,16 @@ namespace Hedera.Hashgraph.Reference
 {
     public interface IEthereumTransactionDataEip1559 : IEthereumTransactionData
     {
-        public byte[] ChainId { get; }
-        public byte[] Nonce { get; }
-        public byte[] MaxPriorityGas { get; }
-        public byte[] MaxGas { get; }
-        public byte[] GasLimit { get; }
-        public byte[] To { get; }
-        public byte[] Value { get; }
-        public byte[] AccessList { get; }
-        public byte[] RecoveryId { get; }
-        public byte[] R { get; }
-        public byte[] S { get; }
+        byte[] ChainId { get; }
+        byte[] Nonce { get; }
+        byte[] MaxPriorityGas { get; }
+        byte[] MaxGas { get; }
+        byte[] GasLimit { get; }
+        byte[] To { get; }
+        byte[] Value { get; }
+        byte[] AccessList { get; }
+        byte[] RecoveryId { get; }
+        byte[] R { get; }
+        byte[] S { get; }
     }
 }

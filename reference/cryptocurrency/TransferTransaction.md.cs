@@ -17,63 +17,63 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
     public interface ITransferTransaction : ITransaction
     {
         /// <summary>
-        /// Add an Hbar transfer
+        /// Add an IHbar transfer
         /// </summary>
-        ITransferTransaction AddHbarTransfer(AccountId accountId, Hbar amount);
+        ITransferTransaction AddHbarTransfer(IAccountId accountId, IHbar amount);
 
         /// <summary>
-        /// Add an approved Hbar transfer
+        /// Add an approved IHbar transfer
         /// </summary>
-        ITransferTransaction AddApprovedHbarTransfer(AccountId accountId, Hbar amount);
+        ITransferTransaction AddApprovedHbarTransfer(IAccountId accountId, IHbar amount);
 
         /// <summary>
-        /// The Hbar transfers
+        /// The IHbar transfers
         /// </summary>
-        AccountId GetHbarTransfers();
+        IAccountId GetHbarTransfers();
 
         /// <summary>
         /// Add a fungible token transfer
         /// </summary>
-        ITransferTransaction AddTokenTransfer(TokenId tokenId, long amount);
+        ITransferTransaction AddTokenTransfer(ITokenId tokenId, long amount);
 
         /// <summary>
         /// Add an approved fungible token transfer
         /// </summary>
-        ITransferTransaction AddApprovedTokenTransfer(TokenId tokenId, long amount);
+        ITransferTransaction AddApprovedTokenTransfer(ITokenId tokenId, long amount);
 
         /// <summary>
         /// Add an approved fungible token transfer with an expected decimals field
         /// </summary>
-        ITransferTransaction AddTokenTransferWithDecimals(TokenId tokenId, long amount, int decimals);
+        ITransferTransaction AddTokenTransferWithDecimals(ITokenId tokenId, long amount, int decimals);
 
         /// <summary>
         /// Add an approved fungible token transfer with an expected decimals field
         /// </summary>
-        ITransferTransaction AddApproovedTokenTransferWithDecimals(TokenId tokenId, long amount, int decimals);
+        ITransferTransaction AddApproovedTokenTransferWithDecimals(ITokenId tokenId, long amount, int decimals);
 
         /// <summary>
         /// The expected decimals per token ID
         /// </summary>
-        TokenId GetTokenIdDecimals();
+        ITokenId GetITokenIdDecimals();
 
         /// <summary>
         /// The fungible token transfers
         /// </summary>
-        TokenId GetTokenTransfers();
+        ITokenId GetTokenTransfers();
 
         /// <summary>
         /// Add a non-fungible token transfer
         /// </summary>
-        ITransferTransaction AddNftTransfer(NftId nftId, AccountId sender, AccountId reciever);
+        ITransferTransaction AddNftTransfer(INftId nftId, IAccountId sender, IAccountId reciever);
 
         /// <summary>
         /// Add an approved non-fungible token transfer
         /// </summary>
-        ITransferTransaction AddApprovedNftTransfer(NftId nftId, AccountId sender, AccountId reciever);
+        ITransferTransaction AddApprovedNftTransfer(INftId nftId, IAccountId sender, IAccountId reciever);
 
         /// <summary>
         /// The non-fungible token transfers
         /// </summary>
-        TokenId GetTokenNftTransfers();
+        ITokenId GetTokenNftTransfers();
     }
 }

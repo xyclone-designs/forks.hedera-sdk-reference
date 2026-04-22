@@ -15,11 +15,11 @@ namespace Hedera.Hashgraph.Reference.Cryptocurrency
         /// <summary>
         /// The AccountId which should be deleted
         /// </summary>
-        AccountId AccountId { get; }
+        IAccountId AccountId { get; }
 
         /// <summary>
         /// The `AccountId` which will receive all remaining hbars
         /// </summary>
-        AccountId TransferAccountId { get; }
+        IAccountId TransferAccountId { get; }
     }
 }

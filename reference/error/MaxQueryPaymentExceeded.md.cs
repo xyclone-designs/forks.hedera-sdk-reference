@@ -8,11 +8,11 @@ namespace Hedera.Hashgraph.Reference.Error
         /// <summary>
         /// The limit for a single automatic query payment, set by
         /// [`Client.setMaxQueryPayment(Hbar)`](../core/Client.md#defaultmaxquerypayment--hbar) or [`Query.setMaxQueryPayment(Hbar)`](../core/Query.md#write-only-maxquerypayment--hbar).</summary>
-        Hbar MaxQueryPayment { get; }
+        IHbar MaxQueryPayment { get; }
 
         /// <summary>
         /// The cost of the query that was attempted as returned by [`Query.getCost`](../core/Query.md#getcost--client--client---hbar)
         /// </summary>
-        Hbar QueryCost { get; }
+        IHbar QueryCost { get; }
     }
 }

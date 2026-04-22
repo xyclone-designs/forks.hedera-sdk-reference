@@ -5,7 +5,7 @@ namespace Hedera.Hashgraph.Reference.LiveHash
 {
     public interface ILiveHashDeleteTransaction : ITransaction
     {
-        AccountId AccountId { get; }
+        IAccountId AccountId { get; }
         byte[] Hash { get; }
     }
 }

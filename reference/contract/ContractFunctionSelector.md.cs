@@ -1,11 +1,8 @@
-using System;
 
 namespace Hedera.Hashgraph.Reference.Contract
 {
     public interface IContractFunctionSelector
     {
-        public static IContractFunctionSelector Constructor(string functionName) => throw new NotImplementedException();
-
         IContractFunctionSelector AddString();
         IContractFunctionSelector AddStringArray();
         IContractFunctionSelector AddBytes();
@@ -31,5 +28,10 @@ namespace Hedera.Hashgraph.Reference.Contract
         IContractFunctionSelector AddUint256Array();
         IContractFunctionSelector AddAddress();
         IContractFunctionSelector AddAddressArray();
+    }
+
+    public interface IContractFunctionSelector<TSelf> : IContractFunctionSelector where TSelf : IContractFunctionSelector<TSelf>
+    {
+        abstract static IContractFunctionSelector Constructor(string functionName);
     }
 }

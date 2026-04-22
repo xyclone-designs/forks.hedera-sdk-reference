@@ -6,6 +6,6 @@ namespace Hedera.Hashgraph.Reference.Consensus
         /// <summary>
         /// The ID for a topic to subscribe to.
         /// </summary>
-        TopicId TopicId { get; }
+        ITopicId TopicId { get; }
     }
 }

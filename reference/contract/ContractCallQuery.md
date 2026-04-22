@@ -26,7 +26,7 @@ var result = callQuery
 const callQuery = new ContractCallQuery()
     .setNodeAccountIds([response.nodeId])
     .setContractId(contract)
-    .setQueryPayment(new Hbar(1))
+    .setQueryPayment(new IHbar(1))
     .setGas(2000)
     .setFunction("getMessage");
 

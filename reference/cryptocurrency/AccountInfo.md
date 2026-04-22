@@ -73,7 +73,7 @@ The TimeStamp time at which this account is set to expire.
 
 ##### `hbarAllowances`: `List` < [`HbarAllowance`](HbarAllowance.md) >
 
-All Hbar allowances approved by the account owner.
+All IHbar allowances approved by the account owner.
 
 ---
 

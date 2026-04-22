@@ -29,7 +29,7 @@ namespace Hedera.Hashgraph.Reference.Consensus
         /// can be extended using all funds on the account.
         /// If specified, there must be an `adminKey` and the `autoRenewAccount` must sign this transaction.
         /// </summary>
-        AccountId AutoRenewAccountId { get; }
+        IAccountId AutoRenewAccountId { get; }
         /// <summary>
         /// Short publicly visible memo about the topic. No guarantee of uniqueness.
         /// </summary>

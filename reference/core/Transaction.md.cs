@@ -34,7 +34,7 @@ namespace Hedera.Hashgraph.Reference.Core
         /// [`TransactionRecord`](TransactionRecord.md)
         /// for more information.
         /// </summary>
-        ITransactionResponse Execute(Client client);
+        ITransactionResponse Execute(IClient client);
 
         /// <summary>
         /// Freeze the transaction getting it ready to be signed or executed.
@@ -54,12 +54,12 @@ namespace Hedera.Hashgraph.Reference.Core
         /// The client's operator will be used to generate a transaction ID, and the client's network will be
         /// used to generate a list of node account IDs
         /// </summary>
-        ITransaction FreezeWith(Client client);
+        ITransaction FreezeWith(IClient client);
 
         /// <summary>
         /// Get the transaction signatures
         /// </summary>
-        IDictionary<AccountId, IDictionary<IPublicKey, byte[]>> GetSignatures();
+        IDictionary<IAccountId, IDictionary<IPublicKey, byte[]>> GetSignatures();
 
         /// <summary>
         /// Generate the SHA-384 hash of the transaction
@@ -75,7 +75,7 @@ namespace Hedera.Hashgraph.Reference.Core
         ///
         /// The key for the returned map is the node account ID
         /// </summary>
-        AccountId GetTransactionHashPerNode();
+        IAccountId GetTransactionHashPerNode();
 
         /// <summary>
         /// Convert the transaction into a scheduled version
@@ -101,7 +101,7 @@ namespace Hedera.Hashgraph.Reference.Core
         ///
         /// **NOTE**: If the operator has already signed this will be ignored
         /// </summary>
-        ITransaction SignWithOperator(Client client);
+        ITransaction SignWithOperator(IClient client);
 
         /// <summary>
         /// Encodes this transaction to a byte array that can be later decoded into
@@ -114,7 +114,7 @@ namespace Hedera.Hashgraph.Reference.Core
         ///
         /// This value is set by the SDK
         /// </summary>
-        Hbar DefaultMaxTransactionFee { get; }
+        IHbar DefaultMaxTransactionFee { get; }
 
         /// <summary>
         /// The number of times to retry submitting this transaction. Transactions are retried when Hedera
@@ -133,7 +133,7 @@ namespace Hedera.Hashgraph.Reference.Core
         ///
         /// Defaults to `maxTransactionFee` from the `client`.
         /// </summary>
-        Hbar MaxTransactionFee { get; }
+        IHbar MaxTransactionFee { get; }
 
         /// <summary>
         /// The minimum amount of time to wait between retries
@@ -148,7 +148,7 @@ namespace Hedera.Hashgraph.Reference.Core
         /// a node is down, busy, or otherwise reports a fatal error, the SDK will try again with a different
         /// node.
         /// </summary>
-        AccountId[] NodeAccountIds { get; }
+        IAccountId[] NodeAccountIds { get; }
 
         /// <summary>
         /// Declares if we should generate new transaction IDs when a transaction fails with
@@ -167,7 +167,7 @@ namespace Hedera.Hashgraph.Reference.Core
         ///
         /// If two transactions have the same transactionID, they won't both have an effect
         /// </summary>
-        TransactionId TransactionId { get; }
+        ITransactionId TransactionId { get; }
 
         /// <summary>
         /// Any notes or descriptions that should be put into the record (max length 100).

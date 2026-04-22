@@ -27,6 +27,6 @@ namespace Hedera.Hashgraph.Reference
         /// price in the transaction was set to zero then the payer will be assessed
         /// the entire fee.
         /// </summary>
-        Hbar? MaxHbarGasAllowance { get; }
+        IHbar? MaxHbarGasAllowance { get; }
     }
 }

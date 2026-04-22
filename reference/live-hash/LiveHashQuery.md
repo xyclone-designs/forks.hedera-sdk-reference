@@ -11,7 +11,7 @@ proof of the entire account with its list of livehashes.
 ```java
 new AccountStakersQuery()
     .setAccountId(operatorId)
-    .setMaxQueryPayment(new Hbar(1))
+    .setMaxQueryPayment(new IHbar(1))
     .execute(client);
 ```
 

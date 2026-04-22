@@ -21,7 +21,7 @@ namespace Hedera.Hashgraph.Reference
         /// the referenced file at time of execution. The ethereumData will need to be
         /// "rehydrated" with the callData for signature validation to pass.
         /// </summary>
-        FileId? CallDataFileId { get; }
+        IFileId? CallDataFileId { get; }
 
         /// <summary>
         /// The maximum amount, in tinybars, that the payer of the hedera transaction
@@ -37,6 +37,6 @@ namespace Hedera.Hashgraph.Reference
         /// price in the transaction was set to zero then the payer will be assessed
         /// the entire fee.
         /// </summary>
-        Hbar? MaxHbarGasAllowance { get; }
+        IHbar? MaxHbarGasAllowance { get; }
     }
 }

@@ -15,7 +15,7 @@ namespace Hedera.Hashgraph.Reference.Contract
         /// The `FileId` of the file containing the smart contract byte code.
         /// A copy will be made and held by the contract instance, and have the same expiration time as the instance.
         /// </summary>
-        FileId BytecodeFileId { get; }
+        IFileId BytecodeFileId { get; }
 
         /// <summary>
         /// The state of the instance and its fields can be modified arbitrarily if `adminKey` signs a transaction to modify it.
@@ -32,7 +32,7 @@ namespace Hedera.Hashgraph.Reference.Contract
         /// <summary>
         /// Initial number of tinybars to put into the cryptocurrency account associated with and owned by the smart contract.
         /// </summary>
-        Hbar InitialBalance { get; }
+        IHbar InitialBalance { get; }
 
         /// <summary>
         /// Deprecated: with no replacement
@@ -41,7 +41,7 @@ namespace Hedera.Hashgraph.Reference.Contract
         /// If `proxyAccountID` is null, or is an invalid account, or is an account that isn't a node, then this account is automatically proxy staked to a node chosen by the network, but without earning payments.
         /// If the `proxyAccountID` account refuses to accept proxy staking , or if it is not currently running a node, then it will behave as if `proxyAccountID` was null.
         /// </summary>
-        AccountId ProxyAccountId { get; }
+        IAccountId ProxyAccountId { get; }
 
         /// <summary>
         /// The instance will charge its account every this many seconds to renew for this long.
@@ -61,7 +61,7 @@ namespace Hedera.Hashgraph.Reference.Contract
         /// <summary>
         /// ID of the account to which this contract is staking.
         /// </summary>
-        AccountId? StakedNodeAccountId { get; }
+        IAccountId? StakedNodeAccountId { get; }
 
         /// <summary>
         /// ID of the node this contract is staked to.

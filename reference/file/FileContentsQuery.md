@@ -17,7 +17,7 @@ var contents = new FileContentsQuery()
 const contents = await new FileContentsQuery()
     .setFileId(file)
     .setNodeAccountIds([response.nodeId])
-    .setMaxQueryPayment(new Hbar(1))
+    .setMaxQueryPayment(new IHbar(1))
     .execute(client);
 ```
 

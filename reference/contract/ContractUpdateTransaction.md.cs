@@ -12,7 +12,7 @@ namespace Hedera.Hashgraph.Reference.Contract
         /// <summary>
         /// The id of the contract to be updated.
         /// </summary>
-        ContractId ContractId { get; }
+        IContractId ContractId { get; }
         /// <summary>
         /// The new key to control updates/deletion of the contract.
         /// </summary>
@@ -27,7 +27,7 @@ namespace Hedera.Hashgraph.Reference.Contract
         /// <br>
         /// The new id of the account to which the contract is proxy staked.
         /// </summary>
-        AccountId ProxyAccountId { get; }
+        IAccountId ProxyAccountId { get; }
         /// <summary>
         /// ***Not yet implemented***
         /// <br>
@@ -37,7 +37,7 @@ namespace Hedera.Hashgraph.Reference.Contract
         /// <summary>
         /// The new id of the file asserted to contain the bytecode of the Solidity transaction that created this contract.
         /// </summary>
-        FileId BytecodeFileId { get; }
+        IFileId BytecodeFileId { get; }
         /// <summary>
         /// The new contract memo, assumed to be Unicode encoded with UTF-8 (at most 100 bytes).
         /// </summary>
@@ -45,7 +45,7 @@ namespace Hedera.Hashgraph.Reference.Contract
         /// <summary>
         /// ID of the account to which this contract is staking.
         /// </summary>
-        AccountId? StakedNodeAccountId { get; }
+        IAccountId? StakedNodeAccountId { get; }
         /// <summary>
         /// ID of the node this contract is staked to.
         /// </summary>

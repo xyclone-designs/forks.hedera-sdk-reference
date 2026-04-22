@@ -31,11 +31,11 @@ namespace Hedera.Hashgraph.Reference.Token
         /// <summary>
         /// The tokens to be dissociated with the provided account
         /// </summary>
-        TokenId[] TokenIds { get; }
+        ITokenId[] TokenIds { get; }
 
         /// <summary>
         /// The account to be dissociated with the provided tokens
         /// </summary>
-        AccountId AccountId { get; }
+        IAccountId AccountId { get; }
     }
 }

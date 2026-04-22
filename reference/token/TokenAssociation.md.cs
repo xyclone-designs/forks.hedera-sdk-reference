@@ -21,11 +21,11 @@ namespace Hedera.Hashgraph.Reference.Token
         /// <summary>
         /// The account ID
         /// </summary>
-        AccountId AccountId { get; }
+        IAccountId AccountId { get; }
 
         /// <summary>
         /// The token ID
         /// </summary>
-        TokenId TokenId { get; }
+        ITokenId TokenId { get; }
     }
 }

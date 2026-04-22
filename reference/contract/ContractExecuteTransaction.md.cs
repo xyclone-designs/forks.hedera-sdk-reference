@@ -10,7 +10,7 @@ namespace Hedera.Hashgraph.Reference.Contract
         /// <summary>
         /// The `ContractId` if the instance to execute.
         /// </summary>
-        ContractId ContractId { get; }
+        IContractId ContractId { get; }
 
         /// <summary>
         /// The maximum amount of gas to use for the execution.
@@ -20,7 +20,7 @@ namespace Hedera.Hashgraph.Reference.Contract
         /// <summary>
         /// Number of tinybars sent.
         /// </summary>
-        Hbar PayableAmount { get; }
+        IHbar PayableAmount { get; }
 
         /// <summary>
         /// Which function to execute, and the parameters to pass to the function. Use
@@ -29,6 +29,5 @@ namespace Hedera.Hashgraph.Reference.Contract
         /// to set this field.
         /// </summary>
         byte[] FunctionParameters { get; }
-
     }
 }

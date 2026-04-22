@@ -1,4 +1,3 @@
-using Hedera.Hashgraph.Reference.Core;
 using Hedera.Hashgraph.Reference.Cryptocurrency;
 using Hedera.Hashgraph.Reference.Cryptography;
 
@@ -11,7 +10,7 @@ namespace Hedera.Hashgraph.Reference.LiveHash
         /// <summary>
         /// The account to which the livehash is attached
         /// </summary>
-        AccountId AccountId { get; }
+        IAccountId AccountId { get; }
         /// <summary>
         /// The SHA-384 hash of a credential or certificate
         /// </summary>

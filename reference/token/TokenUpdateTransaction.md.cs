@@ -19,7 +19,7 @@ namespace Hedera.Hashgraph.Reference.Token
         /// <summary>
         /// The Token to be updated
         /// </summary>
-        TokenId TokenId { get; }
+        ITokenId TokenId { get; }
 
         /// <summary>
         /// The new Name of the Token. Must be a string of ASCII characters.
@@ -37,7 +37,7 @@ namespace Hedera.Hashgraph.Reference.Token
         /// If successful, the Token balance held in the previous Treasury Account is
         /// transferred to the new one.
         /// </summary>
-        AccountId TreasuryAccountId { get; }
+        IAccountId TreasuryAccountId { get; }
 
         /// <summary>
         /// The new Admin key of the Token. If Token is immutable, transaction will resolve to
@@ -81,7 +81,7 @@ namespace Hedera.Hashgraph.Reference.Token
         /// <summary>
         /// The new account which will be automatically charged to renew the token's expiration, at autoRenewPeriod interval.
         /// </summary>
-        AccountId AutoRenewAccountId { get; }
+        IAccountId AutoRenewAccountId { get; }
 
         /// <summary>
         /// The new interval at which the auto-renew account will be charged to extend the token's expiry.

@@ -4,38 +4,12 @@ using System;
 
 namespace Hedera.Hashgraph.Reference.File
 {
-    public class FileInfo
+    public interface IFileInfo
     {
-        public FileInfo(FileId fileId, long size, DateTimeOffset expirationTime, bool isDeleted, IKeyList keys, LedgerId ledgerId)
-        {
-            FileId = fileId;
-            Size = size;
-            ExpirationTime = expirationTime;
-            IsDeleted = isDeleted;
-            Keys = keys;
-            LedgerId = ledgerId;
-        }
-
-        /// <summary>
-        /// Deserialize a [`FileInfo`](#) from its protobuf representation.
-        /// </summary>
-        public static FileInfo FromBytes(byte[] data)
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// Serialize the [`FileInfo`](#) into its protobuf representation.
-        /// </summary>
-        public virtual byte[] ToBytes()
-        {
-            throw new NotImplementedException();
-        }
-
         /// <summary>
         /// The ID for which this info belongs to.
         /// </summary>
-        public FileId FileId { get; }
+        public IFileId IFileId { get; }
         /// <summary>
         /// The length of this file's contents.
         /// </summary>
@@ -56,6 +30,20 @@ namespace Hedera.Hashgraph.Reference.File
         /// <summary>
         /// The ID of the ledger which returned this response
         /// </summary>
-        public LedgerId LedgerId { get; }
+        public ILedgerId LedgerId { get; }
+
+        /// <summary>
+        /// Serialize the [`FileInfo`](#) into its protobuf representation.
+        /// </summary>
+        byte[] ToBytes();
+    }
+    public interface IFileInfo<TSelf> : IFileInfo where TSelf : IFileInfo<TSelf>
+    {
+        abstract static TSelf CTOR(IFileId fileId, long size, DateTimeOffset expirationTime, bool isDeleted, IKeyList keys, ILedgerId ledgerId);
+
+        /// <summary>
+        /// Deserialize a [`FileInfo`](#) from its protobuf representation.
+        /// </summary>
+        abstract static TSelf FromBytes(byte[] data);
     }
 }

@@ -17,7 +17,7 @@
 #### ** Java **
 
 ```java
-new AccountAllowanceAdjustTransaction() .setNodeAccountIds(Collections.singletonList(response.nodeId)) .addHbarAllowance(accountId, Hbar.fromTinybars(10))
+new AccountAllowanceAdjustTransaction() .setNodeAccountIds(Collections.singletonList(response.nodeId)) .addHbarAllowance(accountId, IHbar.fromTinybars(10))
     .addTokenAllowance(tokenId, accountId, 10)
     .addAllTokenNftAllowance(tokenId, accountId)
     .execute(client)
@@ -30,7 +30,7 @@ new AccountAllowanceAdjustTransaction() .setNodeAccountIds(Collections.singleton
 await (
     await new AccountAllowanceAdjustTransaction()
         .setNodeAccountIds([response.nodeId])
-        .addHbarAllowance(accountId, Hbar.fromTinybars(10))
+        .addHbarAllowance(accountId, IHbar.fromTinybars(10))
         .addTokenAllowance(tokenId, accountId, 10)
         .addAllTokenNftAllowance(tokenId, accountId)
         .execute(client)
@@ -44,7 +44,7 @@ await (
 ```go
 response, err := hedera.NewAccountAllowanceAdjustTransaction().
     SetNodeAccountIDs([]AccountID{resp.NodeID}).
-    AddHbarAllowance(accountId, Hbar.fromTinybars(10)).
+    AddHbarAllowance(accountId, IHbar.fromTinybars(10)).
     AddTokenAllowance(tokenId, accountId, 10).
     AddAllTokenNftAllowance(tokenId, accountId).
     Execute(client)
@@ -70,7 +70,7 @@ if err != nil {
 
 ##### `addHbarAllowance`: ( `spenderAccountId` : [`AccountId`](reference/cryptography/AccountId.md), `amount`: [`Hbar`](reference/Hbar.md)) : `AccountAllowanceAdjustTransaction`
 
-Add a Hbar allowance
+Add a IHbar allowance
 
 Transaction fee payer is implicitly the allowance owner.
 
@@ -80,13 +80,13 @@ Deprecated: use `[grant|revoke]HbarAllowance` instead.
 
 ##### `grantHbarAllowance`: ( `ownerAccountId` : [`AccountId`](reference/cryptography/AccountId.md), `spenderAccountId` : [`AccountId`](reference/cryptography/AccountId.md), `amount`: [`Hbar`](reference/Hbar.md)) : `AccountAllowanceAdjustTransaction`
 
-Increase an Hbar Allowance.
+Increase an IHbar Allowance.
 
 ---
 
 ##### `revokeHbarAllowance`: ( `ownerAccountId` : [`AccountId`](reference/cryptography/AccountId.md), `spenderAccountId` : [`AccountId`](reference/cryptography/AccountId.md), `amount`: [`Hbar`](reference/Hbar.md)) : `AccountAllowanceAdjustTransaction`
 
-Decrease an Hbar Allowance.
+Decrease an IHbar Allowance.
 
 ---
 

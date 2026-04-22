@@ -17,6 +17,6 @@ namespace Hedera.Hashgraph.Reference.Error
         /// The ID of the transaction that failed. This can be `null` if a query fails pre-check without an
         /// associated payment transaction.
         /// </summary>
-        TransactionId TransactionId { get; }
+        ITransactionId TransactionId { get; }
     }
 }

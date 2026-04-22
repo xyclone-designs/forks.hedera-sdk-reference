@@ -18,7 +18,7 @@ namespace Hedera.Hashgraph.Reference.File
         /// <summary>
         /// This is the fileID which contents will be appended to.
         /// </summary>
-        FileId FileId { get; }
+        IFileId FileId { get; }
 
         /// <summary>
         /// These are the contents which will be appended to the file.
