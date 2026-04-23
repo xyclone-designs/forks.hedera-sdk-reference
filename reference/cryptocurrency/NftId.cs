@@ -1,5 +1,5 @@
 
-namespace Hedera.Hashgraph.Reference.Token
+namespace Hedera.Hashgraph.Reference.Cryptocurrency
 {
     public interface INftId
     {
