@@ -20,4 +20,8 @@
         </AssemblyAttribute>
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="reference\nfts\" />
+    </ItemGroup>
+
 </Project>

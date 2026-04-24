@@ -1,5 +1,4 @@
-
-namespace Hedera.Hashgraph.Reference.Token
+namespace Hedera.Hashgraph.Reference
 {
     public interface IEvmAddress
     {

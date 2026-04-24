@@ -1,6 +1,6 @@
 
 
-namespace Hedera.Hashgraph.Reference.Fees
+namespace Hedera.Hashgraph.Reference.Fee
 {
     public interface IFeeExtra
     {

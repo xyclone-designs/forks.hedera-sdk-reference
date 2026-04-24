@@ -43,7 +43,7 @@ namespace Hedera.Hashgraph.Reference.Cryptography
         /// words not found in the word list; there is a checksum mismatch; or, an
         /// unexpected number of words.
         /// </summary>
-        abstract static IMnemonic FromString(string text);
+        abstract static TSelf FromString(string text);
         /// <summary>
         /// Create a mnemonic from the given list of words.
         ///
@@ -53,15 +53,15 @@ namespace Hedera.Hashgraph.Reference.Cryptography
         /// words not found in the word list; there is a checksum mismatch; or, an
         /// unexpected number of words.
         /// </summary>
-        abstract static IMnemonic FromWords(string[] words);
+        abstract static TSelf FromWords(string[] words);
         /// <summary>
         /// Returns a new random 12-word mnemonic from the BIP-39 standard English word list.
         /// </summary>
-        abstract static IMnemonic Generate12();
+        abstract static TSelf Generate12();
         /// <summary>
         /// Returns a new random 24-word mnemonic from the BIP-39 standard English word list.
         ///
         /// </summary>
-        abstract static IMnemonic Generate24();
+        abstract static TSelf Generate24();
     }
 }

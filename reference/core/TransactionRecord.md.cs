@@ -1,6 +1,7 @@
 using Hedera.Hashgraph.Reference.Contract;
 using Hedera.Hashgraph.Reference.Cryptocurrency;
 using Hedera.Hashgraph.Reference.Cryptography;
+using Hedera.Hashgraph.Reference.Fee;
 using Hedera.Hashgraph.Reference.Schedule;
 using Hedera.Hashgraph.Reference.Token;
 
