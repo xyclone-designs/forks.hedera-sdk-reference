@@ -1,5 +1,6 @@
 using Hedera.Hashgraph.Reference.Core;
 using Hedera.Hashgraph.Reference.Token;
+using Hedera.Hashgraph.Reference.Token.Nft;
 
 using System.Collections.Generic;
 

@@ -1,5 +1,5 @@
 
-namespace Hedera.Hashgraph.Reference.Cryptocurrency
+namespace Hedera.Hashgraph.Reference.Token.Nft
 {
     public interface INftId
     {

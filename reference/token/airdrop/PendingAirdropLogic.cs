@@ -2,7 +2,7 @@ using Hedera.Hashgraph.Reference.Core;
 
 using System.Collections.Generic;
 
-namespace Hedera.Hashgraph.Reference.Token.Airdrops
+namespace Hedera.Hashgraph.Reference.Token.Airdrop
 {
     public interface IPendingAirdropLogic : ITransaction
     {

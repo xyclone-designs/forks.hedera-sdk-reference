@@ -1,9 +1,10 @@
 using Hedera.Hashgraph.Reference.Core;
 using Hedera.Hashgraph.Reference.Cryptocurrency;
+using Hedera.Hashgraph.Reference.Token.Nft;
 
 using System.Collections.Generic;
 
-namespace Hedera.Hashgraph.Reference.Token.Airdrops
+namespace Hedera.Hashgraph.Reference.Token.Airdrop
 {
     public interface IAbstractTokenTransferTransaction<TSelf> : ITransaction where TSelf : IAbstractTokenTransferTransaction<TSelf>
     {

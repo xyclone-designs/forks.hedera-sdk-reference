@@ -1,6 +1,7 @@
 using Hedera.Hashgraph.Reference.Cryptocurrency;
+using Hedera.Hashgraph.Reference.Token.Nft;
 
-namespace Hedera.Hashgraph.Reference.Token.Airdrops
+namespace Hedera.Hashgraph.Reference.Token.Airdrop
 {
     public interface IPendingAirdropId
     {

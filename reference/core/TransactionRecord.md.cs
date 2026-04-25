@@ -4,6 +4,7 @@ using Hedera.Hashgraph.Reference.Cryptography;
 using Hedera.Hashgraph.Reference.Fee;
 using Hedera.Hashgraph.Reference.Schedule;
 using Hedera.Hashgraph.Reference.Token;
+using Hedera.Hashgraph.Reference.Token.Nft;
 
 using System;
 using System.Collections.Generic;
