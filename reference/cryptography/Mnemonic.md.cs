@@ -1,4 +1,6 @@
 
+using System.Collections.Generic;
+
 namespace Hedera.Hashgraph.Reference.Cryptography
 {
     /// <summary>
@@ -30,7 +32,7 @@ namespace Hedera.Hashgraph.Reference.Cryptography
         /// <summary>
         /// The list of words that define this mnemonic
         /// </summary>
-        string[] Words { get; }
+        IReadOnlyList<string> Words { get; }
     }
     public interface IMnemonic<TSelf> : IMnemonic where TSelf : IMnemonic<TSelf>
     {
@@ -53,7 +55,7 @@ namespace Hedera.Hashgraph.Reference.Cryptography
         /// words not found in the word list; there is a checksum mismatch; or, an
         /// unexpected number of words.
         /// </summary>
-        abstract static TSelf FromWords(string[] words);
+        abstract static TSelf FromWords(IEnumerable<string> words);
         /// <summary>
         /// Returns a new random 12-word mnemonic from the BIP-39 standard English word list.
         /// </summary>
